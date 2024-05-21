@@ -1,3 +1,15 @@
+## 1.0.1 (2024-05-21)
+
+
+### 🚀 Features
+
+- **build:** adds build config ([4dfdbca](https://github.com/js-smart/react-kit/commit/4dfdbca))
+- **build:** adds build config ([bb26976](https://github.com/js-smart/react-kit/commit/bb26976))
+
+### ❤️  Thank You
+
+- Pavan Kumar Jadda @pavankjadda
+
 # 2.0.0 (2024-05-21)
 
 This was a version bump only, there were no code changes.

@@ -1,7 +1,7 @@
 {
   "name": "@js-smart/react-kit",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",
   "publishConfig": {
@@ -12,5 +12,24 @@
       "import": "./index.mjs",
       "require": "./index.js"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/js-smart/react-kit"
+  },
+  "author": {
+    "name": "Pavan Kumar Jadda",
+    "email": "contactdeveloperpj@gmail.com"
+  },
+  "keywords": [
+    "react",
+    "react-kit",
+    "react-components",
+    "react-utils",
+    "typescript"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/js-smart/react-kit/issues"
   }
 }
