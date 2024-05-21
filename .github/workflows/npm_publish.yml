@@ -1,4 +1,4 @@
-name: Publish React Cookie Service to NPM
+name: Publish to NPM
 on:
   push:
     ### Publish on new tag release
