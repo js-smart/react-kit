@@ -6,6 +6,7 @@ export { HistoryButton } from './lib/components/buttons/HistoryButton';
 export { LoadingSuccessButton } from './lib/components/buttons/LoadingSuccessButton';
 export { ManageButton } from './lib/components/buttons/ManageButton';
 export { SuccessButton } from './lib/components/buttons/SuccessButton';
+export { ExcelButton } from './lib/components/buttons/ExcelButton';
 
 // Export snackbar components
 export { AppSnackBar } from './lib/components/snack-bar/AppSnackBar';

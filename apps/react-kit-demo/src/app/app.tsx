@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Home';
-import Buttons from './buttons/Buttons';
+import ButtonsDemo from './buttons/ButtonsDemo';
 import SnackBarDemo from './SnackBarDemo';
 import DialogDemo from './DialogDemo';
 import Root from '../routes/root';
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/buttons',
-        element: <Buttons />,
+        element: <ButtonsDemo />,
       },
       {
         path: '/snack-bar',
