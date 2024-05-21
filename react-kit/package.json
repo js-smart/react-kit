@@ -1,6 +1,7 @@
 {
-  "name": "@react-kit/react-kit",
-  "version": "0.0.1",
+  "name": "@js-smart/react-kit",
+  "private": false,
+  "version": "1.0.0",
   "main": "./index.js",
   "types": "./index.d.ts",
   "exports": {
