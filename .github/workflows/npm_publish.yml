@@ -1,0 +1,26 @@
+name: Publish React Cookie Service to NPM
+on:
+  push:
+    ### Publish on new tag release
+    tags:
+      - v*
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Dependencies
+        run: npm i
+      - name: Build project
+        run: npm run build react-kit
+      - name: Run Tests
+        run: npm run test react-kit
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: libs/react-kit/package.json
+          access: public

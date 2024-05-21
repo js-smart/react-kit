@@ -1,0 +1,17 @@
+name: Build Project
+on:
+  push
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Dependencies
+        run: npm i
+      - name: Run Tests
+        run: npm run test react-kit
+      - name: Build project
+        run: npm run build react-kit
