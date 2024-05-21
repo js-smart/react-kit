@@ -9,12 +9,12 @@ import HistoryIcon from '@mui/icons-material/History';
  * @since 1.2.15
  */
 interface HistoryButtonProps {
-	children?: React.ReactNode;
-	className?: string;
-	sx?: SxProps<Theme>;
-	type?: 'button' | 'submit' | 'reset';
-	onClick: () => void;
-	startIcon?: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
+  sx?: SxProps<Theme>;
+  type?: 'button' | 'submit' | 'reset';
+  onClick: () => void;
+  startIcon?: React.ReactNode;
 }
 
 /**
@@ -23,17 +23,18 @@ interface HistoryButtonProps {
  * @author Pavan Kumar Jadda
  * @since 1.2.15
  */
-export default function HistoryButton(props: HistoryButtonProps): React.JSX.Element {
-	return (
-		<Button
-			className={props.className}
-			sx={props.sx ?? { p: 1, m: 1 }}
-			startIcon={props.startIcon ?? <HistoryIcon />}
-			variant="contained"
-			color="primary"
-			type={props.type ?? 'button'}
-			onClick={() => props.onClick()}>
-			{props.children}
-		</Button>
-	);
+export function HistoryButton(props: HistoryButtonProps): React.JSX.Element {
+  return (
+    <Button
+      className={props.className}
+      sx={props.sx ?? { p: 1, m: 1 }}
+      startIcon={props.startIcon ?? <HistoryIcon />}
+      variant="contained"
+      color="primary"
+      type={props.type ?? 'button'}
+      onClick={() => props.onClick()}
+    >
+      {props.children}
+    </Button>
+  );
 }

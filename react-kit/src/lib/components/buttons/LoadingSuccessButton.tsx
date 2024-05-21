@@ -31,7 +31,7 @@ interface Props {
  * @author Pavan Kumar Jadda
  * @since 0.1.0
  */
-export default function LoadingSuccessButton(props: Props) {
+export function LoadingSuccessButton(props: Props) {
   return (
     <LoadingButton
       variant="contained"

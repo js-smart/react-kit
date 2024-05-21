@@ -7,10 +7,10 @@ import { CircularProgress } from '@mui/material';
  * @author Pavan Kumar Jadda
  * @since 0.1.0
  */
-export default function CenteredCircularProgress() {
-	return (
-		<div style={{ margin: '15px' }} className="custom-flex-justify-center">
-			<CircularProgress />
-		</div>
-	);
+export function CenteredCircularProgress() {
+  return (
+    <div style={{ margin: '15px' }} className="custom-flex-justify-center">
+      <CircularProgress />
+    </div>
+  );
 }

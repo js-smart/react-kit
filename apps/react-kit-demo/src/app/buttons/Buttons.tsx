@@ -1,5 +1,20 @@
-import {DeleteButton} from '@react-kit/DeleteButton';
+import { DeleteButton } from '@react-kit/DeleteButton';
 
 export default function Buttons() {
-  return <DeleteButton loading={false} onClick={() => console.log()} />;
+  return (
+    <div>
+      Delete Button:{' '}
+      <DeleteButton loading={false} onClick={() => console.log()} /> <br />
+      Delete Button:{' '}
+      <DeleteButton loading={false} onClick={() => console.log()} /> <br />
+      Delete Button:{' '}
+      <DeleteButton loading={false} onClick={() => console.log()} /> <br />
+      Delete Button:{' '}
+      <DeleteButton loading={false} onClick={() => console.log()} /> <br />
+      Delete Button:{' '}
+      <DeleteButton loading={false} onClick={() => console.log()} /> <br />
+      Delete Button:{' '}
+      <DeleteButton loading={false} onClick={() => console.log()} /> <br />
+    </div>
+  );
 }

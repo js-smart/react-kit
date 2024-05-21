@@ -1,24 +1,22 @@
 // Export all buttons
-export * from './lib/components/buttons/CancelButton';
-//export * from './lib/components/buttons/DeleteButton';
-export { default as DeleteButton } from './lib/components/buttons/DeleteButton';
-export * from './lib/components/buttons/ExcelButton';
-export * from './lib/components/buttons/GoBackButton';
-export * from './lib/components/buttons/HistoryButton';
-export * from './lib/components/buttons/LoadingSuccessButton';
-export * from './lib/components/buttons/ManageButton';
-export * from './lib/components/buttons/SuccessButton';
+export { CancelButton } from './lib/components/buttons/CancelButton';
+export { DeleteButton } from './lib/components/buttons/DeleteButton';
+export { GoBackButton } from './lib/components/buttons/GoBackButton';
+export { HistoryButton } from './lib/components/buttons/HistoryButton';
+export { LoadingSuccessButton } from './lib/components/buttons/LoadingSuccessButton';
+export { ManageButton } from './lib/components/buttons/ManageButton';
+export { SuccessButton } from './lib/components/buttons/SuccessButton';
 
 // Export snackbar components
-export * from './lib/components/snack-bar/AppSnackBar';
-export * from './lib/components/snack-bar/QuerySnackBar';
+export { AppSnackBar } from './lib/components/snack-bar/AppSnackBar';
+export { QuerySnackBar } from './lib/components/snack-bar/QuerySnackBar';
 
 // Export all other components
-export * from './lib/components/CenteredCircularProgress';
-export * from './lib/components/ConfirmationDialog';
-export * from './lib/components/DismissibleAlert';
-export * from './lib/components/OpenInNewIconLink';
-export * from './lib/components/ReactIf';
+export { CenteredCircularProgress } from './lib/components/CenteredCircularProgress';
+export { ConfirmDialog } from './lib/components/ConfirmationDialog';
+export { DismissibleAlert } from './lib/components/DismissibleAlert';
+export { OpenInNewIconLink } from './lib/components/OpenInNewIconLink';
+export { ReactIf } from './lib/components/ReactIf';
 
 // Export all utilities
 export * from './lib/utils/BooleanUtils';

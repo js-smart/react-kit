@@ -10,7 +10,7 @@ interface ManageButtonProps {
   router: NextRouter;
 }
 
-export default function ManageButton(props: ManageButtonProps) {
+export function ManageButton(props: ManageButtonProps) {
   return (
     <Button
       className="pushRight"

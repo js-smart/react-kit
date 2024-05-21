@@ -8,6 +8,13 @@ import React from 'react';
  * @author Pavan Kumar Jadda
  * @since 0.1.0
  */
-export default function ReactIf(props: { condition: boolean | undefined; children: React.ReactNode }): React.JSX.Element {
-	return props.condition === undefined || !props.condition ? <></> : <>{props.children}</>;
+export function ReactIf(props: {
+  condition: boolean | undefined;
+  children: React.ReactNode;
+}): React.JSX.Element {
+  return props.condition === undefined || !props.condition ? (
+    <></>
+  ) : (
+    <>{props.children}</>
+  );
 }
