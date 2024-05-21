@@ -8,15 +8,23 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2022",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2022",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@react-kit/react-kit": ["react-kit/src/index.ts"]
+      "@react-kit/react-kit": [
+        "react-kit/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

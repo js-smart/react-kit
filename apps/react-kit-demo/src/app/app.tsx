@@ -1,14 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
+import Buttons from './buttons/Buttons';
 
-import NxWelcome from './nx-welcome';
-
-export function App() {
+export default function App() {
   return (
     <div>
-      <NxWelcome title="react-kit-demo" />
+      <Buttons />
     </div>
   );
 }
-
-export default App;
