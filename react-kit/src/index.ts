@@ -1,6 +1,7 @@
 // Export all buttons
 export * from './lib/components/buttons/CancelButton';
-export * from './lib/components/buttons/DeleteButton';
+//export * from './lib/components/buttons/DeleteButton';
+export { default as DeleteButton } from './lib/components/buttons/DeleteButton';
 export * from './lib/components/buttons/ExcelButton';
 export * from './lib/components/buttons/GoBackButton';
 export * from './lib/components/buttons/HistoryButton';

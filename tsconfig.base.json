@@ -18,9 +18,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@react-kit/react-kit": [
-        "react-kit/src/index.ts"
-      ]
+      "@react-kit/*": ["react-kit/src/index.ts"]
     }
   },
   "exclude": [
