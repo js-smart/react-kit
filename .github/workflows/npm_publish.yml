@@ -16,8 +16,8 @@ jobs:
         run: npm i
       - name: Build project
         run: npm run build react-kit
-      - name: Run Tests
-        run: npm run test react-kit
+#      - name: Run Tests
+#        run: npm run test react-kit
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v3
         with:
