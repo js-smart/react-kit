@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "main": "./index.js",
   "types": "./index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "import": "./index.mjs",
