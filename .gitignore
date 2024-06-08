@@ -10,6 +10,7 @@ node_modules
 
 # IDEs and editors
 /.idea
+.nx
 .project
 .classpath
 .c9/
@@ -39,3 +40,4 @@ testem.log
 Thumbs.db
 
 .nx/cache
+.nx/workspace-data
