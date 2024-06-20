@@ -29,8 +29,8 @@ export const QuerySnackBar = (props: QuerySnackBarProps) => {
 	// Close button
 	const action = (
 		<IconButton size="small" aria-label="close" color="inherit" onClick={() => setOpen(false)}>
-				<CloseIcon fontSize="small" />
-			</IconButton>
+			<CloseIcon fontSize="small" />
+		</IconButton>
 	);
 
 	return (

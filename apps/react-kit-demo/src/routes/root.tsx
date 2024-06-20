@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function Root() {
 	return (
@@ -10,6 +10,10 @@ export default function Root() {
 				{/* Nested routes render here */}
 				<Outlet />
 			</main>
+			<br /> <br />
+			<nav style={{ textAlign: 'center' }}>
+				<Link to="/">Home</Link> <br />
+			</nav>
 		</>
 	);
 }

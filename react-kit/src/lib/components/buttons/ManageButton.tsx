@@ -1,26 +1,26 @@
 import React from 'react';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Button } from '@mui/material';
-import { NextRouter } from 'next/router';
 
 interface ManageButtonProps {
-  url: string;
-  size?: 'small' | 'medium' | 'large';
-  startIcon?: React.ReactNode;
-  router: NextRouter;
+	size?: 'small' | 'medium' | 'large';
+	dataCy?: string;
+	startIcon?: React.ReactNode;
+	onClick: () => void;
+	children?: React.ReactNode;
 }
 
 export function ManageButton(props: ManageButtonProps) {
-  return (
-    <Button
-      className="pushRight"
-      onClick={() => props.router.push(props.url)}
-      variant="contained"
-      color="primary"
-      size={props.size ?? 'large'}
-      startIcon={props.startIcon ?? <SettingsIcon />}
-    >
-      Manage
-    </Button>
-  );
+	return (
+		<Button
+			data-cy={props.dataCy ?? 'manage-button'}
+			className="pushRight"
+			onClick={() => props.onClick()}
+			variant="contained"
+			color="primary"
+			size={props.size ?? 'large'}
+			startIcon={props.startIcon ?? <SettingsIcon />}>
+			{props.children ? props.children : 'Manage'}
+		</Button>
+	);
 }

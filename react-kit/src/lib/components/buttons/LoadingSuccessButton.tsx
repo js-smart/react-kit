@@ -5,9 +5,9 @@ import { SxProps, Theme } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 
 const style = {
-  backgroundColor: variables.successColor,
-  color: variables.whiteColor,
-  margin: '20px',
+	backgroundColor: '$primary-color',
+	color: variables.whiteColor,
+	margin: '20px',
 };
 
 /**
@@ -17,12 +17,13 @@ const style = {
  * @since 0.3.3
  */
 interface Props {
-  children?: React.ReactNode;
-  type?: 'button' | 'submit' | 'reset';
-  loading: boolean;
-  startIcon?: React.ReactNode;
-  sx?: SxProps<Theme>;
-  onClick?: () => void;
+	children?: React.ReactNode;
+	type?: 'button' | 'submit' | 'reset';
+	loading: boolean;
+	dataCy?: string;
+	startIcon?: React.ReactNode;
+	sx?: SxProps<Theme>;
+	onClick?: () => void;
 }
 
 /**
@@ -32,19 +33,19 @@ interface Props {
  * @since 0.1.0
  */
 export function LoadingSuccessButton(props: Props) {
-  return (
-    <LoadingButton
-      variant="contained"
-      color="success"
-      loadingPosition={'start'}
-      startIcon={props.startIcon ?? <SaveIcon />}
-      loading={props.loading}
-      type={props.type ?? 'button'}
-      style={style}
-      sx={props.sx}
-      onClick={props.onClick}
-    >
-      {props.children}
-    </LoadingButton>
-  );
+	return (
+		<LoadingButton
+			data-cy={props.dataCy ?? 'loading-success-button'}
+			variant="contained"
+			color="success"
+			loadingPosition={'start'}
+			startIcon={props.startIcon ?? <SaveIcon />}
+			loading={props.loading}
+			type={props.type ?? 'button'}
+			style={style}
+			sx={props.sx}
+			onClick={props.onClick}>
+			{props.children}
+		</LoadingButton>
+	);
 }

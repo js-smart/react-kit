@@ -1,14 +1,19 @@
 import React from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { NextRouter } from 'next/router';
 
-export function GoBackButton(props: { router: NextRouter }) {
-  return (
-    <Tooltip title="Go Back to Previous Page">
-      <IconButton color="primary" onClick={() => props.router.back()}>
-        <ArrowBackIosIcon />
-      </IconButton>
-    </Tooltip>
-  );
+interface GoBackButtonProps {
+	onClick: () => void;
+	children?: React.ReactNode;
+}
+
+export function GoBackButton(props: GoBackButtonProps) {
+	return (
+		<Tooltip title="Go Back to Previous Page">
+			<IconButton color="primary" onClick={() => props.onClick()}>
+				<ArrowBackIosIcon />
+				{props.children}
+			</IconButton>
+		</Tooltip>
+	);
 }

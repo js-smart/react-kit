@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Home';
 import ButtonsDemo from './buttons/ButtonsDemo';
-import SnackBarDemo from './SnackBarDemo';
-import DialogDemo from './DialogDemo';
+import SnackBarDemo from './snack-bar/SnackBarDemo';
+import DialogDemo from './dialog/DialogDemo';
 import Root from '../routes/root';
+import CenterCircularProgressDemo from './progress-bar/CenterCircularProgressDemo';
 
 const router = createBrowserRouter([
 	{
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/circular-progress',
-				element: <Home />,
+				element: <CenterCircularProgressDemo />,
 			},
 		],
 	},
