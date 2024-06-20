@@ -1,11 +1,12 @@
 {
-  "name": "@react-kit/source",
-  "version": "1.0.0",
+  "name": "@js-smart/react-kit",
+  "version": "1.0.2",
   "license": "MIT",
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
-    "build": "nx build",
+    "build": "nx build react-kit",
+    "build:demo": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "affected:apps": "nx affected:apps",
