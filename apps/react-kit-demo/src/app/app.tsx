@@ -6,34 +6,38 @@ import DialogDemo from './DialogDemo';
 import Root from '../routes/root';
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Root />,
-    children: [
-      {
-        path: 'home',
-        element: <Home />,
-      },
-      {
-        path: '/buttons',
-        element: <ButtonsDemo />,
-      },
-      {
-        path: '/snack-bar',
-        element: <SnackBarDemo />,
-      },
-      {
-        path: '/dialog',
-        element: <DialogDemo />,
-      },
-      {
-        path: '/circular-progress',
-        element: <Home />,
-      },
-    ],
-  },
+	{
+		path: '/',
+		element: <Root />,
+		children: [
+			{
+				path: '/',
+				element: <Home />,
+			},
+			{
+				path: 'home',
+				element: <Home />,
+			},
+			{
+				path: '/buttons',
+				element: <ButtonsDemo />,
+			},
+			{
+				path: '/snack-bar',
+				element: <SnackBarDemo />,
+			},
+			{
+				path: '/dialog',
+				element: <DialogDemo />,
+			},
+			{
+				path: '/circular-progress',
+				element: <Home />,
+			},
+		],
+	},
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+	return <RouterProvider router={router} />;
 }

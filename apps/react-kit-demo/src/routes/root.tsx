@@ -1,13 +1,15 @@
 import React from 'react';
-import Home from '../app/Home';
+import { Outlet } from 'react-router-dom';
 
 export default function Root() {
 	return (
 		<>
 			<h1 style={{ textAlign: 'center' }}>React Kit Demo</h1>
 			<hr />
-
-			<Home />
+			<main>
+				{/* Nested routes render here */}
+				<Outlet />
+			</main>
 		</>
 	);
 }
