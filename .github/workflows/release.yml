@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm i --legacy-peer-deps
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Semantic release
+        run: npx semantic-release
+
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+
+      - name: Update version in source code
+        run: |
+          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          version=${latest_tag#v}
+          bash release.sh $version ${{ secrets.GPG_KEY_ID }}
+
+      - name: build demo
+        run: npm run build:demo
