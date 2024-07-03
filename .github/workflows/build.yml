@@ -11,7 +11,6 @@ jobs:
           node-version: 20
       - name: Install Dependencies
         run: npm i
-#      - name: Run Tests
-#        run: npm run test react-kit
+
       - name: Build project
-        run: npm run build react-kit
+        run: npm run build
