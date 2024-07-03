@@ -26,3 +26,4 @@ export * from './lib/utils/NumberUtils';
 export * from './lib/utils/ProgressStateUtils';
 export * from './lib/utils/StringUtils';
 export * from './lib/utils/UrlUtils';
+export * from './lib/utils/fetchClient';
