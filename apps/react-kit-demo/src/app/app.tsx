@@ -5,6 +5,7 @@ import SnackBarDemo from './snack-bar/SnackBarDemo';
 import DialogDemo from './dialog/DialogDemo';
 import Root from '../routes/root';
 import CenterCircularProgressDemo from './progress-bar/CenterCircularProgressDemo';
+import AllBooks from './all-books/AllBooks';
 
 const router = createBrowserRouter([
 	{
@@ -31,9 +32,14 @@ const router = createBrowserRouter([
 				path: '/dialog',
 				element: <DialogDemo />,
 			},
+
 			{
 				path: '/circular-progress',
 				element: <CenterCircularProgressDemo />,
+			},
+			{
+				path: '/books',
+				element: <AllBooks />,
 			},
 		],
 	},
