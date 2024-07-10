@@ -1,15 +1,25 @@
 import { Grid, Paper } from '@mui/material';
 import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookService } from '../../services/BookService';
 import { Book } from '../../types/Book';
 
 export default function AllBooks() {
-	const [data, setData] = React.useState<Book[]>([]);
+	const [data, setData] = useState<Book[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
 
-	React.useEffect(() => {
-		BookService.getAllBooks().then((response) => setData(response));
+	useEffect(() => {
+		setLoading(true);
+		BookService.getAllBooks()
+			.then((response) => {
+				setData(response);
+				setLoading(false);
+			})
+			.catch((error) => {
+				console.error(error);
+				setLoading(false);
+			});
 	}, []);
 
 	return (
@@ -24,6 +34,7 @@ export default function AllBooks() {
 						pageSizeOptions={[5, 10, 20, 50, 100]}
 						disableRowSelectionOnClick={true}
 						density={'comfortable'}
+						loading={loading}
 						rows={data ?? []}
 						columns={columns}
 						autoHeight={true}
