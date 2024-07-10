@@ -1,9 +1,0 @@
-{
-  "name": "react-kit-demo-e2e",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "sourceRoot": "apps/react-kit-demo-e2e/src",
-  "implicitDependencies": ["react-kit-demo"],
-  "// targets": "to see all targets run: nx show project react-kit-demo-e2e --web",
-  "targets": {}
-}
