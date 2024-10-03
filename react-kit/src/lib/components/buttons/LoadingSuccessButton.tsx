@@ -1,12 +1,11 @@
 import React from 'react';
 import { LoadingButton } from '@mui/lab';
-import variables from '../../react-kit.module.scss';
 import { SxProps, Theme } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 
 const style = {
 	backgroundColor: '$primary-color',
-	color: variables.whiteColor,
+	color: 'var(--white-color)',
 	margin: '20px',
 };
 
