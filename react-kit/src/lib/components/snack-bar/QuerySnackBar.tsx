@@ -41,7 +41,7 @@ export const QuerySnackBar = (props: QuerySnackBarProps) => {
 				open={open && props.isSuccess}
 				autoHideDuration={props.autoHideDuration ?? 3000}
 				onClose={() => setOpen(false)}>
-				<Alert variant="filled" severity="isSuccess" sx={{ width: '100%' }} action={action}>
+				<Alert variant="filled" severity="success" sx={{ width: '100%' }} action={action}>
 					{props.message}
 				</Alert>
 			</Snackbar>
@@ -53,7 +53,7 @@ export const QuerySnackBar = (props: QuerySnackBarProps) => {
 				TransitionComponent={Slide}
 				autoHideDuration={props.autoHideDuration ?? 3000}
 				onClose={() => setOpen(false)}>
-				<Alert variant="filled" sx={{ width: '100%' }} severity="isError" action={action}>
+				<Alert variant="filled" sx={{ width: '100%' }} severity="error" action={action}>
 					{props.message}
 				</Alert>
 			</Snackbar>

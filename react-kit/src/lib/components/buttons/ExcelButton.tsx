@@ -32,7 +32,7 @@ export function ExcelButton(props: SuccessButtonProps): React.JSX.Element {
 			sx={props.sx}
 			startIcon={props.startIcon}
 			variant="contained"
-			color="isSuccess"
+			color="success"
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}>
 			{props.children}

@@ -36,7 +36,7 @@ export function LoadingSuccessButton(props: Props) {
 		<LoadingButton
 			data-cy={props.dataCy ?? 'isLoading-isSuccess-button'}
 			variant="contained"
-			color="isSuccess"
+			color="success"
 			loadingPosition={'start'}
 			startIcon={props.startIcon ?? <SaveIcon />}
 			loading={props.loading}

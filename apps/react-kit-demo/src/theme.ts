@@ -15,7 +15,7 @@ declare module '@mui/material/styles' {
 
 // A custom theme for this app
 const theme = createTheme({
-	cssVariables: { cssVarPrefix: '' },
+	//cssVariables: { cssVarPrefix: '' },
 	breakpoints: {
 		values: {
 			xs: 0,
@@ -35,20 +35,10 @@ const theme = createTheme({
 			main: getCssVariable('--secondary-color'),
 		},
 		success: {
-			main: getCssVariable('--isSuccess-color'),
+			main: getCssVariable('--success-color'),
 		},
 		error: {
-			main: getCssVariable('--isError-color'),
-		},
-	},
-	components: {
-		// @ts-ignore
-		MuiDataGrid: {
-			styleOverrides: {
-				root: {
-					'--DataGrid-containerBackground': '#FFFFFF',
-				},
-			},
+			main: getCssVariable('--error-color'),
 		},
 	},
 });
