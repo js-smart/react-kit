@@ -1,7 +1,7 @@
 export interface ProgressState {
-	loading: boolean;
-	success: boolean;
-	error: boolean;
-	complete: boolean;
+	isLoading: boolean;
+	isSuccess: boolean;
+	isError: boolean;
+	isComplete: boolean;
 	message: string;
 }

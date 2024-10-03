@@ -1,0 +1,14 @@
+/* Define global variables */
+
+:root {
+  --primary-color: #153d77;
+  --secondary-color: #607d8b;
+  --success-color: #198754;
+  --error-color: #ff1744;
+  --white-color: #fff;
+  --background-color: #dedede;
+  --pdf-color: #f40f02;
+  --word-document-color: #2b579a;
+}
+
+

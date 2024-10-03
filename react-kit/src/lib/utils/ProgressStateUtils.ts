@@ -9,11 +9,11 @@ import { ProgressState } from '../types/ProgressState';
  * @since 1.4.6
  */
 export const initializeState = (): ProgressState => ({
-  loading: false,
-  success: false,
-  error: false,
-  complete: false,
-  message: '',
+	isLoading: false,
+	isSuccess: false,
+	isError: false,
+	isComplete: false,
+	message: '',
 });
 
 /**
@@ -26,49 +26,43 @@ export const initializeState = (): ProgressState => ({
  * @since 0.2.30
  */
 export const markLoading = (progressState: ProgressState): ProgressState => ({
-  ...progressState,
-  loading: true,
-  success: false,
-  error: false,
-  message: '',
+	...progressState,
+	isLoading: true,
+	isSuccess: false,
+	isError: false,
+	message: '',
 });
 
 /**
- * Update state as success
+ * Update state as isSuccess
  *
  * @return ProgressState Updated State Object
  *
  * @author Pavan Kumar Jadda
  * @since 0.2.30
  */
-export const markSuccess = (
-  progressState: ProgressState,
-  message?: string
-): ProgressState => ({
-  ...progressState,
-  loading: false,
-  success: true,
-  error: false,
-  complete: true,
-  message: message || '',
+export const markSuccess = (progressState: ProgressState, message?: string): ProgressState => ({
+	...progressState,
+	isLoading: false,
+	isSuccess: true,
+	isError: false,
+	isComplete: true,
+	message: message || '',
 });
 
 /**
- * Update state as failure or error
+ * Update state as failure or isError
  *
  * @return ProgressState Updated State Object
  *
  * @author Pavan Kumar Jadda
  * @since 0.2.30
  */
-export const markError = (
-  progressState: ProgressState,
-  message?: string
-): ProgressState => ({
-  ...progressState,
-  loading: false,
-  success: false,
-  error: true,
-  complete: true,
-  message: message || '',
+export const markError = (progressState: ProgressState, message?: string): ProgressState => ({
+	...progressState,
+	isLoading: false,
+	isSuccess: false,
+	isError: true,
+	isComplete: true,
+	message: message || '',
 });

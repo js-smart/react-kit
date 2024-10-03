@@ -20,7 +20,7 @@ class HttpError extends Error {
  * @param {string} url - The URL to request.
  * @param {RequestInit} [options] - Options for the fetch request.
  * @returns {Promise<T>} - A promise that resolves to the JSON response of type T.
- * @throws {Error} - Throws an error if the response is not OK.
+ * @throws {Error} - Throws an isError if the response is not OK.
  *
  * @author Pavan Kumar Jadda
  * @since 1.0.3

@@ -1,12 +1,11 @@
 import React from 'react';
 import { LoadingButton } from '@mui/lab';
-import variables from '../../react-kit.module.scss';
 import { SxProps, Theme } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 
 const style = {
 	backgroundColor: '$primary-color',
-	color: variables.whiteColor,
+	color: 'var(--white-color)',
 	margin: '20px',
 };
 
@@ -35,7 +34,7 @@ interface Props {
 export function LoadingSuccessButton(props: Props) {
 	return (
 		<LoadingButton
-			data-cy={props.dataCy ?? 'loading-success-button'}
+			data-cy={props.dataCy ?? 'isLoading-isSuccess-button'}
 			variant="contained"
 			color="success"
 			loadingPosition={'start'}

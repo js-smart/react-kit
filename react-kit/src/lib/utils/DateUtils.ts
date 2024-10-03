@@ -9,7 +9,7 @@ import { SystemConfig } from '../constants/AppConstants';
 
 /**
  * Sets Cookie expiration to 24 hours. By default, server sets 60 minutes expiration but after each API request it extends to another 60 minutes. In client side set 24 hours as expiration date,
- * if the user hasn't refreshed web page in 60 minutes, they would get HTTP 401 error and redirected to login page. And redirect URL will be stored in cookie
+ * if the user hasn't refreshed web page in 60 minutes, they would get HTTP 401 isError and redirected to login page. And redirect URL will be stored in cookie
  *
  * @author Pavan Kumar Jadda
  * @since 0.2.30
