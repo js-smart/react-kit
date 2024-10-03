@@ -1,4 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #153d77;
+  --secondary-color: #607d8b;
+  --success-color: #198754;
+  --error-color: #ff1744;
+  --white-color: #fff;
+  --background-color: #dedede;
+  --pdf-color: #f40f02;
+  --word-document-color: #2b579a;
+}
+
+
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -23,3 +34,4 @@
   font-size: 20px;
   display: block;
 }
+
