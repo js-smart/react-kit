@@ -26,12 +26,12 @@ interface SuccessButtonProps {
 export function SuccessButton(props: SuccessButtonProps): React.JSX.Element {
 	return (
 		<Button
-			data-cy={props.dataCy ?? 'success-button'}
+			data-cy={props.dataCy ?? 'isSuccess-button'}
 			className={props.className}
 			sx={props.sx}
 			startIcon={props.startIcon}
 			variant="contained"
-			color="success"
+			color="isSuccess"
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}>
 			{props.children}

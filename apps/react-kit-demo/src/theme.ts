@@ -35,13 +35,10 @@ const theme = createTheme({
 			main: getCssVariable('--secondary-color'),
 		},
 		success: {
-			main: getCssVariable('--success-color'),
+			main: getCssVariable('--isSuccess-color'),
 		},
 		error: {
-			main: getCssVariable('--error-color'),
-		},
-		background: {
-			default: getCssVariable('--background-color'),
+			main: getCssVariable('--isError-color'),
 		},
 	},
 	components: {

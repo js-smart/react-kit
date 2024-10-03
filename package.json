@@ -2,45 +2,15 @@
   "name": "@js-smart/react-kit",
   "version": "1.1.0",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build react-kit",
     "build:demo": "nx build",
     "test": "nx test",
-    "lint": "nx workspace-lint && nx lint",
-    "affected:apps": "nx affected:apps",
-    "affected:libs": "nx affected:libs",
-    "affected:build": "nx affected:build",
-    "affected:test": "nx affected:test",
-    "affected:lint": "nx affected:lint",
     "affected:dep-graph": "nx affected:dep-graph",
-    "affected": "nx affected",
-    "format": "nx format:write",
-    "format:write": "nx format:write",
-    "format:check": "nx format:check",
-    "update": "nx migrate latest",
-    "workspace-generator": "nx workspace-generator",
-    "dep-graph": "nx dep-graph",
-    "help": "nx help"
-  },
-  "private": false,
-  "release": {
-    "branches": [
-      "main"
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/npm",
-        {
-          "pkgRoot": "dist/react-kit"
-        }
-      ],
-      "@semantic-release/git",
-      "@semantic-release/github"
-    ]
+    "update": "nx migrate latest"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -99,5 +69,22 @@
     "@semantic-release/npm": "^12.0.1",
     "vite-plugin-dts": "~3.9.1",
     "vitest": "^1.6.0"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "dist/react-kit"
+        }
+      ],
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
   }
 }

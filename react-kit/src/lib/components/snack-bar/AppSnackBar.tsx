@@ -13,8 +13,8 @@ export const AppSnackBar = (props: { open: boolean; progressState: ProgressState
 	// Close button
 	const action = (
 		<IconButton size="small" aria-label="close" color="inherit" onClick={() => setOpen(false)}>
-				<CloseIcon fontSize="small" />
-			</IconButton>
+			<CloseIcon fontSize="small" />
+		</IconButton>
 	);
 
 	return (
@@ -22,7 +22,7 @@ export const AppSnackBar = (props: { open: boolean; progressState: ProgressState
 			{/* Success Alert */}
 			<Snackbar
 				anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-				open={open && props.progressState.success}
+				open={open && props.progressState.isSuccess}
 				autoHideDuration={props.autoHideDuration ?? 3000}
 				onClose={() => setOpen(false)}>
 				<Alert variant="filled" severity="success" sx={{ width: '100%' }} action={action}>
@@ -33,7 +33,7 @@ export const AppSnackBar = (props: { open: boolean; progressState: ProgressState
 			{/* Error Alert */}
 			<Snackbar
 				anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-				open={open && props.progressState.error}
+				open={open && props.progressState.isError}
 				TransitionComponent={Slide}
 				autoHideDuration={props.autoHideDuration ?? 3000}
 				onClose={() => setOpen(false)}>
