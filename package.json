@@ -10,7 +10,6 @@
 		"build": "nx build react-kit",
 		"build:demo": "nx build",
 		"test": "nx test",
-		"affected:dep-graph": "nx affected:dep-graph",
 		"update": "nx migrate latest"
 	},
 	"dependencies": {
