@@ -18,6 +18,7 @@ const style = {
 interface Props {
 	children?: React.ReactNode;
 	type?: 'button' | 'submit' | 'reset';
+	name?: string;
 	loading: boolean;
 	dataCy?: string;
 	startIcon?: React.ReactNode;
@@ -34,7 +35,8 @@ interface Props {
 export function LoadingSuccessButton(props: Props) {
 	return (
 		<LoadingButton
-			data-cy={props.dataCy ?? 'isLoading-isSuccess-button'}
+			name={props.name}
+			data-cy={props.dataCy ?? 'loading-success-button'}
 			variant="contained"
 			color="success"
 			loadingPosition={'start'}
@@ -44,7 +46,7 @@ export function LoadingSuccessButton(props: Props) {
 			style={style}
 			sx={props.sx}
 			onClick={props.onClick}>
-			{props.children}
+			{props.children ?? props.name}
 		</LoadingButton>
 	);
 }

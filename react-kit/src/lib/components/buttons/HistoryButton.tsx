@@ -11,6 +11,7 @@ import HistoryIcon from '@mui/icons-material/History';
 interface HistoryButtonProps {
 	children?: React.ReactNode;
 	className?: string;
+	name?: string;
 	dataCy?: string;
 	sx?: SxProps<Theme>;
 	type?: 'button' | 'submit' | 'reset';
@@ -27,6 +28,7 @@ interface HistoryButtonProps {
 export function HistoryButton(props: HistoryButtonProps): React.JSX.Element {
 	return (
 		<Button
+			name={props.name}
 			data-cy={props.dataCy ?? 'history-button'}
 			className={props.className}
 			sx={props.sx ?? { p: 1, m: 1 }}
@@ -35,7 +37,7 @@ export function HistoryButton(props: HistoryButtonProps): React.JSX.Element {
 			color="primary"
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}>
-			{props.children}
+			{props.children ?? props.name}
 		</Button>
 	);
 }

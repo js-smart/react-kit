@@ -10,6 +10,7 @@ import { Button, SxProps, Theme } from '@mui/material';
 interface SuccessButtonProps {
 	children?: React.ReactNode;
 	className?: string;
+	name?: string;
 	dataCy?: string;
 	sx?: SxProps<Theme>;
 	type?: 'button' | 'submit' | 'reset';
@@ -26,7 +27,8 @@ interface SuccessButtonProps {
 export function SuccessButton(props: SuccessButtonProps): React.JSX.Element {
 	return (
 		<Button
-			data-cy={props.dataCy ?? 'isSuccess-button'}
+			name={props.name}
+			data-cy={props.dataCy ?? 'success-button'}
 			className={props.className}
 			sx={props.sx}
 			startIcon={props.startIcon}
@@ -34,7 +36,7 @@ export function SuccessButton(props: SuccessButtonProps): React.JSX.Element {
 			color="success"
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}>
-			{props.children}
+			{props.children ?? props.name}
 		</Button>
 	);
 }
