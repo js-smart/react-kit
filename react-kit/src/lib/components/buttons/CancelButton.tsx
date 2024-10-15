@@ -11,6 +11,7 @@ import UndoIcon from '@mui/icons-material/Undo';
 interface CancelButtonProps {
 	children?: React.ReactNode;
 	className?: string;
+	name?: string;
 	dataCy?: string;
 	sx?: SxProps<Theme>;
 	type?: 'button' | 'submit' | 'reset';
@@ -27,6 +28,7 @@ interface CancelButtonProps {
 export function CancelButton(props: CancelButtonProps): React.JSX.Element {
 	return (
 		<Button
+			name={props.name}
 			data-cy={props.dataCy ?? 'cancel-button'}
 			className={props.className}
 			sx={props.sx}
@@ -35,7 +37,7 @@ export function CancelButton(props: CancelButtonProps): React.JSX.Element {
 			color="secondary"
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}>
-			{props.children}
+			{props.children ?? props.name}
 		</Button>
 	);
 }

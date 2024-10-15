@@ -13,7 +13,7 @@ export default function ButtonsDemo() {
 	return (
 		<div style={{ marginInline: '1rem', textAlign: 'center' }}>
 			Cancel Button:
-			<CancelButton onClick={() => console.log('Clicked Cancel Button')}>Cancel</CancelButton> <br />
+			<CancelButton onClick={() => console.log('Clicked Cancel Button')} name={'Cancel'}></CancelButton> <br />
 			Delete Button:
 			<DeleteButton loading={false} onClick={() => console.log('Clicked Delete Button')} /> <br />
 			<br />

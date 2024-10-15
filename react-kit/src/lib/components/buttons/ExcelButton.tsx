@@ -10,6 +10,7 @@ import { Button, SxProps, Theme } from '@mui/material';
 interface SuccessButtonProps {
 	children?: React.ReactNode;
 	className?: string;
+	name?: string;
 	sx?: SxProps<Theme>;
 	type?: 'button' | 'submit' | 'reset';
 	onClick: () => void;
@@ -29,13 +30,14 @@ export function ExcelButton(props: SuccessButtonProps): React.JSX.Element {
 			data-cy={props.dataCy ?? 'excel-button'}
 			style={{ borderRadius: '20px' }}
 			className={props.className}
+			name={props.name}
 			sx={props.sx}
 			startIcon={props.startIcon}
 			variant="contained"
 			color="success"
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}>
-			{props.children}
+			{props.children ?? props.name}
 		</Button>
 	);
 }

@@ -4,6 +4,7 @@ import { Button } from '@mui/material';
 
 interface ManageButtonProps {
 	size?: 'small' | 'medium' | 'large';
+	name?: string;
 	dataCy?: string;
 	startIcon?: React.ReactNode;
 	onClick: () => void;
@@ -13,6 +14,7 @@ interface ManageButtonProps {
 export function ManageButton(props: ManageButtonProps) {
 	return (
 		<Button
+			name={props.name}
 			data-cy={props.dataCy ?? 'manage-button'}
 			className="pushRight"
 			onClick={() => props.onClick()}
