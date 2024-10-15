@@ -31,6 +31,12 @@
       "options": {
         "targetName": "lint"
       }
+    },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
     }
   ],
   "generators": {
@@ -50,5 +56,5 @@
         "unitTestRunner": "vitest"
       }
     }
-  }
+  },"nxCloudId": "670ebadac0c313acbf9ee13c"
 }
