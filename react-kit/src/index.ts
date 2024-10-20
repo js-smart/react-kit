@@ -34,3 +34,6 @@ export * from './lib/utils/StringUtils';
 export * from './lib/utils/UrlUtils';
 export * from './lib/utils/fetchClient';
 export * from './lib/utils/CssUtils';
+
+// Export all types
+export * from './lib/types/ProgressState';
