@@ -9,6 +9,7 @@ export { LoadingSuccessButton } from './lib/components/buttons/LoadingSuccessBut
 export { ManageButton } from './lib/components/buttons/ManageButton';
 export { SuccessButton } from './lib/components/buttons/SuccessButton';
 export { ExcelButton } from './lib/components/buttons/ExcelButton';
+export { EditIconButton } from './lib/components/buttons/EditIconButton';
 
 // Export snackbar components
 export { AppSnackBar } from './lib/components/snack-bar/AppSnackBar';
