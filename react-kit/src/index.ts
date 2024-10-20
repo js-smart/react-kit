@@ -17,7 +17,7 @@ export { QuerySnackBar } from './lib/components/snack-bar/QuerySnackBar';
 
 // Export all other components
 export { TablePaginationActions } from './lib/components/table/TablePaginationActions';
-export { TabPanel } from './lib/components/tabs/TabPanel';
+export { TabPanel, a11yProps } from './lib/components/tabs/TabPanel';
 export { NextLink } from './lib/components/NextLink';
 export { CenteredCircularProgress } from './lib/components/CenteredCircularProgress';
 export { ConfirmDialog } from './lib/components/ConfirmationDialog';
