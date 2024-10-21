@@ -1,5 +1,3 @@
-import './lib/global.css';
-
 // Export all buttons
 export { CancelButton } from './lib/components/buttons/CancelButton';
 export { DeleteButton } from './lib/components/buttons/DeleteButton';

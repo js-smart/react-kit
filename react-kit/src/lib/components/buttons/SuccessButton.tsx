@@ -16,6 +16,8 @@ interface SuccessButtonProps {
 	type?: 'button' | 'submit' | 'reset';
 	onClick: () => void;
 	startIcon?: React.ReactNode;
+	variant?: 'text' | 'outlined' | 'contained';
+	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 }
 
 /**
@@ -32,8 +34,8 @@ export function SuccessButton(props: SuccessButtonProps): React.JSX.Element {
 			className={props.className}
 			sx={props.sx}
 			startIcon={props.startIcon}
-			variant="contained"
-			color="success"
+			variant={props.variant ?? 'contained'}
+			color={props.color ?? 'success'}
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}>
 			{props.children ?? props.name}

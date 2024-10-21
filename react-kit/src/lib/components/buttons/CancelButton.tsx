@@ -15,6 +15,8 @@ interface CancelButtonProps {
 	dataCy?: string;
 	sx?: SxProps<Theme>;
 	type?: 'button' | 'submit' | 'reset';
+	variant?: 'text' | 'outlined' | 'contained';
+	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 	onClick: () => void;
 	startIcon?: React.ReactNode;
 }
@@ -33,8 +35,8 @@ export function CancelButton(props: CancelButtonProps): React.JSX.Element {
 			className={props.className}
 			sx={props.sx}
 			startIcon={props.startIcon ?? <UndoIcon />}
-			variant="contained"
-			color="secondary"
+			variant={props.variant ?? 'contained'}
+			color={props.color ?? 'secondary'}
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}>
 			{props.children ?? props.name}

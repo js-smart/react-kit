@@ -24,6 +24,8 @@ interface Props {
 	startIcon?: React.ReactNode;
 	sx?: SxProps<Theme>;
 	onClick?: () => void;
+	variant?: 'text' | 'outlined' | 'contained';
+	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 }
 
 /**
@@ -37,8 +39,8 @@ export function LoadingSuccessButton(props: Props) {
 		<LoadingButton
 			name={props.name}
 			data-cy={props.dataCy ?? 'loading-success-button'}
-			variant="contained"
-			color="success"
+			variant={props.variant ?? 'contained'}
+			color={props.color ?? 'success'}
 			loadingPosition={'start'}
 			startIcon={props.startIcon ?? <SaveIcon />}
 			loading={props.loading}
