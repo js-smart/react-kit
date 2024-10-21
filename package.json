@@ -5,7 +5,7 @@
   "private": false,
   "scripts": {
     "nx": "nx",
-    "start": "nx serve",
+    "start": "nx serve --port 3007 | npx local-ssl-proxy --key ~/localhost-key.pem --cert ~/localhost.pem  --source 4301 --target 3007",
     "build": "nx build react-kit",
     "build:demo": "nx build",
     "test": "nx test react-kit ",

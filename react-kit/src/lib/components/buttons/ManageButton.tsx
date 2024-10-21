@@ -4,6 +4,9 @@ import { Button } from '@mui/material';
 
 interface ManageButtonProps {
 	size?: 'small' | 'medium' | 'large';
+	variant?: 'text' | 'outlined' | 'contained';
+	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+	className?: string;
 	name?: string;
 	dataCy?: string;
 	startIcon?: React.ReactNode;
@@ -16,10 +19,10 @@ export function ManageButton(props: ManageButtonProps) {
 		<Button
 			name={props.name}
 			data-cy={props.dataCy ?? 'manage-button'}
-			className="pushRight"
+			className={props.className}
 			onClick={() => props.onClick()}
-			variant="contained"
-			color="primary"
+			variant={props.variant ?? 'contained'}
+			color={props.color ?? 'primary'}
 			size={props.size ?? 'large'}
 			startIcon={props.startIcon ?? <SettingsIcon />}>
 			{props.children ? props.children : 'Manage'}

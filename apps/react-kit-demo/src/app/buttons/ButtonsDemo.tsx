@@ -8,8 +8,10 @@ import {
 	ManageButton,
 	SuccessButton,
 } from '@react-kit/react-kit';
+import { useNavigate } from 'react-router-dom';
 
 export default function ButtonsDemo() {
+	const navigate = useNavigate();
 	return (
 		<div style={{ marginInline: '1rem', textAlign: 'center' }}>
 			Cancel Button:
@@ -35,7 +37,7 @@ export default function ButtonsDemo() {
 			</div>
 			<div>
 				Go back Button:
-				<GoBackButton onClick={() => console.log('Clicked GoBack Button')}></GoBackButton>
+				<GoBackButton navigate={navigate}></GoBackButton>
 				<br />
 			</div>
 			<div>

@@ -8,6 +8,8 @@ interface DeleteButtonProps {
 	loadingLabel?: string;
 	loadingPosition?: 'start' | 'end' | 'center';
 	type?: 'button' | 'submit' | 'reset' | undefined;
+	variant?: 'text' | 'outlined' | 'contained';
+	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 	name?: string;
 	dataCy?: string;
 	startIcon?: React.ReactNode;
@@ -22,8 +24,8 @@ export function DeleteButton(props: DeleteButtonProps) {
 			loadingPosition={props.loadingPosition ?? 'start'}
 			startIcon={props.startIcon ?? <DeleteForeverIcon />}
 			name={props.name}
-			color={'error'}
-			variant={'contained'}
+			variant={props.variant ?? 'contained'}
+			color={props.color ?? 'error'}
 			sx={{ m: 1 }}
 			type={props.type ?? 'button'}
 			onClick={props.onClick}>

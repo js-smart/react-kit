@@ -15,7 +15,7 @@ declare module '@mui/material/styles' {
 
 // A custom theme for this app
 const theme = createTheme({
-	//cssVariables: { cssVarPrefix: '' },
+	cssVariables: true,
 	breakpoints: {
 		values: {
 			xs: 0,
