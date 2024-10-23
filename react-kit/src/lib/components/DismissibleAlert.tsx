@@ -34,7 +34,7 @@ export function DismissibleAlert(props: DismissibleAlertProps) {
 	}, dismissTimeOut);
 
 	return (
-		<div>
+		<span>
 			{open && (
 				<Alert
 					action={
@@ -55,6 +55,6 @@ export function DismissibleAlert(props: DismissibleAlertProps) {
 					{props.message}
 				</Alert>
 			)}
-		</div>
+		</span>
 	);
 }
