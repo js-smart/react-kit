@@ -6,58 +6,67 @@ import * as path from 'path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
-  root: __dirname,
-  cacheDir: '../node_modules/.vite/react-kit',
+	root: __dirname,
+	cacheDir: '../node_modules/.vite/react-kit',
 
-  plugins: [
-    react(),
-    nxViteTsPaths(),
-    dts({
-      entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
-    }),
-  ],
+	plugins: [
+		react(),
+		nxViteTsPaths(),
+		dts({
+			entryRoot: 'src',
+			tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
+		}),
+	],
 
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
+	// Uncomment this if you are using workers.
+	// worker: {
+	//  plugins: [ nxViteTsPaths() ],
+	// },
 
-  // Configuration for building your library.
-  // See: https://vitejs.dev/guide/build.html#library-mode
-  build: {
-    outDir: '../dist/react-kit',
-    reportCompressedSize: true,
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
-    lib: {
-      // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
-      name: 'react-kit',
-      fileName: 'index',
-      // Change this to the formats you want to support.
-      // Don't forget to update your package.json as well.
-      formats: ['es', 'cjs'],
-    },
-    rollupOptions: {
-      // External packages that should not be bundled into your library.
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
-    },
-  },
+	// Configuration for building your library.
+	// See: https://vitejs.dev/guide/build.html#library-mode
+	build: {
+		outDir: '../dist/react-kit',
+		reportCompressedSize: true,
+		commonjsOptions: {
+			transformMixedEsModules: true,
+		},
+		lib: {
+			// Could also be a dictionary or array of multiple entry points.
+			entry: 'src/index.ts',
+			name: 'react-kit',
+			fileName: 'index',
+			// Change this to the formats you want to support.
+			// Don't forget to update your package.json as well.
+			formats: ['es', 'cjs'],
+		},
+		rollupOptions: {
+			// External packages that should not be bundled into your library.
+			external: [
+				'react',
+				'react-dom',
+				'@mui/material',
+				'@emotion/react',
+				'@emotion/styled',
+				'@mui/icons-material',
+				'@mui/lab',
+				'date-fns',
+				'react-router-dom',
+			],
+		},
+	},
+	test: {
+		globals: true,
+		cache: {
+			dir: '../node_modules/.vitest/react-kit',
+		},
+		environment: 'jsdom',
+		include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
 
-  test: {
-    globals: true,
-    cache: {
-      dir: '../node_modules/.vitest/react-kit',
-    },
-    environment: 'jsdom',
-    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-
-    reporters: ['default'],
-    coverage: {
-      reportsDirectory: '../coverage/react-kit',
-      provider: 'v8',
-    },
-  },
+		reporters: ['default'],
+		coverage: {
+			reportsDirectory: '../coverage/react-kit',
+			provider: 'v8',
+		},
+	},
 });
