@@ -33,10 +33,10 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm i --legacy-peer-deps
+        run: pnpm i  --frozen-lockfile
 
       - name: Build packages
-        run: npm run build
+        run: pnpm build
 
       - name: Semantic release
         run: npx semantic-release
@@ -53,4 +53,4 @@ jobs:
           bash release.sh $version ${{ secrets.GPG_KEY_ID }}
 
       - name: build demo
-        run: npm run build:demo
+        run: pnpm build:demo
