@@ -7,7 +7,11 @@ on:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ 'ubuntu-latest' ]
+        node: [ 'latest' ]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -19,24 +23,29 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: ~/.npm
-          key: ubuntu-latest-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.pnpm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ubuntu-latest-build-${{ env.cache-name }}-
-            ubuntu-latest-build-
-            ubuntu-latest-
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
-          node-version: 'latest'
-          cache: 'npm'
+          node-version: ${{ matrix.node }}
+          cache: 'pnpm'
 
-      - name: Install dependencies
-        run: npm i --legacy-peer-deps
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile
 
-      - name: Build packages
-        run: npm run build
+      - name: Build project
+        run: pnpm build
 
       - name: Semantic release
         run: npx semantic-release
@@ -53,4 +62,4 @@ jobs:
           bash release.sh $version ${{ secrets.GPG_KEY_ID }}
 
       - name: build demo
-        run: npm run build:demo
+        run: pnpm build:demo
