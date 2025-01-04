@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Alert, IconButton, Slide, Snackbar } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { Alert, IconButton, Slide, Snackbar } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 interface QuerySnackBarProps {
 	open: boolean;
