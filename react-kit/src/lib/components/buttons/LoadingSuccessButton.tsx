@@ -1,6 +1,5 @@
 import React from 'react';
-import { LoadingButton } from '@mui/lab';
-import { SxProps, Theme } from '@mui/material';
+import { Button, SxProps, Theme } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 
 const style = {
@@ -36,7 +35,7 @@ interface Props {
  */
 export function LoadingSuccessButton(props: Props) {
 	return (
-		<LoadingButton
+		<Button
 			name={props.name}
 			data-cy={props.dataCy ?? 'loading-success-button'}
 			variant={props.variant ?? 'contained'}
@@ -49,6 +48,6 @@ export function LoadingSuccessButton(props: Props) {
 			sx={props.sx}
 			onClick={props.onClick}>
 			{props.children ?? props.name}
-		</LoadingButton>
+		</Button>
 	);
 }
