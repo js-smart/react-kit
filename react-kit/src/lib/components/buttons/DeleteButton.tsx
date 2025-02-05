@@ -1,6 +1,6 @@
-import LoadingButton from '@mui/lab/LoadingButton';
 import React from 'react';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { Button } from '@mui/material';
 
 interface DeleteButtonProps {
 	loading: boolean;
@@ -18,7 +18,7 @@ interface DeleteButtonProps {
 
 export function DeleteButton(props: DeleteButtonProps) {
 	return (
-		<LoadingButton
+		<Button
 			data-cy={props.dataCy ?? 'delete-button'}
 			loading={props.loading ?? false}
 			loadingPosition={props.loadingPosition ?? 'start'}
@@ -30,6 +30,6 @@ export function DeleteButton(props: DeleteButtonProps) {
 			type={props.type ?? 'button'}
 			onClick={props.onClick}>
 			{props.label ? props.label : 'Delete'}
-		</LoadingButton>
+		</Button>
 	);
 }

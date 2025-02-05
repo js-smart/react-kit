@@ -49,7 +49,6 @@ export default defineConfig({
 				'@emotion/react',
 				'@emotion/styled',
 				'@mui/icons-material',
-				'@mui/lab',
 				'date-fns',
 				'react-router-dom',
 			],
