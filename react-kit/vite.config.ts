@@ -51,6 +51,7 @@ export default defineConfig({
 				'@mui/icons-material',
 				'date-fns',
 				'react-router-dom',
+				'react/jsx-runtime',
 			],
 		},
 	},
