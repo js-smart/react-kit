@@ -8,7 +8,7 @@ import { CircularProgress } from '@mui/material';
  */
 export function CenteredCircularProgress() {
 	return (
-		<div style={{ margin: '1.5rem' }} className="custom-flex-justify-center">
+		<div style={{ margin: '1.5rem' }} className="app-flex-justify-center">
 			<CircularProgress />
 		</div>
 	);
