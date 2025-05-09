@@ -17,7 +17,7 @@ type DismissibleAlertProps = {
 	dismissTimeOut?: number;
 };
 
-export function DismissibleAlert(props: DismissibleAlertProps) {
+export function DismissibleAlert(props: Readonly<DismissibleAlertProps>) {
 	const [open, setOpen] = useState(true);
 	const [dismissible] = useState(props.dismissible ?? true);
 	const [dismissOnTimeOut] = useState(props.dismissOnTimeOut ?? true);

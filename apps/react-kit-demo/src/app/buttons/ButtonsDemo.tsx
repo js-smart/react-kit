@@ -9,11 +9,14 @@ import {
 	SuccessButton,
 } from '@react-kit/react-kit';
 import { useNavigate } from 'react-router-dom';
+import { Divider } from '@mui/material';
 
 export default function ButtonsDemo() {
 	const navigate = useNavigate();
 	return (
 		<div style={{ marginInline: '1rem', textAlign: 'center' }}>
+			<h2>Buttons Demo</h2>
+			<Divider sx={{ mb: 3 }} />
 			Cancel Button:
 			<CancelButton onClick={() => console.log('Clicked Cancel Button')} name={'Cancel'}></CancelButton> <br />
 			Delete Button:

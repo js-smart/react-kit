@@ -1,4 +1,4 @@
-import { Grid, Paper } from '@mui/material';
+import { Divider, Grid, Paper } from '@mui/material';
 import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -23,23 +23,27 @@ export default function AllBooks() {
 	}, []);
 
 	return (
-		<Grid container style={{ height: 'auto', width: '100%', textAlign: 'center' }}>
-			<Grid item xs={12}>
-				<h2>All Books</h2>
+		<Grid container sx={{ m: 3 }}>
+			<Grid size={10} sx={{ flexGrow: 1 }}>
+				<h2 style={{ textAlign: 'center' }}>Books Demo</h2>
+				<Divider sx={{ mb: 4 }} />
 
-				<Paper elevation={24} style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
-					<DataGrid
-						initialState={{ pagination: { paginationModel: { pageSize: 5 } } }}
-						getRowId={(row) => row.id}
-						pageSizeOptions={[5, 10, 20, 50, 100]}
-						disableRowSelectionOnClick={true}
-						density={'comfortable'}
-						loading={loading}
-						rows={data ?? []}
-						columns={columns}
-						autoHeight={true}
-					/>
+				<Paper elevation={24}>
+					<div style={{ display: 'flex', flexDirection: 'column' }}>
+						<DataGrid
+							initialState={{ pagination: { paginationModel: { pageSize: 5 } } }}
+							getRowId={(row) => row.id}
+							pageSizeOptions={[5, 10, 20, 50, 100]}
+							disableRowSelectionOnClick={true}
+							density={'comfortable'}
+							loading={loading}
+							rows={data ?? []}
+							columns={columns}
+						/>
+					</div>
 				</Paper>
+
+				<Divider sx={{ mb: 3 }} />
 			</Grid>
 		</Grid>
 	);

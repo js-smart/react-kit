@@ -12,6 +12,7 @@ export default function App() {
 					<Link to="/dialog">Dialog</Link> <br />
 					<Link to="/circular-progress">Circular Progress</Link> <br />
 					<Link to="/books">All Books</Link> <br />
+					<Link to="/react-if">React If Demo</Link> <br />
 				</ul>
 			</div>
 
