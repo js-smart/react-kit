@@ -6,6 +6,7 @@ import DialogDemo from '../app/dialog/DialogDemo';
 import CenterCircularProgressDemo from '../app/progress-bar/CenterCircularProgressDemo';
 import AllBooks from '../app/all-books/AllBooks';
 import App from '../app/app';
+import ReactIfDemo from '../app/react-if/ReactIfDemo';
 
 export const router = createBrowserRouter([
 	{
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/books',
 				element: <AllBooks />,
+			},
+			{
+				path: '/react-if',
+				element: <ReactIfDemo />,
 			},
 		],
 	},
