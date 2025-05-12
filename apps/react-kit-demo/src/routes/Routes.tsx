@@ -1,12 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '../app/Home';
-import ButtonsDemo from '../app/buttons/ButtonsDemo';
-import SnackBarDemo from '../app/snack-bar/SnackBarDemo';
-import DialogDemo from '../app/dialog/DialogDemo';
-import CenterCircularProgressDemo from '../app/progress-bar/CenterCircularProgressDemo';
 import AllBooks from '../app/all-books/AllBooks';
 import App from '../app/app';
+import ButtonsDemo from '../app/buttons/ButtonsDemo';
+import DialogDemo from '../app/dialog/DialogDemo';
+import LinksDemo from '../app/links/LinksDemo';
+import CenterCircularProgressDemo from '../app/progress-bar/CenterCircularProgressDemo';
 import ReactIfDemo from '../app/react-if/ReactIfDemo';
+import SnackBarDemo from '../app/snack-bar/SnackBarDemo';
 
 export const router = createBrowserRouter([
 	{
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/react-if',
 				element: <ReactIfDemo />,
+			},
+			{
+				path: '/links',
+				element: <LinksDemo />,
 			},
 		],
 	},

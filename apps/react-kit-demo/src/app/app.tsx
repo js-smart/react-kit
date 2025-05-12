@@ -1,5 +1,4 @@
 import { Link, Outlet } from 'react-router-dom';
-import React from 'react';
 
 export default function App() {
 	return (
@@ -13,6 +12,7 @@ export default function App() {
 					<Link to="/circular-progress">Circular Progress</Link> <br />
 					<Link to="/books">All Books</Link> <br />
 					<Link to="/react-if">React If Demo</Link> <br />
+					<Link to="/links">Links Demo</Link> <br />
 				</ul>
 			</div>
 
