@@ -1,12 +1,13 @@
-import React from 'react';
-import { Icon } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { Icon, Link as MuiLink } from '@mui/material';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface OpenInNewIconLinkProps {
-  href: string;
-  linkText: string;
-  target: string;
-  children?: React.ReactNode;
+	href: string;
+	linkText: string;
+	target: string;
+	children?: React.ReactNode;
 }
 
 /**
@@ -18,16 +19,24 @@ interface OpenInNewIconLinkProps {
  * @since 1.2.24
  */
 export function OpenInNewIconLink(props: OpenInNewIconLinkProps) {
-  return (
-    <a
-      href={props.href}
-      target={'_blank'}
-      rel="noreferrer"
-      style={{ display: 'flex', alignItems: 'center' }}
-    >
-      {props.linkText}
-      <Icon sx={{ fontSize: '1.1rem', mx: 0.75 }} component={OpenInNewIcon} />
-      {props.children}
-    </a>
-  );
+	return (
+		<MuiLink
+			component={Link}
+			to={props.href}
+			target={props.target || '_blank'}
+			rel="noreferrer"
+			className={'next-btn-link'}
+			underline="hover">
+			{props.linkText ?? props.children}
+			<Icon
+				sx={{
+					fontSize: '1.1rem',
+					mx: 0.75,
+					verticalAlign: 'middle',
+					display: 'inline-flex',
+				}}
+				component={OpenInNewIcon}
+			/>
+		</MuiLink>
+	);
 }
