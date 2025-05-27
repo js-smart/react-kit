@@ -3,7 +3,7 @@ import { Icon, Link as MuiLink } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-interface OpenInNewIconLinkProps {
+interface Props {
 	href: string;
 	linkText: string;
 	target: string;
@@ -18,7 +18,7 @@ interface OpenInNewIconLinkProps {
  * @author Pavan Kumar Jadda
  * @since 1.2.24
  */
-export function OpenInNewIconLink(props: OpenInNewIconLinkProps) {
+export function OpenInNewIconLink(props: Readonly<Props>) {
 	return (
 		<MuiLink
 			component={Link}
