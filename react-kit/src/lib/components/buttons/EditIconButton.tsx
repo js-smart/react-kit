@@ -8,7 +8,7 @@ interface EditIconButtonProps {
 	color?: 'inherit' | 'default' | 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
 }
 
-export function EditIconButton(props: EditIconButtonProps) {
+export function EditIconButton(props: Readonly<EditIconButtonProps>) {
 	return (
 		<Tooltip title={props.tooltipTitle}>
 			<IconButton
