@@ -7,7 +7,7 @@ export interface ErrorResponse {
 	status: string;
 	statusCode: number;
 	timestamp: string;
-	errors: any[] | null;
+	errors: unknown[] | null;
 	path: string | null;
 }
 
@@ -17,13 +17,13 @@ export interface ErrorResponse {
 export interface RequestConfig extends RequestInit {
 	baseURL?: string;
 	url?: string;
-	params?: Record<string, any>;
+	params?: Record<string, string | number | boolean>;
 }
 
 /**
  * Interface for response structure
  */
-export interface FetchResponse<T = any> {
+export interface FetchResponse<T = unknown> {
 	data: T;
 	status: number;
 	statusText: string;

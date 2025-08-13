@@ -8,7 +8,7 @@ import { createFormattedError } from './FetchInterceptor';
  * @param params Query parameters
  * @returns Complete URL with query parameters
  */
-const buildURL = (baseURL: string, url: string, params?: Record<string, any>): string => {
+const buildURL = (baseURL: string, url: string, params?: Record<string, string | number | boolean>): string => {
 	const fullURL = url.startsWith('http') ? url : `${baseURL}${url}`;
 
 	if (!params) return fullURL;
@@ -28,7 +28,7 @@ const buildURL = (baseURL: string, url: string, params?: Record<string, any>): s
  * @param response Fetch response
  * @returns Parsed data
  */
-const parseResponseData = async (response: Response): Promise<any> => {
+const parseResponseData = async (response: Response): Promise<unknown> => {
 	const contentType = response.headers.get('content-type');
 
 	if (contentType?.includes('application/json')) {
@@ -49,7 +49,7 @@ const parseResponseData = async (response: Response): Promise<any> => {
 class FetchInstance {
 	private readonly baseURL: string;
 	private requestInterceptors: Array<(config: RequestConfig) => RequestConfig | Promise<RequestConfig>> = [];
-	private responseInterceptors: Array<(response: FetchResponse) => FetchResponse | Promise<FetchResponse>> = [];
+	private responseInterceptors: Array<(response: FetchResponse<unknown>) => FetchResponse<unknown> | Promise<FetchResponse<unknown>>> = [];
 	private errorInterceptors: Array<(error: FetchError) => FetchError | Promise<FetchError> | void | Promise<void>> = [];
 	/**
 	 * Add request interceptor
@@ -62,7 +62,7 @@ class FetchInstance {
 		},
 		response: {
 			use: (
-				successInterceptor?: (response: FetchResponse) => FetchResponse | Promise<FetchResponse>,
+				successInterceptor?: (response: FetchResponse<unknown>) => FetchResponse<unknown> | Promise<FetchResponse<unknown>>,
 				errorInterceptor?: (error: FetchError) => FetchError | Promise<FetchError> | void | Promise<void>
 			) => {
 				if (successInterceptor) {
@@ -82,14 +82,14 @@ class FetchInstance {
 	/**
 	 * GET request
 	 */
-	async get<T = any>(url: string, config?: Omit<RequestConfig, 'method' | 'url'>): Promise<FetchResponse<T>> {
+	async get<T = unknown>(url: string, config?: Omit<RequestConfig, 'method' | 'url'>): Promise<FetchResponse<T>> {
 		return this.executeRequest({ ...config, method: 'GET', url });
 	}
 
 	/**
 	 * POST request
 	 */
-	async post<T = any>(url: string, data?: any, config?: Omit<RequestConfig, 'method' | 'url' | 'body'>): Promise<FetchResponse<T>> {
+	async post<T = unknown>(url: string, data?: unknown, config?: Omit<RequestConfig, 'method' | 'url' | 'body'>): Promise<FetchResponse<T>> {
 		const body = data ? JSON.stringify(data) : undefined;
 		return this.executeRequest({ ...config, method: 'POST', url, body });
 	}
@@ -97,7 +97,7 @@ class FetchInstance {
 	/**
 	 * PUT request
 	 */
-	async put<T = any>(url: string, data?: any, config?: Omit<RequestConfig, 'method' | 'url' | 'body'>): Promise<FetchResponse<T>> {
+	async put<T = unknown>(url: string, data?: unknown, config?: Omit<RequestConfig, 'method' | 'url' | 'body'>): Promise<FetchResponse<T>> {
 		const body = data ? JSON.stringify(data) : undefined;
 		return this.executeRequest({ ...config, method: 'PUT', url, body });
 	}
@@ -105,14 +105,18 @@ class FetchInstance {
 	/**
 	 * DELETE request
 	 */
-	async delete<T = any>(url: string, config?: Omit<RequestConfig, 'method' | 'url'>): Promise<FetchResponse<T>> {
+	async delete<T = unknown>(url: string, config?: Omit<RequestConfig, 'method' | 'url'>): Promise<FetchResponse<T>> {
 		return this.executeRequest({ ...config, method: 'DELETE', url });
 	}
 
 	/**
 	 * PATCH request
 	 */
-	async patch<T = any>(url: string, data?: any, config?: Omit<RequestConfig, 'method' | 'url' | 'body'>): Promise<FetchResponse<T>> {
+	async patch<T = unknown>(
+		url: string,
+		data?: unknown,
+		config?: Omit<RequestConfig, 'method' | 'url' | 'body'>
+	): Promise<FetchResponse<T>> {
 		const body = data ? JSON.stringify(data) : undefined;
 		return this.executeRequest<T>({ ...config, method: 'PATCH', url, body });
 	}
@@ -120,7 +124,7 @@ class FetchInstance {
 	/**
 	 * Generic request method
 	 */
-	async request<T = any>(config: RequestConfig): Promise<FetchResponse<T>> {
+	async request<T = unknown>(config: RequestConfig): Promise<FetchResponse<T>> {
 		return this.executeRequest(config);
 	}
 
@@ -152,15 +156,13 @@ class FetchInstance {
 			// Apply response interceptors
 			let processedResponse = fetchResponse;
 			for (const interceptor of this.responseInterceptors) {
-				processedResponse = await interceptor(processedResponse);
+				processedResponse = (await interceptor(processedResponse)) as FetchResponse<T>;
 			}
 
 			return processedResponse;
 		} catch (error) {
-			const fetchError = createFormattedError(error as Error, 0, 'Network error. Please check your connection and try again.');
-
 			// Apply error interceptors
-			let processedError = fetchError;
+			let processedError = createFormattedError(error as Error, 0, 'Network error. Please check your connection and try again.');
 			for (const interceptor of this.errorInterceptors) {
 				const result = await interceptor(processedError);
 				if (result !== undefined) {
@@ -181,12 +183,10 @@ const fetchInstance = new FetchInstance();
 /**
  * Callable fetch client that defaults to GET requests
  */
-export const FetchClient = Object.assign(
-	async <T = any>(url: string, config?: Omit<RequestConfig, 'method' | 'url'>): Promise<FetchResponse<T>> => {
-		return fetchInstance.get(url, config);
-	},
-	fetchInstance
-);
+export const FetchClient = Object.assign(async <T = unknown>(url: string, config?: Omit<RequestConfig, 'method' | 'url'>): Promise<T> => {
+	const response = await fetchInstance.request<T>({ ...config, method: 'GET', url });
+	return response.data;
+}, fetchInstance);
 
 // Export the client instance for direct use
 export default FetchClient;

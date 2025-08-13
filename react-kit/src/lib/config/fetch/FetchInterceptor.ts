@@ -1,7 +1,5 @@
-import React from 'react';
 import { useOidc, useOidcIdToken } from '@axa-fr/react-oidc';
-import FetchClient from './FetchClient';
-import { ErrorResponse, FetchError, FetchResponse } from './FetchClientTypes';
+import React from 'react';
 import {
 	HTTP_401,
 	HTTP_403,
@@ -15,6 +13,8 @@ import {
 	HTTP_504,
 	HTTP_505,
 } from '../../constants/HttpConstants';
+import FetchClient from './FetchClient';
+import { ErrorResponse, FetchError, FetchResponse } from './FetchClientTypes';
 
 /**
  * Adds error handling interceptor
