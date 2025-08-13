@@ -1,11 +1,22 @@
-1. Always use latest React 19 version and TypeScript for our ReactJS development. Always show examples and reference the latest version of React in your responses. If in doubt, use docs from https://react.dev/learn
-2. Always use React router, MUI latest components for React development
-3. Always use functional components and hooks for state management in React
-4. Always use TypeScript for type safety in React components
-5. Always use the latest best practices for performance optimization in React, such as memoization and lazy loading
-6. Always ensure accessibility standards are met in React components
-7. Always use ESLint and Prettier for code formatting and linting in React projects
-8. Always provide clear and concise comments in the code to explain complex logic or important decisions
-9. Always use PropTypes or TypeScript interfaces for defining component props
-10. Always ensure that components are reusable and modular, following the DRY (Don't Repeat Yourself) principle
+# Copilot Instructions for the Codebase
+
+## Overview
+
+- **React Kit** is a React/TypeScript library
+- The app uses Vite for build/dev, Playwright for E2E tests, and Vitest for unit tests. State management is via Jotai, data fetching with React Query, and UI with MUI
+
+## React & TypeScript Best Practices
+
+1. Always use the latest React 19 version and TypeScript for ReactJS development. Reference the latest React docs at https://react.dev/learn.
+2. Use React Router and the latest MUI components for all routing and UI needs.
+3. Write only functional components and use React hooks for all state management.
+4. Use TypeScript for type safety in all React components and logic.
+5. Apply the latest React performance optimizations (e.g., memoization, lazy loading, code splitting).
+6. Ensure all components meet accessibility (a11y) standards.
+7. Use ESLint and Prettier for code formatting and linting. Follow project configs.
+8. Add clear, concise comments to explain complex logic or important decisions.
+9. Define component props using TypeScript interfaces (preferred) or PropTypes.
+10. Design components to be reusable and modular, following DRY principles.
+
+---
 
