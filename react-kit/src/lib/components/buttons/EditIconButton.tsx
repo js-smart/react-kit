@@ -1,6 +1,6 @@
-import React from 'react';
-import { IconButton, Tooltip } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import { IconButton, Tooltip } from '@mui/material';
+import React from 'react';
 
 interface EditIconButtonProps {
 	tooltipTitle: string;
@@ -8,7 +8,7 @@ interface EditIconButtonProps {
 	color?: 'inherit' | 'default' | 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
 }
 
-export function EditIconButton(props: EditIconButtonProps) {
+export function EditIconButton(props: Readonly<EditIconButtonProps>) {
 	return (
 		<Tooltip title={props.tooltipTitle}>
 			<IconButton
