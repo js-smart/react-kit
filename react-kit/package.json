@@ -1,46 +1,45 @@
 {
-  "name": "@js-smart/react-kit",
-  "private": false,
-  "version": "5.12.0",
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "type": "module",
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.2.0",
-    "@mui/material": "^7.2.0",
-    "date-fns": "^4.1.0",
-    "react": "^18.3.1 || ^19.0.0",
-    "react-dom": "^18.3.1 || ^19.0.0",
-    "react-router-dom": "^7.6.3"
-  },
-  "exports": {
-    ".": {
-      "import": "./index.mjs",
-      "require": "./index.js"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/js-smart/react-kit"
-  },
-  "author": {
-    "name": "Pavan Kumar Jadda",
-    "email": "contact@pavankjadda.dev"
-  },
-  "keywords": [
-    "react",
-    "react-kit",
-    "react-components",
-    "react-utils",
-    "typescript"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/js-smart/react-kit/issues"
-  }
+	"name": "@js-smart/react-kit",
+	"private": false,
+	"version": "5.13.0",
+	"main": "./index.js",
+	"types": "./index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.1",
+		"@mui/icons-material": "^7.3.1",
+		"@mui/material": "^7.3.1",
+		"date-fns": "^4.1.0",
+		"react": "^18.3.1 || ^19.0.0",
+		"react-dom": "^18.3.1 || ^19.0.0",
+		"react-router-dom": "^7.8.0"
+	},
+	"exports": {
+		".": {
+			"import": "./index.mjs",
+			"require": "./index.js"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/js-smart/react-kit"
+	},
+	"author": {
+		"name": "Pavan Kumar Jadda",
+		"email": "contact@pavankjadda.dev"
+	},
+	"keywords": [
+		"react",
+		"react-kit",
+		"react-components",
+		"react-utils",
+		"typescript"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/js-smart/react-kit/issues"
+	}
 }
