@@ -23,11 +23,6 @@ export { ReactIf } from './lib/components/ReactIf';
 export { TablePaginationActions } from './lib/components/table/TablePaginationActions';
 export { a11yProps, TabPanel } from './lib/components/tabs/TabPanel';
 
-// Export fetch client
-export { FetchClient as fetchClient, FetchClient, FetchClient as httpClient } from './lib/config/fetch/FetchClient';
-export * from './lib/config/fetch/FetchClientTypes';
-export { FetchInterceptor } from './lib/config/fetch/FetchInterceptor';
-
 // Export all utilities
 export * from './lib/utils/BooleanUtils';
 export * from './lib/utils/CssUtils';
