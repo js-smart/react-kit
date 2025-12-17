@@ -25,6 +25,7 @@ interface Props {
 	onClick?: () => void;
 	variant?: 'text' | 'outlined' | 'contained';
 	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+	ariaLabel?: string;
 }
 
 /**
@@ -46,6 +47,7 @@ export function LoadingSuccessButton(props: Props) {
 			type={props.type ?? 'button'}
 			style={style}
 			sx={props.sx}
+			aria-label={props.ariaLabel ?? props.name ?? 'Save'}
 			onClick={props.onClick}>
 			{props.children ?? props.name}
 		</Button>

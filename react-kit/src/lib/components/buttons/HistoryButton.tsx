@@ -19,6 +19,7 @@ interface HistoryButtonProps {
 	startIcon?: React.ReactNode;
 	variant?: 'text' | 'outlined' | 'contained';
 	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+	ariaLabel?: string;
 }
 
 /**
@@ -38,6 +39,7 @@ export function HistoryButton(props: HistoryButtonProps): React.JSX.Element {
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'primary'}
 			type={props.type ?? 'button'}
+			aria-label={props.ariaLabel ?? props.name ?? 'History'}
 			onClick={() => props.onClick()}>
 			{props.children ?? props.name}
 		</Button>

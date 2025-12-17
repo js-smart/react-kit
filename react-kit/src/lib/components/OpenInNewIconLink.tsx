@@ -8,6 +8,7 @@ interface Props {
 	linkText: string;
 	target: string;
 	children?: React.ReactNode;
+	ariaLabel?: string;
 }
 
 /**
@@ -26,6 +27,7 @@ export function OpenInNewIconLink(props: Readonly<Props>) {
 			target={props.target || '_blank'}
 			rel="noreferrer"
 			className={'next-btn-link'}
+			aria-label={props.ariaLabel ?? 'Open in new tab'}
 			underline="hover">
 			{props.linkText ?? props.children}
 			<Icon
