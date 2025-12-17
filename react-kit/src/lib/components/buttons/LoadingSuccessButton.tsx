@@ -47,7 +47,7 @@ export function LoadingSuccessButton(props: Props) {
 			type={props.type ?? 'button'}
 			style={style}
 			sx={props.sx}
-			aria-label={props.ariaLabel ?? props.ariaLabel ?? 'Save'}
+			aria-label={props.ariaLabel ? props.ariaLabel : 'Save'}
 			onClick={props.onClick}>
 			{props.children ?? props.name}
 		</Button>
