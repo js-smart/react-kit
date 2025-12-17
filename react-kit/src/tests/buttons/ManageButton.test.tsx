@@ -2,10 +2,10 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ManageButton } from '../../lib/components/buttons/ManageButton';
-import jest from 'jest-mock';
+import { vi } from 'vitest';
 
 describe('ManageButton', () => {
-	const mockOnClick = jest.fn();
+	const mockOnClick = vi.fn();
 
 	beforeEach(() => {
 		mockOnClick.mockClear();
@@ -34,6 +34,7 @@ describe('ManageButton', () => {
 				variant="outlined"
 				color="secondary"
 				size="small"
+				ariaLabel={'Custom Manage'}
 				startIcon={<span data-testid="custom-icon" />}>
 				Custom Manage
 			</ManageButton>

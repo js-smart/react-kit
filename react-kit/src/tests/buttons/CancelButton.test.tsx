@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { CancelButton } from '../../lib/components/buttons/CancelButton';
 import '@testing-library/jest-dom';
-import jest from 'jest-mock';
+import { vi } from 'vitest';
 
 test('renders CancelButton component', () => {
 	render(
@@ -60,7 +60,7 @@ test('renders with custom type', () => {
 });
 
 test('calls onClick when clicked', () => {
-	const handleClick = jest.fn();
+	const handleClick = vi.fn();
 	render(<CancelButton name="Cancel" onClick={handleClick} />);
 
 	const cancelButton = screen.getByRole('button', { name: 'Cancel' });
