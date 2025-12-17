@@ -40,7 +40,7 @@ export function CancelButton(props: CancelButtonProps): React.JSX.Element {
 			color={props.color ?? 'secondary'}
 			type={props.type ?? 'button'}
 			onClick={() => props.onClick()}
-			aria-label={props.ariaLabel ?? props.name ?? 'Cancel'}>
+			aria-label={props.ariaLabel ?? props.ariaLabel ?? 'Cancel'}>
 			{props.children ?? props.name}
 		</Button>
 	);

@@ -38,7 +38,7 @@ export function SuccessButton(props: SuccessButtonProps): React.JSX.Element {
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'success'}
 			type={props.type ?? 'button'}
-			aria-label={props.ariaLabel ?? props.name ?? 'Success'}
+			aria-label={props.ariaLabel ?? props.ariaLabel ?? 'Success'}
 			onClick={() => props.onClick()}>
 			{props.children ?? props.name}
 		</Button>

@@ -39,7 +39,7 @@ export function HistoryButton(props: HistoryButtonProps): React.JSX.Element {
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'primary'}
 			type={props.type ?? 'button'}
-			aria-label={props.ariaLabel ?? props.name ?? 'History'}
+			aria-label={props.ariaLabel ?? props.ariaLabel ?? 'History'}
 			onClick={() => props.onClick()}>
 			{props.children ?? props.name}
 		</Button>
