@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { DeleteButton } from '../../lib/components/buttons/DeleteButton';
 import '@testing-library/jest-dom';
-import jest from 'jest-mock';
+import { vi } from 'vitest';
 
 test('renders DeleteButton component', () => {
 	render(
@@ -22,6 +22,7 @@ test('renders DeleteButton with custom label', () => {
 		<DeleteButton
 			loading={false}
 			label="Remove"
+			ariaLabel={'Remove'}
 			onClick={() => {
 				console.log('Clicked Delete Button');
 			}}
@@ -54,7 +55,7 @@ test('renders with custom type', () => {
 });
 
 test('calls onClick when clicked', () => {
-	const handleClick = jest.fn();
+	const handleClick = vi.fn();
 	render(<DeleteButton loading={false} name="Delete" onClick={handleClick} />);
 
 	const deleteButton = screen.getByRole('button', { name: 'Delete' });

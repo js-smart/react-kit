@@ -2,10 +2,10 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { SuccessButton } from '../../lib/components/buttons/SuccessButton';
-import jest from 'jest-mock';
+import { vi } from 'vitest';
 
 describe('SuccessButton', () => {
-	const mockOnClick = jest.fn();
+	const mockOnClick = vi.fn();
 
 	beforeEach(() => {
 		mockOnClick.mockClear();
@@ -32,6 +32,7 @@ describe('SuccessButton', () => {
 				dataCy="custom-data-cy"
 				variant="outlined"
 				color="secondary"
+				ariaLabel={'Custom Success'}
 				startIcon={<span data-testid="custom-icon" />}>
 				Custom Success
 			</SuccessButton>

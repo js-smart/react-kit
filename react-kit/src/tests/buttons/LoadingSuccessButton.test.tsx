@@ -2,10 +2,10 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { LoadingSuccessButton } from '../../lib/components/buttons/LoadingSuccessButton';
-import jest from 'jest-mock';
+import { vi } from 'vitest';
 
 describe('LoadingSuccessButton', () => {
-	const mockOnClick = jest.fn();
+	const mockOnClick = vi.fn();
 
 	beforeEach(() => {
 		mockOnClick.mockClear();
@@ -40,6 +40,7 @@ describe('LoadingSuccessButton', () => {
 				variant="outlined"
 				color="secondary"
 				loading={false}
+				ariaLabel={'Custom Success'}
 				startIcon={<span data-testid="custom-icon" />}>
 				Custom Success
 			</LoadingSuccessButton>

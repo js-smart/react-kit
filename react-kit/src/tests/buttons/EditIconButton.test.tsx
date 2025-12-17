@@ -2,10 +2,10 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { EditIconButton } from '../../lib/components/buttons/EditIconButton';
-import jest from 'jest-mock';
+import { vi } from 'vitest';
 
 describe('EditIconButton', () => {
-	const mockOnClick = jest.fn();
+	const mockOnClick = vi.fn();
 
 	beforeEach(() => {
 		mockOnClick.mockClear();
