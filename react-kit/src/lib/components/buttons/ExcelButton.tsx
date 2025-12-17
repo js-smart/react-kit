@@ -37,7 +37,7 @@ export function ExcelButton(props: SuccessButtonProps): React.JSX.Element {
 			variant="contained"
 			color="success"
 			type={props.type ?? 'button'}
-			aria-label={props.ariaLabel ?? props.name ?? 'Excel'}
+			aria-label={props.ariaLabel ? props.ariaLabel : 'Excel'}
 			onClick={() => props.onClick()}>
 			{props.children ?? props.name}
 		</Button>

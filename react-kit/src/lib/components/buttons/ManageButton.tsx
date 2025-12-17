@@ -25,7 +25,7 @@ export function ManageButton(props: ManageButtonProps) {
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'primary'}
 			size={props.size ?? 'large'}
-			aria-label={props.ariaLabel ?? props.name ?? 'Manage'}
+			aria-label={props.ariaLabel ? props.ariaLabel : 'Manage'}
 			startIcon={props.startIcon ?? <SettingsIcon />}>
 			{props.children ? props.children : 'Manage'}
 		</Button>

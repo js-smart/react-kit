@@ -29,7 +29,7 @@ export function DeleteButton(props: DeleteButtonProps) {
 			color={props.color ?? 'error'}
 			sx={{ m: 1 }}
 			type={props.type ?? 'button'}
-			aria-label={props.ariaLabel ?? props.name ?? 'Delete'}
+			aria-label={props.ariaLabel ? props.ariaLabel : 'Delete'}
 			onClick={props.onClick}>
 			{props.label ? props.label : 'Delete'}
 		</Button>
