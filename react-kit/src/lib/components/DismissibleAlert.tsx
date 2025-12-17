@@ -15,6 +15,7 @@ type DismissibleAlertProps = {
 	dismissible?: boolean;
 	dismissOnTimeOut?: boolean;
 	dismissTimeOut?: number;
+	ariaLabel?: string;
 };
 
 export function DismissibleAlert(props: Readonly<DismissibleAlertProps>) {
@@ -51,6 +52,7 @@ export function DismissibleAlert(props: Readonly<DismissibleAlertProps>) {
 						) : null
 					}
 					style={{ margin: '20px' }}
+					aria-label={props.ariaLabel ?? 'Dismissible Alert'}
 					{...props}>
 					{props.message}
 				</Alert>

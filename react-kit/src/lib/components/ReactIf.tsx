@@ -39,7 +39,7 @@ type ReactIfProps = {
 export function ReactIf(props: ReactIfProps): React.ReactNode {
 	const { condition, children, else: elseContent } = props;
 
-	// Check if condition is true
+	// Check if the condition is true
 	if (condition) {
 		return typeof children === 'function' ? children() : children;
 	}

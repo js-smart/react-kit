@@ -6,11 +6,12 @@ interface EditIconButtonProps {
 	tooltipTitle: string;
 	onClick: React.Dispatch<React.SetStateAction<boolean>>;
 	color?: 'inherit' | 'default' | 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
+	ariaLabel?: string;
 }
 
 export function EditIconButton(props: Readonly<EditIconButtonProps>) {
 	return (
-		<Tooltip title={props.tooltipTitle}>
+		<Tooltip title={props.tooltipTitle} aria-label={props.ariaLabel ?? 'Edit'}>
 			<IconButton
 				sx={{ pt: 0, pb: 0 }}
 				color={props.color ?? 'primary'}

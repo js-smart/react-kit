@@ -19,6 +19,7 @@ interface CancelButtonProps {
 	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 	onClick: () => void;
 	startIcon?: React.ReactNode;
+	ariaLabel?: string;
 }
 
 /**
@@ -38,7 +39,8 @@ export function CancelButton(props: CancelButtonProps): React.JSX.Element {
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'secondary'}
 			type={props.type ?? 'button'}
-			onClick={() => props.onClick()}>
+			onClick={() => props.onClick()}
+			aria-label={props.ariaLabel ?? props.name ?? 'Cancel'}>
 			{props.children ?? props.name}
 		</Button>
 	);

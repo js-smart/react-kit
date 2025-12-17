@@ -12,6 +12,7 @@ interface ManageButtonProps {
 	startIcon?: React.ReactNode;
 	onClick: () => void;
 	children?: React.ReactNode;
+	ariaLabel?: string;
 }
 
 export function ManageButton(props: ManageButtonProps) {
@@ -24,6 +25,7 @@ export function ManageButton(props: ManageButtonProps) {
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'primary'}
 			size={props.size ?? 'large'}
+			aria-label={props.ariaLabel ?? props.name ?? 'Manage'}
 			startIcon={props.startIcon ?? <SettingsIcon />}>
 			{props.children ? props.children : 'Manage'}
 		</Button>
