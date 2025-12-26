@@ -19,4 +19,3 @@
 10. Design components to be reusable and modular, following DRY principles.
 
 ---
-

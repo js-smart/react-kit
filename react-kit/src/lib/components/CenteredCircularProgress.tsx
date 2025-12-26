@@ -1,4 +1,4 @@
-import { CircularProgress } from '@mui/material';
+import { CircularProgress } from "@mui/material";
 
 /**
  * Reusable Circular Progress component
@@ -7,9 +7,9 @@ import { CircularProgress } from '@mui/material';
  * @since 0.1.0
  */
 export function CenteredCircularProgress() {
-	return (
-		<div style={{ margin: '1.5rem' }} className="app-flex-justify-center" aria-label="Loading...">
-			<CircularProgress />
-		</div>
-	);
+  return (
+    <div style={{ margin: "1.5rem" }} className="app-flex-justify-center">
+      <CircularProgress />
+    </div>
+  );
 }

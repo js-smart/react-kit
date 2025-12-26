@@ -1,10 +1,10 @@
-import React from 'react';
-import { CenteredCircularProgress } from '@react-kit/*';
+import React from "react";
+import { CenteredCircularProgress } from "@react-kit/*";
 
 export default function CenterCircularProgressDemo() {
-	return (
-		<div style={{ textAlign: 'center' }}>
-			<CenteredCircularProgress />
-		</div>
-	);
+  return (
+    <div style={{ textAlign: "center" }}>
+      <CenteredCircularProgress />
+    </div>
+  );
 }

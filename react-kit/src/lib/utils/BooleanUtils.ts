@@ -5,9 +5,9 @@
  * @since 0.1.0
  */
 export function parseBoolean(value: boolean | string | null | undefined): boolean {
-	if (typeof value === 'boolean') {
-		return value;
-	} else if (typeof value === 'string') {
-		return value.toLowerCase() === 'true';
-	} else return false;
+  if (typeof value === "boolean") {
+    return value;
+  } else if (typeof value === "string") {
+    return value.toLowerCase() === "true";
+  } else return false;
 }

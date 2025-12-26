@@ -9,5 +9,5 @@
  * @since 1.6.0
  */
 export function getCssVariable(variable: string): string {
-	return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+  return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
 }

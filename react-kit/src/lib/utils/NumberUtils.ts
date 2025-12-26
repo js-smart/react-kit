@@ -5,8 +5,8 @@
  * @since 0.3.5
  */
 export function parseNumber(value: string | null | undefined): number | undefined {
-	if (typeof value === 'string') {
-		return Number.parseInt(value, 10);
-	}
-	return undefined;
+  if (typeof value === "string") {
+    return Number.parseInt(value, 10);
+  }
+  return undefined;
 }

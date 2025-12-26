@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, SxProps, Theme } from '@mui/material';
+import React from "react";
+import { Button, SxProps, Theme } from "@mui/material";
 
 /**
  * Reusable Excel Button component properties
@@ -8,15 +8,14 @@ import { Button, SxProps, Theme } from '@mui/material';
  * @since 1.2.9
  */
 interface SuccessButtonProps {
-	children?: React.ReactNode;
-	className?: string;
-	name?: string;
-	sx?: SxProps<Theme>;
-	type?: 'button' | 'submit' | 'reset';
-	onClick: () => void;
-	startIcon?: React.ReactNode;
-	dataCy?: string;
-	ariaLabel?: string;
+  children?: React.ReactNode;
+  className?: string;
+  name?: string;
+  sx?: SxProps<Theme>;
+  type?: "button" | "submit" | "reset";
+  onClick: () => void;
+  startIcon?: React.ReactNode;
+  dataCy?: string;
 }
 
 /**
@@ -26,20 +25,20 @@ interface SuccessButtonProps {
  * @since 1.2.9
  */
 export function ExcelButton(props: SuccessButtonProps): React.JSX.Element {
-	return (
-		<Button
-			data-cy={props.dataCy ?? 'excel-button'}
-			style={{ borderRadius: '20px' }}
-			className={props.className}
-			name={props.name}
-			sx={props.sx}
-			startIcon={props.startIcon}
-			variant="contained"
-			color="success"
-			type={props.type ?? 'button'}
-			aria-label={props.ariaLabel ? props.ariaLabel : 'Excel'}
-			onClick={() => props.onClick()}>
-			{props.children ?? props.name}
-		</Button>
-	);
+  return (
+    <Button
+      data-cy={props.dataCy ?? "excel-button"}
+      style={{ borderRadius: "20px" }}
+      className={props.className}
+      name={props.name}
+      sx={props.sx}
+      startIcon={props.startIcon}
+      variant="contained"
+      color="success"
+      type={props.type ?? "button"}
+      onClick={() => props.onClick()}
+    >
+      {props.children ?? props.name}
+    </Button>
+  );
 }

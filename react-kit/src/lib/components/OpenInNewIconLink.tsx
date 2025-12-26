@@ -1,14 +1,13 @@
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { Icon, Link as MuiLink } from '@mui/material';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { Icon, Link as MuiLink } from "@mui/material";
+import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
-	href: string;
-	linkText: string;
-	target: string;
-	children?: React.ReactNode;
-	ariaLabel?: string;
+  href: string;
+  linkText: string;
+  target: string;
+  children?: React.ReactNode;
 }
 
 /**
@@ -20,25 +19,25 @@ interface Props {
  * @since 1.2.24
  */
 export function OpenInNewIconLink(props: Readonly<Props>) {
-	return (
-		<MuiLink
-			component={Link}
-			to={props.href}
-			target={props.target || '_blank'}
-			rel="noreferrer"
-			className={'next-btn-link'}
-			aria-label={props.ariaLabel ?? 'Open in new tab'}
-			underline="hover">
-			{props.linkText ?? props.children}
-			<Icon
-				sx={{
-					fontSize: '1.1rem',
-					mx: 0.75,
-					verticalAlign: 'middle',
-					display: 'inline-flex',
-				}}
-				component={OpenInNewIcon}
-			/>
-		</MuiLink>
-	);
+  return (
+    <MuiLink
+      component={Link}
+      to={props.href}
+      target={props.target || "_blank"}
+      rel="noreferrer"
+      className={"next-btn-link"}
+      underline="hover"
+    >
+      {props.linkText ?? props.children}
+      <Icon
+        sx={{
+          fontSize: "1.1rem",
+          mx: 0.75,
+          verticalAlign: "middle",
+          display: "inline-flex",
+        }}
+        component={OpenInNewIcon}
+      />
+    </MuiLink>
+  );
 }
