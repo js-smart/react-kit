@@ -1,4 +1,4 @@
-import { ProgressState } from '../types/ProgressState';
+import { ProgressState } from "../types/ProgressState";
 
 /**
  * Initialize Loading or Update ProgressState
@@ -9,11 +9,11 @@ import { ProgressState } from '../types/ProgressState';
  * @since 1.4.6
  */
 export const initializeState = (): ProgressState => ({
-	isLoading: false,
-	isSuccess: false,
-	isError: false,
-	isComplete: false,
-	message: '',
+  isLoading: false,
+  isSuccess: false,
+  isError: false,
+  isComplete: false,
+  message: "",
 });
 
 /**
@@ -26,11 +26,11 @@ export const initializeState = (): ProgressState => ({
  * @since 0.2.30
  */
 export const markLoading = (progressState: ProgressState): ProgressState => ({
-	...progressState,
-	isLoading: true,
-	isSuccess: false,
-	isError: false,
-	message: '',
+  ...progressState,
+  isLoading: true,
+  isSuccess: false,
+  isError: false,
+  message: "",
 });
 
 /**
@@ -42,12 +42,12 @@ export const markLoading = (progressState: ProgressState): ProgressState => ({
  * @since 0.2.30
  */
 export const markSuccess = (progressState: ProgressState, message?: string): ProgressState => ({
-	...progressState,
-	isLoading: false,
-	isSuccess: true,
-	isError: false,
-	isComplete: true,
-	message: message || '',
+  ...progressState,
+  isLoading: false,
+  isSuccess: true,
+  isError: false,
+  isComplete: true,
+  message: message || "",
 });
 
 /**
@@ -59,10 +59,10 @@ export const markSuccess = (progressState: ProgressState, message?: string): Pro
  * @since 0.2.30
  */
 export const markError = (progressState: ProgressState, message?: string): ProgressState => ({
-	...progressState,
-	isLoading: false,
-	isSuccess: false,
-	isError: true,
-	isComplete: true,
-	message: message || '',
+  ...progressState,
+  isLoading: false,
+  isSuccess: false,
+  isError: true,
+  isComplete: true,
+  message: message || "",
 });

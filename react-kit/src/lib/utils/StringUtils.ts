@@ -5,10 +5,10 @@
  * @since 0.1.0
  */
 export function isBlankOrEmpty(value: any): boolean {
-	if (value === null || value === undefined) {
-		return true;
-	} else if (typeof value === 'string') {
-		return value.trim() === '';
-	}
-	return false;
+  if (value === null || value === undefined) {
+    return true;
+  } else if (typeof value === "string") {
+    return value.trim() === "";
+  }
+  return false;
 }

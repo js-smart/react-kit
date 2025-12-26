@@ -8,7 +8,8 @@
 			"!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
 			"!{projectRoot}/tsconfig.spec.json",
 			"!{projectRoot}/.eslintrc.json",
-			"!{projectRoot}/eslint.config.js"
+			"!{projectRoot}/eslint.config.js",
+			"!{projectRoot}/eslint.config.mjs"
 		],
 		"sharedGlobals": []
 	},
@@ -24,9 +25,9 @@
 			}
 		},
 		{
-			"plugin": "@nx/eslint/plugin",
+			"plugin": "nx-oxlint",
 			"options": {
-				"targetName": "lint"
+				"lintTargetName": "lint"
 			}
 		}
 	],
