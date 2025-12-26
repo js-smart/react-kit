@@ -1,13 +1,17 @@
 name: Build Project
 on: push
 
+# This makes the token global for all jobs and steps in this file
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ["ubuntu-latest"]
-        node: ["latest"]
+        os: [ "ubuntu-latest" ]
+        node: [ "latest" ]
     steps:
       - uses: actions/checkout@v4
 

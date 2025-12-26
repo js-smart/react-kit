@@ -5,13 +5,17 @@ on:
     branches:
       - main
 
+# This makes the token global for all jobs and steps in this file
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
 jobs:
   release:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ["ubuntu-latest"]
-        node: ["latest"]
+        os: [ "ubuntu-latest" ]
+        node: [ "latest" ]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
