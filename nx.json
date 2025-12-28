@@ -34,12 +34,6 @@
 			"options": {
 				"testTargetName": "test"
 			}
-		},
-		{
-			"plugin": "@nx/vitest",
-			"options": {
-				"testTargetName": "test"
-			}
 		}
 	],
 	"generators": {
