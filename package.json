@@ -6,9 +6,9 @@
 	"type": "module",
 	"scripts": {
 		"nx": "nx",
-		"start": "nx serve",
+		"start": "nx serve react-kit-demo",
 		"build": "nx build react-kit",
-		"build:demo": "nx build",
+		"build:demo": "nx build react-kit-demo",
 		"test": "nx test react-kit ",
 		"update": "nx migrate latest"
 	},
@@ -23,6 +23,11 @@
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"react-router-dom": "^7.9.4"
+	},
+	"pnpm": {
+		"overrides": {
+			"esbuild": "0.26.0"
+		}
 	},
 	"devDependencies": {
 		"@babel/core": "^7.28.0",
