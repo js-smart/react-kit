@@ -23,10 +23,12 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
       <DialogTitle>{title ?? "Confirm"}</DialogTitle>
       <DialogContent dividers>{message}</DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={() => onClose("No")}>
+        <Button autoFocus onClick={() => onClose("No")} aria-label="Cancel">
           Cancel
         </Button>
-        <Button onClick={() => onClose("Yes")}>Yes</Button>
+        <Button onClick={() => onClose("Yes")} aria-label="Yes">
+          Yes
+        </Button>
       </DialogActions>
     </Dialog>
   );

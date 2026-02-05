@@ -16,6 +16,7 @@ interface SuccessButtonProps {
   onClick: () => void;
   startIcon?: React.ReactNode;
   dataCy?: string;
+  ariaLabel?: string;
 }
 
 /**
@@ -37,6 +38,7 @@ export function ExcelButton(props: SuccessButtonProps): React.JSX.Element {
       color="success"
       type={props.type ?? "button"}
       onClick={() => props.onClick()}
+      aria-label={props.ariaLabel ?? props.name ?? "Export to Excel"}
     >
       {props.children ?? props.name}
     </Button>

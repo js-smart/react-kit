@@ -14,6 +14,7 @@ interface DeleteButtonProps {
   dataCy?: string;
   startIcon?: React.ReactNode;
   onClick: () => void;
+  ariaLabel?: string;
 }
 
 export function DeleteButton(props: DeleteButtonProps) {
@@ -29,6 +30,7 @@ export function DeleteButton(props: DeleteButtonProps) {
       sx={{ m: 1 }}
       type={props.type ?? "button"}
       onClick={props.onClick}
+      aria-label={props.ariaLabel ?? props.label ?? "Delete"}
     >
       {props.label ? props.label : "Delete"}
     </Button>

@@ -1,11 +1,11 @@
-import React from "react";
-import { Button, SxProps, Theme } from "@mui/material";
-import SaveIcon from "@mui/icons-material/Save";
+import SaveIcon from '@mui/icons-material/Save';
+import { Button, SxProps, Theme } from '@mui/material';
+import React from 'react';
 
 const style = {
-  backgroundColor: "$primary-color",
-  color: "var(--white-color)",
-  margin: "20px",
+	backgroundColor: '$primary-color',
+	color: 'var(--white-color)',
+	margin: '20px',
 };
 
 /**
@@ -15,16 +15,17 @@ const style = {
  * @since 0.3.3
  */
 interface Props {
-  children?: React.ReactNode;
-  type?: "button" | "submit" | "reset";
-  name?: string;
-  loading: boolean;
-  dataCy?: string;
-  startIcon?: React.ReactNode;
-  sx?: SxProps<Theme>;
-  onClick?: () => void;
-  variant?: "text" | "outlined" | "contained";
-  color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
+	children?: React.ReactNode;
+	type?: 'button' | 'submit' | 'reset';
+	name?: string;
+	loading: boolean;
+	dataCy?: string;
+	startIcon?: React.ReactNode;
+	sx?: SxProps<Theme>;
+	onClick?: () => void;
+	variant?: 'text' | 'outlined' | 'contained';
+	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+	ariaLabel?: string;
 }
 
 /**
@@ -34,21 +35,21 @@ interface Props {
  * @since 0.1.0
  */
 export function LoadingSuccessButton(props: Props) {
-  return (
-    <Button
-      name={props.name}
-      data-cy={props.dataCy ?? "loading-success-button"}
-      variant={props.variant ?? "contained"}
-      color={props.color ?? "success"}
-      loadingPosition={"start"}
-      startIcon={props.startIcon ?? <SaveIcon />}
-      loading={props.loading}
-      type={props.type ?? "button"}
-      style={style}
-      sx={props.sx}
-      onClick={props.onClick}
-    >
-      {props.children ?? props.name}
-    </Button>
-  );
+	return (
+		<Button
+			name={props.name}
+			data-cy={props.dataCy ?? 'loading-success-button'}
+			variant={props.variant ?? 'contained'}
+			color={props.color ?? 'success'}
+			loadingPosition={'start'}
+			startIcon={props.startIcon ?? <SaveIcon />}
+			loading={props.loading}
+			type={props.type ?? 'button'}
+			style={style}
+			sx={props.sx}
+			onClick={props.onClick}
+			aria-label={props.ariaLabel ?? props.name ?? 'Save'}>
+			{props.children ?? props.name}
+		</Button>
+	);
 }

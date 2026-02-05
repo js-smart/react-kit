@@ -7,6 +7,7 @@ interface Props {
   linkText?: string;
   target?: string;
   children?: React.ReactNode;
+  ariaLabel?: string;
 }
 
 /**
@@ -19,7 +20,13 @@ interface Props {
  */
 export function NextLink(props: Readonly<Props>): React.JSX.Element {
   return (
-    <MuiLink component={Link} to={props.href} className={"next-btn-link"} underline="hover">
+    <MuiLink
+      component={Link}
+      to={props.href}
+      className={"next-btn-link"}
+      underline="hover"
+      aria-label={props.ariaLabel ?? (typeof (props.linkText ?? props.children) === "string" ? (props.linkText ?? props.children) : undefined)}
+    >
       {props.linkText ?? props.children}
     </MuiLink>
   );

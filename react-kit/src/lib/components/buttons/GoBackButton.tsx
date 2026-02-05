@@ -8,6 +8,7 @@ interface GoBackButtonProps {
   children?: React.ReactNode;
   navigate: NavigateFunction;
   color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
+  ariaLabel?: string;
 }
 
 export function GoBackButton(props: GoBackButtonProps) {
@@ -17,6 +18,7 @@ export function GoBackButton(props: GoBackButtonProps) {
         name={props.name}
         color={props.color ?? "primary"}
         onClick={() => props.navigate(-1)}
+        aria-label={props.ariaLabel ?? "Go back to previous page"}
       >
         <ArrowBackIosIcon />
         {props.children}
