@@ -36,7 +36,7 @@ describe('HistoryButton', () => {
 				Custom History
 			</HistoryButton>
 		);
-		const button = screen.getByRole('button', { name: 'Custom History' });
+		const button = screen.getByRole('button', { name: 'custom-name' });
 		expect(button).toBeInTheDocument();
 		expect(button).toHaveClass('MuiButton-outlinedSecondary');
 		expect(button).toHaveAttribute('name', 'custom-name');
