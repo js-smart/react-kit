@@ -1,8 +1,7 @@
-import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { HistoryButton } from '../../lib/components/buttons/HistoryButton';
+import { fireEvent, render, screen } from '@testing-library/react';
 import jest from 'jest-mock';
+import { HistoryButton } from '../../lib/components/buttons/HistoryButton';
 
 describe('HistoryButton', () => {
 	const mockOnClick = jest.fn();
