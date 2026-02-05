@@ -12,11 +12,7 @@ interface EditIconButtonProps {
 export function EditIconButton(props: Readonly<EditIconButtonProps>) {
 	return (
 		<Tooltip title={props.tooltipTitle}>
-			<IconButton
-				sx={{ pt: 0, pb: 0 }}
-				color={props.color ?? 'primary'}
-				onClick={() => props.onClick(true)}
-				aria-label={props.ariaLabel ?? props.tooltipTitle}>
+			<IconButton color={props.color ?? 'primary'} onClick={() => props.onClick(true)} aria-label={props.ariaLabel ?? props.tooltipTitle}>
 				<EditIcon />
 			</IconButton>
 		</Tooltip>
