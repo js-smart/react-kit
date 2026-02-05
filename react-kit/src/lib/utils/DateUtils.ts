@@ -4,8 +4,8 @@
  * @author Pavan Kumar Jadda
  * @since 0.1.6
  */
-import { format, parseISO } from "date-fns";
-import { SystemConfig } from "../constants/AppConstants";
+import { format, parseISO } from 'date-fns';
+import { SystemConfig } from '../constants/AppConstants';
 
 /**
  * Sets Cookie expiration to 24 hours. By default, server sets 60 minutes expiration but after each API request it extends to another 60 minutes. In client side set 24 hours as expiration date,
@@ -15,8 +15,8 @@ import { SystemConfig } from "../constants/AppConstants";
  * @since 0.2.30
  */
 export const setCookieExpirationDate = (): Date => {
-  const utcEpochTime = +new Date();
-  return new Date(utcEpochTime + SystemConfig.SYSTEM_COOKIE_TIMEOUT_MILLI_SECONDS);
+	const utcEpochTime = +new Date();
+	return new Date(utcEpochTime + 3600000);
 };
 
 /**
@@ -26,7 +26,7 @@ export const setCookieExpirationDate = (): Date => {
  * @since 0.2.30
  */
 export const convertToIsoDate = (currentDateTime: string): string => {
-  return format(new Date(currentDateTime), SystemConfig.ISO_DATE_FORMAT);
+	return format(new Date(currentDateTime), SystemConfig.ISO_DATE_FORMAT);
 };
 
 /**
@@ -36,8 +36,8 @@ export const convertToIsoDate = (currentDateTime: string): string => {
  * @since 0.2.30
  */
 export const formatDate = (date: string | undefined, newFormat: string): string => {
-  if (!date) {
-    return "";
-  }
-  return format(parseISO(date), newFormat);
+	if (!date) {
+		return '';
+	}
+	return format(parseISO(date), newFormat);
 };

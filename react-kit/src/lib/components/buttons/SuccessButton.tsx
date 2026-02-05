@@ -18,6 +18,7 @@ interface SuccessButtonProps {
   startIcon?: React.ReactNode;
   variant?: "text" | "outlined" | "contained";
   color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
+  ariaLabel?: string;
 }
 
 /**
@@ -38,6 +39,7 @@ export function SuccessButton(props: SuccessButtonProps): React.JSX.Element {
       color={props.color ?? "success"}
       type={props.type ?? "button"}
       onClick={() => props.onClick()}
+      aria-label={props.ariaLabel ?? props.name ?? "Save"}
     >
       {props.children ?? props.name}
     </Button>

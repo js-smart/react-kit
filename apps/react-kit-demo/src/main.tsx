@@ -1,8 +1,8 @@
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { StrictMode } from "react";
 import * as ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/Routes";
-import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
