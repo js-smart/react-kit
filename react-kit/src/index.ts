@@ -27,7 +27,6 @@ export { a11yProps, TabPanel } from './lib/components/tabs/TabPanel';
 export * from './lib/utils/BooleanUtils';
 export * from './lib/utils/CssUtils';
 export * from './lib/utils/DateUtil';
-export * from './lib/utils/DateUtils';
 export * from './lib/utils/NumberUtils';
 export * from './lib/utils/ProgressStateUtils';
 export * from './lib/utils/StringUtils';

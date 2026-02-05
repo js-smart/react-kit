@@ -13,14 +13,14 @@ describe("SuccessButton", () => {
 
   it("renders with the correct default properties", () => {
     render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
-    const button = screen.getByRole("button", { name: "Success" });
+    const button = screen.getByRole("button", { name: "Save" });
     expect(button).toBeInTheDocument();
     expect(button).toHaveClass("MuiButton-containedSuccess");
   });
 
   it("calls onClick when clicked", () => {
     render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
-    fireEvent.click(screen.getByRole("button", { name: "Success" }));
+    fireEvent.click(screen.getByRole("button", { name: "Save" }));
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 
@@ -37,7 +37,7 @@ describe("SuccessButton", () => {
         Custom Success
       </SuccessButton>,
     );
-    const button = screen.getByRole("button", { name: "Custom Success" });
+    const button = screen.getByRole("button", { name: "custom-name" });
     expect(button).toBeInTheDocument();
     expect(button).toHaveClass("MuiButton-outlinedSecondary");
     expect(button).toHaveAttribute("name", "custom-name");

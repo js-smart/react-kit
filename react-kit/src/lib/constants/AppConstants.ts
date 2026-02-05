@@ -10,6 +10,7 @@ export enum SystemConfig {
 	SYSTEM_DATE_FORMAT = 'MM/dd/yyyy',
 	SYSTEM_DATE_TIME_FORMAT = 'MM/dd/yyyy hh:mm:ss a',
 	ISO_DATE_FORMAT = 'yyyy-MM-dd',
+	SYSTEM_COOKIE_TIMEOUT_MILLI_SECONDS = 3600000,
 }
 
 /**

@@ -45,7 +45,7 @@ describe("LoadingSuccessButton", () => {
         Custom Success
       </LoadingSuccessButton>,
     );
-    const button = screen.getByRole("button", { name: "Custom Success" });
+    const button = screen.getByRole("button", { name: "custom-name" });
     expect(button).toBeInTheDocument();
     expect(button).toHaveAttribute("name", "custom-name");
     expect(button).toHaveAttribute("data-cy", "custom-data-cy");
