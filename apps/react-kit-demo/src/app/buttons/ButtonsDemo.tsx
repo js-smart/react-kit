@@ -1,13 +1,14 @@
 import { Divider } from '@mui/material';
 import {
-  CancelButton,
-  DeleteButton,
-  ExcelButton,
-  GoBackButton,
-  HistoryButton,
-  LoadingSuccessButton,
-  ManageButton,
-  SuccessButton,
+	CancelButton,
+	DeleteButton,
+	EditIconButton,
+	ExcelButton,
+	GoBackButton,
+	HistoryButton,
+	LoadingSuccessButton,
+	ManageButton,
+	SuccessButton,
 } from '@react-kit/react-kit';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ export default function ButtonsDemo() {
 			<br />
 			Excel Button:
 			<ExcelButton onClick={() => console.log('Clicked Excel Button')}>Export to Excel</ExcelButton> <br />
+			<br />
 			<br />
 			<div>
 				Success Button:
@@ -51,6 +53,12 @@ export default function ButtonsDemo() {
 			<div>
 				Manage Button:
 				<ManageButton onClick={() => console.log('Clicked Manage Button')}>Manage</ManageButton>
+			</div>
+			<br />
+			<br />
+			<div>
+				Edit Icon Button:
+				<EditIconButton tooltipTitle={'Edit Icon Button'} onClick={() => console.log('Clicked Manage Button')}></EditIconButton>
 				<br />
 			</div>
 		</div>
