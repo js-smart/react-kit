@@ -1,0 +1,41 @@
+---
+title: Introduction
+sidebar_position: 1
+---
+
+# Buttons
+
+React Kit provides a set of button components built on MUI (Material UI). Use them for consistent actions across your app: cancel, delete, edit, save, navigate, export, and more. Each button is themed with MUI and supports the usual props (e.g. `disabled`, `onClick`, `href`) so they drop into existing flows with minimal setup.
+
+## Available buttons
+
+| Component | Description |
+| --------- | ----------- |
+| [CancelButton](/docs/components/buttons/cancel-button) | Cancel action button |
+| [DeleteButton](/docs/components/buttons/delete-button) | Delete action button |
+| [EditIconButton](/docs/components/buttons/edit-icon-button) | Edit action icon button |
+| [ExcelButton](/docs/components/buttons/excel-button) | Excel export button |
+| [GoBackButton](/docs/components/buttons/go-back-button) | Navigate back button |
+| [HistoryButton](/docs/components/buttons/history-button) | History / list view button |
+| [LoadingSuccessButton](/docs/components/buttons/loading-success-button) | Button with loading and success state |
+| [ManageButton](/docs/components/buttons/manage-button) | Manage action button |
+| [SuccessButton](/docs/components/buttons/success-button) | Primary success / submit button |
+
+## Usage
+
+Import the button you need from the main package:
+
+```tsx
+import {
+  CancelButton,
+  DeleteButton,
+  SuccessButton,
+  ManageButton,
+} from '@js-smart/react-kit';
+```
+
+Then use it in your JSX like any MUI button—pass `onClick`, `disabled`, `children`, and other supported props as needed.
+
+## Next steps
+
+Use the sidebar to open the documentation for each button component. For installation and peer dependencies, see [Installation](/docs/introduction/installation).
