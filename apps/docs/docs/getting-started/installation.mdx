@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 import TabItem from '@theme/TabItem';
@@ -96,9 +96,9 @@ function MyForm() {
 **Using a utility**
 
 ```tsx
-import { StringUtils } from '@js-smart/react-kit';
+import { isBlankOrEmpty } from '@js-smart/react-kit';
 
-const title = StringUtils.capitalize('hello world'); // "Hello world"
+const isEmpty = isBlankOrEmpty(input); // true if null, undefined, or blank string
 ```
 
 For more examples, see the [Introduction](/docs/introduction) page or the [react-kit-demo](https://github.com/js-smart/react-kit/tree/main/apps/react-kit-demo) app.
@@ -120,7 +120,7 @@ pnpm add react@^19 react-dom@^19 @mui/material@^7 @emotion/react @emotion/styled
 
 **Styles or MUI theme not applied**
 
-React Kit components rely on MUI. Wrap your app (or the part that uses React Kit) with `ThemeProvider` from `@mui/material` and ensure MUI’s CSS is loaded. See [MUI installation](https://mui.com/material-ui/getting-started/installation/).
+React Kit components rely on MUI. Wrap your app (or the part that uses React Kit) with `ThemeProvider` from `@mui/material` and ensure MUI's CSS is loaded. See [MUI installation](https://mui.com/material-ui/getting-started/installation/).
 
 **TypeScript errors**
 

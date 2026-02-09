@@ -60,9 +60,9 @@ const config: Config = {
 			respectPrefersColorScheme: true,
 		},
 		navbar: {
-			title: 'My Site',
+			title: 'React Kit',
 			logo: {
-				alt: 'My Site Logo',
+				alt: 'React Kit Logo',
 				src: 'img/logo.svg',
 			},
 			items: [
