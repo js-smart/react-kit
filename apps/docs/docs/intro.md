@@ -2,9 +2,11 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+`@js-smart/react-kit` is a collection of reusable React components, and utilities built with MUI components, React Router and others.
+
+The library provides a set of UI components, and utility functions for state management and other common tasks. Designed with modern React best practices, @js-smart/react-kit offers a flexible, type-safe, and well-documented solution for building React applications.
 
 ## Getting Started
 

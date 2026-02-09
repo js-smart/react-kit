@@ -1,6 +1,12 @@
 {
 	"$schema": "./node_modules/nx/schemas/nx-schema.json",
 	"defaultProject": "react-kit-demo",
+	"projects": {
+		"ui": "react-kit",
+		"docs": {
+			"root": "apps/docs"
+		}
+	},
 	"namedInputs": {
 		"default": ["{projectRoot}/**/*", "sharedGlobals"],
 		"production": [
