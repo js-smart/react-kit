@@ -1,0 +1,49 @@
+---
+title: Url Utils
+sidebar_position: 8
+---
+
+# Url Utils
+
+**Url Utils** provides helpers for URL handling. Use it when you need to detect whether a URL is already encoded (e.g. before deciding to encode or decode) or to avoid double-encoding.
+
+## Import
+
+```tsx
+import { isEncoded } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+isEncoded('hello');           // false
+isEncoded('hello%20world');   // true
+isEncoded('a%2Bb');           // true
+```
+
+## With query or path building
+
+```tsx
+const raw = searchParams.get('q');
+if (raw && !isEncoded(raw)) {
+  // safe to encode for use in another URL
+  const encoded = encodeURIComponent(raw);
+}
+```
+
+## Notes
+
+- Uses `decodeURIComponent(url)` and compares the result to the original. If decoding changes the string, the URL is considered encoded.
+- If `decodeURIComponent` throws (e.g. malformed encoding), the function returns `false`.
+
+## API Reference
+
+### isEncoded
+
+Returns whether the given URL string appears to be percent-encoded. Returns `false` if the URL is not encoded or if decoding fails.
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| `url` | `string` | The URL string to check. |
+
+**Returns:** `boolean`

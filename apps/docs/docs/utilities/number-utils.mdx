@@ -1,0 +1,51 @@
+---
+title: Number Utils
+sidebar_position: 5
+---
+
+# Number Utils
+
+**Number Utils** provides helpers for parsing numbers from strings. Use it when you receive numeric values as strings (e.g. from form inputs or query params) and need a number or undefined for validation or calculations.
+
+## Import
+
+```tsx
+import { parseNumber } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+parseNumber('42');      // 42
+parseNumber('0');      // 0
+parseNumber('');       // undefined
+parseNumber(null);     // undefined
+parseNumber(undefined); // undefined
+```
+
+## With form data or query params
+
+```tsx
+const page = parseNumber(searchParams.get('page')) ?? 1;
+const quantity = parseNumber(formData.get('quantity'));
+if (quantity !== undefined) {
+  // use quantity
+}
+```
+
+## Notes
+
+- Uses `Number.parseInt(value, 10)` for base-10 parsing. Non-numeric strings (e.g. `"abc"`) yield `NaN`; the function returns the result of `parseInt`, so invalid strings can produce `NaN`. Check the return value if you need strict validation.
+- Returns `undefined` when the input is not a string (null or undefined).
+
+## API Reference
+
+### parseNumber
+
+Parses a string to an integer (base 10). Returns `undefined` if the value is not a string.
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| `value` | `string \| null \| undefined` | Value to parse. |
+
+**Returns:** `number | undefined` — Parsed integer, or `undefined` when input is not a string.

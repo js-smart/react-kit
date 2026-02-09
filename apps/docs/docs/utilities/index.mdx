@@ -1,0 +1,41 @@
+---
+title: Introduction
+sidebar_position: 1
+---
+
+# Utilities
+
+React Kit provides a set of utility functions for common tasks: booleans, CSS variables, dates, numbers, progress state, strings, and URLs. Import what you need from the main package and use them in your application logic.
+
+## Available utilities
+
+| Utility | Description |
+| ------- | ----------- |
+| [Boolean Utils](/docs/utilities/boolean-utils) | Boolean parsing (e.g. string to boolean) |
+| [Css Utils](/docs/utilities/css-utils) | CSS variable helpers |
+| [Date Util](/docs/utilities/date-util) | Date formatting and parsing |
+| [Number Utils](/docs/utilities/number-utils) | Number parsing |
+| [Progress State Utils](/docs/utilities/progress-state-utils) | Progress/loading state helpers |
+| [String Utils](/docs/utilities/string-utils) | String helpers (e.g. blank/empty check) |
+| [Url Utils](/docs/utilities/url-utils) | URL building and parsing |
+
+## Usage
+
+Import utilities from the main package:
+
+```tsx
+import {
+  parseBoolean,
+  getCssVariable,
+  formatToAppDate,
+  parseNumber,
+  initializeState,
+  markSuccess,
+  isBlankOrEmpty,
+  isEncoded,
+} from '@js-smart/react-kit';
+```
+
+## Next steps
+
+Use the sidebar to open the documentation for each utility. For installation, see [Installation](/docs/introduction/installation).

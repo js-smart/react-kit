@@ -1,0 +1,75 @@
+---
+title: Date Util
+sidebar_position: 4
+---
+
+# Date Util
+
+**Date Util** provides date formatting and parsing using the [Temporal API](https://tc39.es/proposal-temporal/) (via `@js-temporal/polyfill`). It uses the system locale and time zone from **AppConstants** (e.g. `SystemConfig.SYSTEM_LOCALE`, `TEMPORAL_DATE_FORMAT`) to format dates for display or to convert between ISO strings and `Date` objects.
+
+Use it when you need consistent app-wide date display (e.g. `MM/dd/yyyy`) or when converting form/API dates to or from ISO (YYYY-MM-DD).
+
+## Import
+
+```tsx
+import {
+  formatToAppDateTime,
+  formatToAppDate,
+  formatIsoToAppDate,
+  formatOldDateToIsoString,
+  formatOldDateToIsoDate,
+  parseIsoDate,
+  formatUnixTimeToOldDate,
+  isAfter,
+} from '@js-smart/react-kit';
+```
+
+## Format to app display
+
+```tsx
+formatToAppDate(new Date());           // e.g. "02/08/2026"
+formatToAppDateTime(new Date());       // e.g. "02/08/2026, 10:30:00 AM"
+formatToAppDate('2026-02-08');        // same, from ISO string
+formatIsoToAppDate('2026-02-08');     // app date format from ISO date string
+```
+
+## Format to ISO (YYYY-MM-DD)
+
+```tsx
+formatOldDateToIsoString(new Date()); // e.g. "2026-02-08"
+formatOldDateToIsoDate(new Date());   // same (alias)
+```
+
+## Parse to Date
+
+```tsx
+parseIsoDate('2026-02-08');           // Date at local midnight
+parseIsoDate(null);                   // null
+formatUnixTimeToOldDate(1707350400000); // Date from Unix timestamp
+```
+
+## Comparison
+
+```tsx
+isAfter(new Date('2026-02-09'), new Date('2026-02-08')); // true
+isAfter(undefined, new Date());                          // false
+```
+
+## Peer dependencies
+
+Date Util uses **@js-temporal/polyfill** and the library's **AppConstants** (e.g. `SystemConfig.SYSTEM_LOCALE`, `TEMPORAL_DATE_FORMAT`, `TEMPORAL_DATE_TIME_FORMAT`). Ensure your project has `@js-temporal/polyfill` installed if you use date utilities (see [Installation](/docs/introduction/installation)).
+
+## API Reference
+
+| Function | Description |
+| -------- | ----------- |
+| `formatToAppDateTime(date)` | Format `Date` or ISO string to app date-time string (locale + time zone). |
+| `formatToAppDate(date)` | Format `Date` or ISO string to app date string. |
+| `formatIsoToAppDate(date)` | Format ISO date string to app date string. |
+| `formatOldDateToIsoString(date)` | Format `Date` or string to ISO date string (YYYY-MM-DD). Accepts `null`. |
+| `formatOldDateToIsoDate(date)` | Same as `formatOldDateToIsoString`. |
+| `parseIsoDate(date)` | Parse ISO date string to `Date` at local midnight. Returns `null` for null/undefined/empty. |
+| `formatUnixTimeToOldDate(date)` | Convert Unix timestamp (number or string) to `Date`. Returns `undefined` for invalid input. |
+| `isAfter(date1, date2)` | Returns `true` if `date1` is after `date2`; otherwise `false`. Handles `Date` or ISO strings. |
+
+All formatting functions return an empty string for null/undefined/empty input unless noted.

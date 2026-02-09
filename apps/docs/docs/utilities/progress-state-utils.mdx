@@ -1,0 +1,69 @@
+---
+title: Progress State Utils
+sidebar_position: 6
+---
+
+# Progress State Utils
+
+**Progress State Utils** provides helpers to create and update a **ProgressState** object used for loading, success, and error UI (e.g. with [App Snack Bar](/docs/components/app-snack-bar)). ProgressState has `isLoading`, `isSuccess`, `isError`, `isComplete`, and `message`. Use these utilities to keep state updates consistent and immutable.
+
+Use it when you manage async operations (save, delete, submit) and want a single state object to drive spinners, success messages, and error messages.
+
+## Import
+
+```tsx
+import {
+  initializeState,
+  markLoading,
+  markSuccess,
+  markError,
+} from '@js-smart/react-kit';
+import type { ProgressState } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+const [progressState, setProgressState] = useState<ProgressState>(initializeState());
+
+// Start request
+setProgressState(markLoading(progressState));
+
+try {
+  await saveData();
+  setProgressState(markSuccess(progressState, 'Saved successfully.'));
+} catch (e) {
+  setProgressState(markError(progressState, 'Something went wrong.'));
+}
+```
+
+## With App Snack Bar
+
+```tsx
+const [open, setOpen] = useState(false);
+const [progressState, setProgressState] = useState(initializeState());
+
+const handleSave = async () => {
+  setOpen(true);
+  setProgressState(markLoading(progressState));
+  try {
+    await api.save();
+    setProgressState(markSuccess(progressState, 'Saved!'));
+  } catch {
+    setProgressState(markError(progressState, 'Save failed.'));
+  }
+};
+
+<AppSnackBar open={open} progressState={progressState} />
+```
+
+## API Reference
+
+| Function | Description |
+| -------- | ----------- |
+| `initializeState()` | Returns a new ProgressState with all flags false and empty message. |
+| `markLoading(progressState)` | Returns a new state with `isLoading: true`, others false, message cleared. |
+| `markSuccess(progressState, message?)` | Returns a new state with `isSuccess: true`, `isComplete: true`, `isLoading: false`, `isError: false`, and optional message. |
+| `markError(progressState, message?)` | Returns a new state with `isError: true`, `isComplete: true`, `isLoading: false`, `isSuccess: false`, and optional message. |
+
+All updaters return a new object; they do not mutate the input. ProgressState type is exported from the library.

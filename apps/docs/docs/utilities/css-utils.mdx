@@ -1,0 +1,47 @@
+---
+title: Css Utils
+sidebar_position: 3
+---
+
+# Css Utils
+
+**Css Utils** provides helpers for reading CSS custom properties (variables) from the document. Use it when you need to read a CSS variable value at runtime (e.g. for JavaScript logic or dynamic styling).
+
+## Import
+
+```tsx
+import { getCssVariable } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+// Assuming :root { --primary-color: #1976d2; }
+const primaryColor = getCssVariable('--primary-color');
+// "#1976d2" (trimmed)
+```
+
+## With theme or design tokens
+
+```tsx
+const spacing = getCssVariable('--spacing-unit');
+const fontSize = getCssVariable('--font-size-base');
+```
+
+## Notes
+
+- Uses `getComputedStyle(document.documentElement)` so it runs in the browser. Avoid calling during SSR without a guard.
+- The returned value is trimmed of leading/trailing whitespace.
+- If the variable is not set, returns an empty string.
+
+## API Reference
+
+### getCssVariable
+
+Returns the computed value of a CSS custom property on the document root. The variable name should include the leading `--` (e.g. `--primary-color`).
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| `variable` | `string` | The name of the CSS variable (e.g. `--primary-color`). |
+
+**Returns:** `string` — The value of the variable, trimmed. Empty string if not set.
