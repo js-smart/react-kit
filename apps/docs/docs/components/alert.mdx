@@ -1,0 +1,81 @@
+---
+title: Dismissible Alert
+sidebar_position: 1
+---
+
+# DismissibleAlert
+
+**DismissibleAlert** is a reusable alert component built on MUI's [Alert](https://mui.com/material-ui/react-alert/). It displays a short message with configurable severity (`error`, `info`, `success`, or `warning`) and gives users clear feedback for actions like form submission, validation errors, or status updates.
+
+Use it when you need to show temporary, non-blocking messages that can be closed by the user or automatically after a timeout. By default, the alert shows a close button and auto-dismisses after 5 seconds; both behaviors can be turned off or customized. The component uses MUI theming and typography, so it fits naturally into existing MUI-based apps and supports the `className` prop for extra styling.
+
+## Import
+
+```tsx
+import { DismissibleAlert } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<DismissibleAlert message="Your changes have been saved." severity="success" />
+```
+
+## Severity variants
+
+Use the `severity` prop to style the alert:
+
+```tsx
+<DismissibleAlert message="Something went wrong." severity="error" />
+<DismissibleAlert message="Here is some information." severity="info" />
+<DismissibleAlert message="Operation completed successfully." severity="success" />
+<DismissibleAlert message="Please review before continuing." severity="warning" />
+```
+
+## Without auto-dismiss
+
+To keep the alert visible until the user closes it, set `dismissOnTimeOut` to `false`:
+
+```tsx
+<DismissibleAlert message="This alert stays until you close it." severity="info" dismissOnTimeOut={false} />
+```
+
+## Custom timeout
+
+Change how long the alert stays visible before auto-dismissing (in milliseconds):
+
+```tsx
+<DismissibleAlert message="This will disappear in 3 seconds." severity="success" dismissTimeOut={3000} />
+```
+
+## Non-dismissible alert
+
+Hide the close button but still allow auto-dismiss:
+
+```tsx
+<DismissibleAlert message="Informational message without close button." severity="info" dismissible={false} dismissOnTimeOut={false} />
+```
+
+## Accessibility
+
+Provide a custom `ariaLabel` when the default label is not descriptive enough for screen readers:
+
+```tsx
+<DismissibleAlert message="Session expired. Please log in again." severity="warning" ariaLabel="Session expired warning" />
+```
+
+## Peer dependencies
+
+`DismissibleAlert` uses MUI's `Alert`, `IconButton`, and `Close` icon. Ensure your project has `@mui/material` and `@mui/icons-material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop               | Type         | Default               | Description                                                                 |
+| ------------------ | ------------ | --------------------- | --------------------------------------------------------------------------- |
+| `message`          | `string`     | —                     | **Required.** The alert message to display.                                 |
+| `severity`         | `AlertColor` | —                     | **Required.** One of `'error'`, `'info'`, `'success'`, `'warning'`.         |
+| `className`        | `string`     | —                     | Optional CSS class name for the alert.                                      |
+| `dismissible`      | `boolean`    | `true`                | Whether to show a close button.                                             |
+| `dismissOnTimeOut` | `boolean`    | `true`                | Whether to auto-dismiss after the timeout.                                  |
+| `dismissTimeOut`   | `number`     | `5000`                | Time in milliseconds before auto-dismiss (when `dismissOnTimeOut` is true). |
+| `ariaLabel`        | `string`     | `'Dismissible Alert'` | Accessible label for the alert.                                             |

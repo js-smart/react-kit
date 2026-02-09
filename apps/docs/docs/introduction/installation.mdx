@@ -1,0 +1,134 @@
+---
+sidebar_position: 2
+---
+
+import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs';
+
+# Installation
+
+Install the library and its peer dependencies in your React project:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @js-smart/react-kit
+```
+
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add @js-smart/react-kit
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @js-smart/react-kit
+```
+
+  </TabItem>
+  <TabItem value="bun" label="bun">
+
+```bash
+bun add @js-smart/react-kit
+```
+
+  </TabItem>
+</Tabs>
+
+React Kit has peer dependencies that your project should satisfy (they are often already present in MUI-based apps):
+
+- `react` and `react-dom` (^18.3.1 or ^19.0.0)
+- `@mui/material` (^7.1.0)
+- Optional: `react-router-dom`, `@mui/x-data-grid`, `date-fns` for specific components
+
+If you start from a minimal React app, install MUI and React Router as well:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @mui/material @emotion/react @emotion/styled react-router-dom
+```
+
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add @mui/material @emotion/react @emotion/styled react-router-dom
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @mui/material @emotion/react @emotion/styled react-router-dom
+```
+
+  </TabItem>
+  <TabItem value="bun" label="bun">
+
+```bash
+bun add @mui/material @emotion/react @emotion/styled react-router-dom
+```
+
+  </TabItem>
+</Tabs>
+
+## Usage example
+
+After installing React Kit, import and use components or utilities in your app:
+
+**Using a component**
+
+```tsx
+import { SuccessButton } from '@js-smart/react-kit';
+
+function MyForm() {
+	return <SuccessButton onClick={() => handleSave()}>Save</SuccessButton>;
+}
+```
+
+**Using a utility**
+
+```tsx
+import { StringUtils } from '@js-smart/react-kit';
+
+const title = StringUtils.capitalize('hello world'); // "Hello world"
+```
+
+For more examples, see the [Introduction](/docs/introduction) page or the [react-kit-demo](https://github.com/js-smart/react-kit/tree/main/apps/react-kit-demo) app.
+
+## Troubleshooting
+
+**Peer dependency warnings**
+
+If you see peer dependency warnings for `@mui/material`, `react`, or `react-dom`, install the versions React Kit expects (see the list above). For example:
+
+```bash
+pnpm add react@^19 react-dom@^19 @mui/material@^7 @emotion/react @emotion/styled
+```
+
+**"Module not found" or import errors**
+
+- Ensure the package is installed: `@js-smart/react-kit` appears in your `package.json` dependencies.
+- Restart the dev server and clear any cache (e.g. delete `node_modules/.cache` if present).
+
+**Styles or MUI theme not applied**
+
+React Kit components rely on MUI. Wrap your app (or the part that uses React Kit) with `ThemeProvider` from `@mui/material` and ensure MUI’s CSS is loaded. See [MUI installation](https://mui.com/material-ui/getting-started/installation/).
+
+**TypeScript errors**
+
+Ensure your project uses TypeScript 5.x and that `@types/react` and `@types/react-dom` are compatible with your React version (18.3+ or 19.x).
+
+## Next steps
+
+- Read the [Introduction](/docs/introduction) for an overview and available components/utilities.
+- Browse the **Docs** sidebar for detailed component and utility documentation.
+- Run the [react-kit-demo](https://github.com/js-smart/react-kit/tree/main/apps/react-kit-demo) app locally to explore components.
+- Check the [GitHub repository](https://github.com/js-smart/react-kit) for source code, issues, and contributions.
