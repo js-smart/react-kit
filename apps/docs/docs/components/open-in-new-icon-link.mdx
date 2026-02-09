@@ -1,0 +1,48 @@
+---
+title: Open In New Icon Link
+sidebar_position: 5
+---
+
+# Open In New Icon Link
+
+**Open In New Icon Link** is a link that opens in a new tab (by default) and shows an "open in new" icon at the end. It combines React Router's [Link](https://reactrouter.com/en/main/components/link) with MUI's [Link](https://mui.com/material-ui/react-link/) and adds `rel="noreferrer"` for security when using `target="_blank"`.
+
+Use it for external or same-tab links where you want to indicate that the destination opens elsewhere. The icon is rendered inline after the text.
+
+## Import
+
+```tsx
+import { OpenInNewIconLink } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<OpenInNewIconLink href="/external-docs" linkText="Documentation" target="_blank" />
+```
+
+## With children
+
+```tsx
+<OpenInNewIconLink href="https://example.com" linkText="Example" target="_blank">
+  Visit Example
+</OpenInNewIconLink>
+```
+
+## Accessibility
+
+The link uses `aria-label` from the `ariaLabel` prop, or falls back to `linkText` or `children` (when a string). Set `ariaLabel` when the visible text is not descriptive enough for screen readers.
+
+## Peer dependencies
+
+`OpenInNewIconLink` uses MUI's `Link`, `Icon`, React Router's `Link`, and the `OpenInNew` icon. Ensure your project has `@mui/material`, `@mui/icons-material`, and `react-router-dom` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop        | Type              | Default   | Description                                                       |
+| ----------- | ------------------ | --------- | ----------------------------------------------------------------- |
+| `href`      | `string`           | —         | **Required.** Target URL or path.                                 |
+| `linkText`  | `string`           | —         | **Required.** Link label (or use `children`).                     |
+| `target`    | `string`           | `'_blank'`| Target for the link (e.g. `_blank` for new tab).                  |
+| `children`  | `React.ReactNode`  | —         | Optional content; used when provided instead of `linkText`.      |
+| `ariaLabel` | `string`           | —         | Accessible label (falls back to `linkText` or string `children`). |

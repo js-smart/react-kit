@@ -1,0 +1,57 @@
+---
+title: Next Link
+sidebar_position: 4
+---
+
+# Next Link
+
+**Next Link** is a link component that uses React Router's [Link](https://reactrouter.com/en/main/components/link) with MUI's [Link](https://mui.com/material-ui/react-link/) styling. It renders as an in-app navigation link with hover underline and optional `linkText` or `children`.
+
+Use it for internal routes so navigation stays in the React app without a full page reload. The link uses the `to` prop as `href` and applies the `next-btn-link` class.
+
+## Import
+
+```tsx
+import { NextLink } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<NextLink href="/dashboard" linkText="Go to Dashboard" />
+```
+
+## With children
+
+```tsx
+<NextLink href="/settings">Settings</NextLink>
+```
+
+## With target and aria-label
+
+```tsx
+<NextLink
+  href="/help"
+  linkText="Help"
+  target="_self"
+  ariaLabel="Open help page"
+/>
+```
+
+## Accessibility
+
+Set `ariaLabel` when the visible text is not descriptive enough for screen readers.
+
+## Peer dependencies
+
+`NextLink` uses MUI's `Link` and React Router's `Link`. Ensure your project has `@mui/material` and `react-router-dom` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop        | Type             | Default | Description                                          |
+| ----------- | ---------------- | ------- | ---------------------------------------------------- |
+| `href`      | `string`         | —       | **Required.** Target path (passed to React Router as `to`). |
+| `linkText`  | `string`         | —       | Link label. If omitted, `children` is used.         |
+| `target`    | `string`         | —       | Optional target (e.g. `_blank`).                     |
+| `children`  | `React.ReactNode`| —       | Link content when `linkText` is not set.            |
+| `ariaLabel` | `string`         | —       | Accessible label for the link.                      |

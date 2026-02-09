@@ -1,0 +1,68 @@
+---
+title: Table Pagination Actions
+sidebar_position: 9
+---
+
+# Table Pagination Actions
+
+**Table Pagination Actions** provides first, previous, next, and last page buttons for table pagination. It is built with MUI's [IconButton](https://mui.com/material-ui/api/icon-button/) and integrates with MUI's theme direction (RTL support). Use it with [TablePagination](https://mui.com/material-ui/react-table-pagination/) or similar components by passing `count`, `page`, `rowsPerPage`, and `onPageChange`.
+
+Use it when you need custom pagination controls that match MUI's DataGrid-style first/prev/next/last behavior. Buttons are disabled at the first and last page as appropriate.
+
+## Import
+
+```tsx
+import { TablePaginationActions } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+const [page, setPage] = useState(0);
+const rowsPerPage = 10;
+const count = 100;
+
+<TablePaginationActions
+  count={count}
+  page={page}
+  rowsPerPage={rowsPerPage}
+  onPageChange={(_, newPage) => setPage(newPage)}
+/>
+```
+
+## With MUI TablePagination
+
+```tsx
+import { TablePagination } from '@mui/material';
+
+<TablePagination
+  rowsPerPageOptions={[5, 10, 25]}
+  colSpan={3}
+  count={count}
+  rowsPerPage={rowsPerPage}
+  page={page}
+  onPageChange={(e, newPage) => setPage(newPage)}
+  onRowsPerPageChange={(e) => {
+    setRowsPerPage(parseInt(e.target.value, 10));
+    setPage(0);
+  }}
+  ActionsComponent={TablePaginationActions}
+/>
+```
+
+## Accessibility
+
+Each icon button has an `aria-label`: "first page", "previous page", "next page", "last page". Icons flip for RTL when using MUI's theme direction.
+
+## Peer dependencies
+
+`TablePaginationActions` uses MUI's `Box`, `IconButton`, `useTheme`, and icons `FirstPage`, `KeyboardArrowLeft`, `KeyboardArrowRight`, `LastPage`. Ensure your project has `@mui/material` and `@mui/icons-material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop          | Type                                                                 | Default | Description                                                                 |
+| ------------- | -------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------- |
+| `count`       | `number`                                                             | —       | **Required.** Total number of rows.                                          |
+| `page`        | `number`                                                             | —       | **Required.** Zero-based index of the current page.                         |
+| `rowsPerPage` | `number`                                                             | —       | **Required.** Number of rows per page.                                      |
+| `onPageChange`| `(event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void` | —    | **Required.** Called when the user changes the page (e.g. next, last).      |

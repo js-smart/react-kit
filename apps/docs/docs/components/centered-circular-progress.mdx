@@ -1,0 +1,30 @@
+---
+title: Centered Circular Progress
+sidebar_position: 2
+---
+
+# Centered Circular Progress
+
+**Centered Circular Progress** is a simple loading spinner built on MUI's [CircularProgress](https://mui.com/material-ui/react-progress/#circular). It renders a centered circular indicator with no props, suitable for full-page or section-level loading states.
+
+Use it when you need a minimal, accessible loading indicator. The component includes `role="status"` and `aria-label="Loading"` for screen readers.
+
+## Import
+
+```tsx
+import { CenteredCircularProgress } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+{isLoading && <CenteredCircularProgress />}
+```
+
+## Peer dependencies
+
+`CenteredCircularProgress` uses MUI's `CircularProgress`. Ensure your project has `@mui/material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+This component does not accept any props.

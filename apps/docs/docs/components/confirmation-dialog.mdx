@@ -1,0 +1,69 @@
+---
+title: Confirmation Dialog
+sidebar_position: 3
+---
+
+# Confirmation Dialog
+
+**Confirmation Dialog** is a reusable confirm/cancel dialog built on MUI's [Dialog](https://mui.com/material-ui/react-dialog/). It shows a title, a message, and two actions: "Cancel" (calls `onClose("No")`) and "Yes" (calls `onClose("Yes")`).
+
+Use it when you need to confirm a destructive action, leave a page, or get explicit user approval. Control visibility with the `open` prop and handle the user's choice in `onClose`.
+
+## Import
+
+```tsx
+import { ConfirmDialog } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+const [open, setOpen] = useState(false);
+
+<ConfirmDialog
+  id="confirm-delete"
+  keepMounted={false}
+  title="Delete item?"
+  message="This action cannot be undone."
+  value=""
+  open={open}
+  onClose={(value) => {
+    setOpen(false);
+    if (value === 'Yes') handleDelete();
+  }}
+/>
+```
+
+## Custom title and message
+
+```tsx
+<ConfirmDialog
+  id="confirm-leave"
+  keepMounted={false}
+  title="Discard changes?"
+  message="You have unsaved changes. Are you sure you want to leave?"
+  value=""
+  open={open}
+  onClose={handleClose}
+/>
+```
+
+## Accessibility
+
+The dialog uses MUI's Dialog with standard focus and ARIA behavior. Buttons include `aria-label="Cancel"` and `aria-label="Yes"`.
+
+## Peer dependencies
+
+`ConfirmDialog` uses MUI's `Dialog`, `DialogTitle`, `DialogContent`, `DialogActions`, and `Button`. Ensure your project has `@mui/material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop          | Type                    | Default   | Description                                                                 |
+| ------------- | ----------------------- | --------- | --------------------------------------------------------------------------- |
+| `id`          | `string`                | —         | **Required.** Unique id for the dialog (e.g. for accessibility).            |
+| `keepMounted` | `boolean`               | —         | **Required.** Whether to keep the dialog in the DOM when closed (MUI prop). |
+| `open`        | `boolean`                | —         | **Required.** Whether the dialog is visible.                               |
+| `onClose`     | `(value: string) => void` | —         | **Required.** Called with `"Yes"` or `"No"` when the user chooses.           |
+| `message`     | `string`                | —         | **Required.** Body text shown in the dialog.                                |
+| `value`       | `string`                | —         | **Required.** Value passed to the dialog (e.g. for MUI).                    |
+| `title`       | `string`                | `'Confirm'` | Dialog title.                                                             |

@@ -1,0 +1,61 @@
+---
+title: Query Snack Bar
+sidebar_position: 8
+---
+
+# Query Snack Bar
+
+**Query Snack Bar** shows success or error snackbar notifications based on React Query–style state: `isSuccess`, `isError`, and `message`. It uses MUI's [Snackbar](https://mui.com/material-ui/react-snackbar/) and [Alert](https://mui.com/material-ui/react-alert/) and is intended to work with mutation state from React Query (TanStack Query) or similar libraries.
+
+Use it when you want to display mutation feedback (e.g. "Saved" or "Something went wrong") without tying your UI to the full ProgressState type. When `isSuccess` is true a success alert is shown; when `isError` is true an error alert is shown.
+
+## Import
+
+```tsx
+import { QuerySnackBar } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+const mutation = useMutation({ ... });
+
+<QuerySnackBar
+  open={mutation.isPending || mutation.isSuccess || mutation.isError}
+  isPending={mutation.isPending}
+  isSuccess={mutation.isSuccess}
+  isError={mutation.isError}
+  message={mutation.isSuccess ? 'Saved!' : mutation.error?.message ?? 'Error'}
+/>
+```
+
+## Custom auto-hide duration
+
+```tsx
+<QuerySnackBar
+  open={open}
+  isSuccess={isSuccess}
+  isError={isError}
+  message={message}
+  autoHideDuration={5000}
+/>
+```
+
+## Accessibility
+
+The close button has `aria-label="close"`. Alerts use MUI's severity for screen readers.
+
+## Peer dependencies
+
+`QuerySnackBar` uses MUI's `Snackbar`, `Alert`, `IconButton`, `Slide`, and the `Close` icon. Ensure your project has `@mui/material` and `@mui/icons-material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop               | Type     | Default | Description                                                          |
+| ------------------ | -------- | ------- | -------------------------------------------------------------------- |
+| `open`             | `boolean`| —       | **Required.** Controls whether the snackbar is shown.                |
+| `isSuccess`        | `boolean`| —       | **Required.** When true, shows the success alert with `message`.     |
+| `isError`          | `boolean`| —       | **Required.** When true, shows the error alert with `message`.       |
+| `message`          | `string` | —       | **Required.** Text shown in the success or error alert.              |
+| `isPending`        | `boolean`| —       | Optional. Can be used to control `open` (e.g. show while pending).   |
+| `autoHideDuration` | `number` | `3000`  | Time in ms before the snackbar auto-hides.                           |
