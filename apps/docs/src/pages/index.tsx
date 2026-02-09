@@ -1,10 +1,9 @@
-import type { ReactNode } from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import Layout from '@theme/Layout';
+import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 import styles from './index.module.css';
 
@@ -18,8 +17,11 @@ function HomepageHeader() {
 				</Heading>
 				<p className="hero__subtitle">{siteConfig.tagline}</p>
 				<div className={styles.buttons}>
-					<Link className="button button--secondary button--lg" to="/docs/intro">
+					<Link className="button button--secondary button--lg" to="/docs/introduction">
 						Get Started
+					</Link>
+					<Link className="button button--secondary button--lg" href="https://github.com/js-smart/react-kit" style={{ marginLeft: '1rem' }}>
+						View on GitHub
 					</Link>
 				</div>
 			</div>
@@ -30,11 +32,8 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
+		<Layout title={siteConfig.title} description={siteConfig.tagline}>
 			<HomepageHeader />
-			<main>
-				<HomepageFeatures />
-			</main>
 		</Layout>
 	);
 }
