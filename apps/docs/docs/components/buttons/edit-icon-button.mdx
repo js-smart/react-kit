@@ -1,0 +1,54 @@
+---
+title: Edit Icon Button
+sidebar_position: 4
+---
+
+# Edit Icon Button
+
+**Edit Icon Button** is a compact edit-action control built on MUI's [IconButton](https://mui.com/material-ui/api/icon-button/) and [Tooltip](https://mui.com/material-ui/react-tooltip/). It shows an edit (pencil) icon and is intended for toggling edit mode or opening an editor—the `onClick` handler receives `true` to indicate the user requested edit.
+
+Use it in tables, cards, or headers where space is limited and you need a single icon to enter edit mode. The tooltip explains the action on hover.
+
+## Import
+
+```tsx
+import { EditIconButton } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+const [isEditing, setIsEditing] = useState(false);
+
+<EditIconButton
+  tooltipTitle="Edit"
+  onClick={setIsEditing}
+/>
+```
+
+## With custom tooltip and color
+
+```tsx
+<EditIconButton
+  tooltipTitle="Edit this item"
+  color="primary"
+  onClick={setIsEditing}
+/>
+```
+
+## Accessibility
+
+The icon button uses `aria-label` from the `ariaLabel` prop, or falls back to `tooltipTitle`. Set `ariaLabel` when you need a more descriptive label for screen readers.
+
+## Peer dependencies
+
+`EditIconButton` uses MUI's `IconButton`, `Tooltip`, and `Edit` icon. Ensure your project has `@mui/material` and `@mui/icons-material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop           | Type                                                                 | Default | Description                                                                 |
+| -------------- | -------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------- |
+| `tooltipTitle` | `string`                                                             | —       | **Required.** Tooltip text shown on hover.                                 |
+| `onClick`      | `React.Dispatch<React.SetStateAction<boolean>>`                      | —       | **Required.** Called with `true` when the button is clicked (e.g. set state). |
+| `color`       | `'inherit' \| 'default' \| 'primary' \| 'secondary' \| 'error' \| 'info' \| 'success' \| 'warning'` | `'primary'` | MUI IconButton color. |
+| `ariaLabel`    | `string`                                                             | `tooltipTitle` | Accessible label for the icon button.                                  |

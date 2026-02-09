@@ -1,0 +1,83 @@
+---
+title: Delete Button
+sidebar_position: 3
+---
+
+# Delete Button
+
+**Delete Button** is a reusable delete-action button built on MUI's [Button](https://mui.com/material-ui/react-button/). It shows a delete-forever icon by default and uses an error (red) contained style so it reads clearly as a destructive action.
+
+Use it for confirming deletions, removing items from lists, or other destructive actions. The button supports a loading state and optional custom label and icon.
+
+## Import
+
+```tsx
+import { DeleteButton } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<DeleteButton loading={false} onClick={() => handleDelete()} />
+```
+
+## With custom label
+
+```tsx
+<DeleteButton
+  label="Remove"
+  loading={isDeleting}
+  onClick={() => handleRemove()}
+/>
+```
+
+## Loading state
+
+Show a loading indicator while the delete request is in progress:
+
+```tsx
+<DeleteButton
+  label="Delete"
+  loading={isDeleting}
+  loadingLabel="Deleting..."
+  onClick={() => handleDelete()}
+/>
+```
+
+## Variant and color
+
+Override the default `contained` variant and `error` color:
+
+```tsx
+<DeleteButton
+  loading={false}
+  variant="outlined"
+  color="error"
+  onClick={() => handleDelete()}
+/>
+```
+
+## Accessibility
+
+The button uses `aria-label` from the `ariaLabel` prop, or falls back to `label` or `"Delete"`. Set `ariaLabel` when the visible label is not descriptive enough for screen readers.
+
+## Peer dependencies
+
+`DeleteButton` uses MUI's `Button` and `DeleteForever` icon. Ensure your project has `@mui/material` and `@mui/icons-material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop               | Type                                      | Default           | Description                                                |
+| ------------------ | ----------------------------------------- | ----------------- | ---------------------------------------------------------- |
+| `onClick`          | `() => void`                              | —                 | **Required.** Called when the button is clicked.          |
+| `loading`          | `boolean`                                 | —                 | **Required.** Whether the button is in a loading state.   |
+| `label`            | `string`                                  | `'Delete'`        | Button label.                                              |
+| `loadingLabel`     | `string`                                  | —                 | Label shown during loading.                               |
+| `loadingPosition`  | `'start' \| 'end' \| 'center'`            | `'start'`         | Position of the loading indicator.                         |
+| `type`             | `'button' \| 'submit' \| 'reset'`         | `'button'`        | Native button type.                                        |
+| `variant`          | `'text' \| 'outlined' \| 'contained'`     | `'contained'`     | MUI button variant.                                        |
+| `color`            | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'error'` | MUI button color.                                          |
+| `name`             | `string`                                  | —                 | Native `name` attribute.                                   |
+| `dataCy`           | `string`                                  | `'delete-button'` | `data-cy` value for testing.                               |
+| `startIcon`        | `React.ReactNode`                         | `<DeleteForeverIcon />` | Icon shown before the label.                    |
+| `ariaLabel`        | `string`                                  | `label` or `'Delete'` | Accessible label for the button.                        |

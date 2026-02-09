@@ -1,0 +1,81 @@
+---
+title: Success Button
+sidebar_position: 10
+---
+
+# Success Button
+
+**Success Button** is a reusable primary action button for submit, save, or confirm actions. It is built on MUI's [Button](https://mui.com/material-ui/react-button/) with a success (green) contained style by default.
+
+Use it as the main submit or save control in forms and dialogs. The button accepts custom `children` or `name`, and an optional `startIcon`. It does not include a loading state—use [LoadingSuccessButton](/docs/components/buttons/loading-success-button) when you need to show loading.
+
+## Import
+
+```tsx
+import { SuccessButton } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<SuccessButton name="Save" onClick={() => handleSave()} />
+```
+
+## With children
+
+```tsx
+<SuccessButton onClick={() => handleSubmit()}>Submit</SuccessButton>
+```
+
+## As form submit
+
+```tsx
+<SuccessButton name="Save" type="submit" onClick={() => handleSave()} />
+```
+
+## With start icon
+
+```tsx
+<SuccessButton
+  name="Save"
+  startIcon={<SaveIcon />}
+  onClick={() => handleSave()}
+/>
+```
+
+## Variant and color
+
+Override the default `contained` variant and `success` color:
+
+```tsx
+<SuccessButton
+  name="Confirm"
+  variant="outlined"
+  color="success"
+  onClick={() => handleConfirm()}
+/>
+```
+
+## Accessibility
+
+The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` or `"Save"`. Set `ariaLabel` when the visible label is not descriptive enough for screen readers.
+
+## Peer dependencies
+
+`SuccessButton` uses MUI's `Button`. Ensure your project has `@mui/material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop        | Type                                                                 | Default            | Description                                          |
+| ----------- | -------------------------------------------------------------------- | ------------------ | ---------------------------------------------------- |
+| `onClick`   | `() => void`                                                         | —                  | **Required.** Called when the button is clicked.     |
+| `children`  | `React.ReactNode`                                                    | —                  | Button content. If omitted, `name` is used.         |
+| `name`      | `string`                                                             | —                  | Button label (used when `children` is not provided). |
+| `className` | `string`                                                             | —                  | CSS class name.                                      |
+| `dataCy`    | `string`                                                             | `'success-button'` | `data-cy` value for testing.                         |
+| `sx`        | `SxProps<Theme>`                                                     | —                  | MUI `sx` prop for styling.                           |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                    | `'button'`         | Native button type.                                  |
+| `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`      | MUI button variant.                                  |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'success'` | MUI button color.                          |
+| `startIcon` | `React.ReactNode`                                                    | —                  | Icon shown before the label.                         |
+| `ariaLabel` | `string`                                                             | `name` or `'Save'` | Accessible label for the button.                     |

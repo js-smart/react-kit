@@ -1,0 +1,77 @@
+---
+title: Manage Button
+sidebar_position: 9
+---
+
+# Manage Button
+
+**Manage Button** is a reusable button for opening settings, management, or configuration views. It is built on MUI's [Button](https://mui.com/material-ui/react-button/) and shows a settings (gear) icon by default with a primary contained style and large size.
+
+Use it in app bars, detail pages, or cards to navigate to a manage/settings screen. The button accepts custom `children` (default label is "Manage"), and supports `size`, `variant`, and `color`.
+
+## Import
+
+```tsx
+import { ManageButton } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<ManageButton onClick={() => navigate('/settings')} />
+```
+
+## With custom label
+
+```tsx
+<ManageButton onClick={() => openSettings()}>Settings</ManageButton>
+```
+
+## Size and style
+
+Override the default `large` size and `contained` / `primary` style:
+
+```tsx
+<ManageButton
+  size="medium"
+  variant="outlined"
+  color="primary"
+  onClick={() => openManage()}
+>
+  Manage
+</ManageButton>
+```
+
+## Custom start icon
+
+```tsx
+<ManageButton
+  startIcon={<TuneIcon />}
+  onClick={() => openFilters()}
+>
+  Filters
+</ManageButton>
+```
+
+## Accessibility
+
+The button uses `aria-label` from the `ariaLabel` prop, or from `children` when it is a string, or falls back to `"Manage"`. Set `ariaLabel` when the visible label is not descriptive enough for screen readers.
+
+## Peer dependencies
+
+`ManageButton` uses MUI's `Button` and `Settings` icon. Ensure your project has `@mui/material` and `@mui/icons-material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop        | Type                                                                 | Default            | Description                                          |
+| ----------- | -------------------------------------------------------------------- | ------------------ | ---------------------------------------------------- |
+| `onClick`   | `() => void`                                                         | —                  | **Required.** Called when the button is clicked.     |
+| `children`  | `React.ReactNode`                                                    | `'Manage'`         | Button content.                                      |
+| `size`      | `'small' \| 'medium' \| 'large'`                                     | `'large'`          | MUI button size.                                     |
+| `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`      | MUI button variant.                                  |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'` | MUI button color.                          |
+| `className` | `string`                                                             | —                  | CSS class name.                                      |
+| `name`      | `string`                                                             | —                  | Native `name` attribute.                              |
+| `dataCy`    | `string`                                                             | `'manage-button'`  | `data-cy` value for testing.                         |
+| `startIcon` | `React.ReactNode`                                                    | `<SettingsIcon />` | Icon shown before the label.                         |
+| `ariaLabel` | `string`                                                             | `children` or `'Manage'` | Accessible label for the button.              |

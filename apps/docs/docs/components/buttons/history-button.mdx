@@ -1,0 +1,75 @@
+---
+title: History Button
+sidebar_position: 7
+---
+
+# History Button
+
+**History Button** is a reusable button for opening history, audit log, or list views. It is built on MUI's [Button](https://mui.com/material-ui/react-button/) and shows a history icon by default with a primary contained style.
+
+Use it on detail or form pages to navigate to a history or list view. The button accepts standard MUI button props such as `variant`, `color`, and `sx`, and supports custom `startIcon` and `children`.
+
+## Import
+
+```tsx
+import { HistoryButton } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<HistoryButton name="History" onClick={() => navigate('/orders')} />
+```
+
+## With children
+
+```tsx
+<HistoryButton onClick={() => navigate('/audit-log')}>View audit log</HistoryButton>
+```
+
+## Variant and color
+
+Override the default `contained` variant and `primary` color:
+
+```tsx
+<HistoryButton
+  name="History"
+  variant="outlined"
+  color="secondary"
+  onClick={() => navigate('/history')}
+/>
+```
+
+## Custom start icon
+
+```tsx
+<HistoryButton
+  name="Activity"
+  startIcon={<TimelineIcon />}
+  onClick={() => openActivity()}
+/>
+```
+
+## Accessibility
+
+The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` or `"History"`. Set `ariaLabel` when the visible label is not descriptive enough for screen readers.
+
+## Peer dependencies
+
+`HistoryButton` uses MUI's `Button` and `History` icon. Ensure your project has `@mui/material` and `@mui/icons-material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop        | Type                                                                 | Default            | Description                                          |
+| ----------- | -------------------------------------------------------------------- | ------------------ | ---------------------------------------------------- |
+| `onClick`   | `() => void`                                                         | —                  | **Required.** Called when the button is clicked.     |
+| `children`  | `React.ReactNode`                                                    | —                  | Button content. If omitted, `name` is used.          |
+| `name`      | `string`                                                             | —                  | Button label (used when `children` is not provided). |
+| `className` | `string`                                                             | —                  | CSS class name.                                      |
+| `dataCy`    | `string`                                                             | `'history-button'`| `data-cy` value for testing.                         |
+| `sx`        | `SxProps<Theme>`                                                     | `{ p: 1, m: 1 }`   | MUI `sx` prop for styling.                           |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                    | `'button'`         | Native button type.                                  |
+| `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`      | MUI button variant.                                  |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'` | MUI button color.                          |
+| `startIcon` | `React.ReactNode`                                                    | `<HistoryIcon />`  | Icon shown before the label.                        |
+| `ariaLabel` | `string`                                                             | `name` or `'History'` | Accessible label for the button.                  |

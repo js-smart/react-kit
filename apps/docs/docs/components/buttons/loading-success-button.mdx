@@ -1,0 +1,89 @@
+---
+title: Loading Success Button
+sidebar_position: 8
+---
+
+# Loading Success Button
+
+**Loading Success Button** is a submit/save-style button with a built-in loading state. It is built on MUI's [Button](https://mui.com/material-ui/react-button/), shows a save icon by default, and uses a success (green) contained style. While `loading` is true, the button shows a loading indicator.
+
+Use it for form submit or save actions where you want to disable the button and show progress until the request completes. The `onClick` handler is optional so you can use the button as `type="submit"` in a form.
+
+## Import
+
+```tsx
+import { LoadingSuccessButton } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<LoadingSuccessButton
+  name="Save"
+  loading={isSubmitting}
+  onClick={() => handleSave()}
+/>
+```
+
+## As form submit
+
+```tsx
+<form onSubmit={handleSubmit}>
+  {/* ...fields... */}
+  <LoadingSuccessButton
+    name="Save"
+    type="submit"
+    loading={isSubmitting}
+  />
+</form>
+```
+
+## With children and custom icon
+
+```tsx
+<LoadingSuccessButton
+  loading={isSubmitting}
+  startIcon={<CloudUploadIcon />}
+  onClick={() => upload()}
+>
+  Upload
+</LoadingSuccessButton>
+```
+
+## Variant and color
+
+Override the default `contained` variant and `success` color:
+
+```tsx
+<LoadingSuccessButton
+  name="Submit"
+  loading={isSubmitting}
+  variant="outlined"
+  color="primary"
+  onClick={() => submit()}
+/>
+```
+
+## Accessibility
+
+The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` or `"Save"`. Set `ariaLabel` when the visible label is not descriptive enough for screen readers.
+
+## Peer dependencies
+
+`LoadingSuccessButton` uses MUI's `Button` and `Save` icon. Ensure your project has `@mui/material` and `@mui/icons-material` installed (see [Installation](/docs/introduction/installation)).
+
+## Props
+
+| Prop        | Type                                                                 | Default                      | Description                                          |
+| ----------- | -------------------------------------------------------------------- | ---------------------------- | ---------------------------------------------------- |
+| `loading`   | `boolean`                                                            | —                            | **Required.** Whether the button is in a loading state. |
+| `children`  | `React.ReactNode`                                                    | —                            | Button content. If omitted, `name` is used.          |
+| `name`      | `string`                                                             | —                            | Button label (used when `children` is not provided). |
+| `onClick`   | `() => void`                                                         | —                            | Called when the button is clicked (optional if used as submit). |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                    | `'button'`                   | Native button type.                                  |
+| `dataCy`    | `string`                                                             | `'loading-success-button'`   | `data-cy` value for testing.                         |
+| `startIcon` | `React.ReactNode`                                                    | `<SaveIcon />`               | Icon shown before the label.                         |
+| `sx`        | `SxProps<Theme>`                                                     | —                            | MUI `sx` prop for styling.                           |
+| `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`                | MUI button variant.                                  |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'success'` | MUI button color.                          |
+| `ariaLabel` | `string`                                                             | `name` or `'Save'`           | Accessible label for the button.                     |
