@@ -1,6 +1,6 @@
 import UndoIcon from '@mui/icons-material/Undo';
 import { Button, SxProps, Theme } from '@mui/material';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 /**
  * Reusable Success Button component properties
@@ -9,7 +9,7 @@ import React from 'react';
  * @since 1.2.14
  */
 interface CancelButtonProps {
-	children?: React.ReactNode;
+	children?: ReactNode;
 	className?: string;
 	name?: string;
 	dataCy?: string;
@@ -18,7 +18,7 @@ interface CancelButtonProps {
 	variant?: 'text' | 'outlined' | 'contained';
 	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 	onClick: () => void;
-	startIcon?: React.ReactNode;
+	startIcon?: ReactNode;
 	ariaLabel?: string;
 }
 
@@ -28,7 +28,7 @@ interface CancelButtonProps {
  * @author Pavan Kumar Jadda
  * @since 1.2.14
  */
-export function CancelButton(props: CancelButtonProps): React.JSX.Element {
+export function CancelButton(props: CancelButtonProps): ReactNode {
 	return (
 		<Button
 			name={props.name}

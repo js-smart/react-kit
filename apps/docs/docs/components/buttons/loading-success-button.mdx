@@ -77,12 +77,12 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` 
 | Prop        | Type                                                                 | Default                      | Description                                          |
 | ----------- | -------------------------------------------------------------------- | ---------------------------- | ---------------------------------------------------- |
 | `loading`   | `boolean`                                                            | —                            | **Required.** Whether the button is in a loading state. |
-| `children`  | `React.ReactNode`                                                    | —                            | Button content. If omitted, `name` is used.          |
+| `children`  | `ReactNode`                                                    | —                            | Button content. If omitted, `name` is used.          |
 | `name`      | `string`                                                             | —                            | Button label (used when `children` is not provided). |
 | `onClick`   | `() => void`                                                         | —                            | Called when the button is clicked (optional if used as submit). |
 | `type`      | `'button' \| 'submit' \| 'reset'`                                    | `'button'`                   | Native button type.                                  |
 | `dataCy`    | `string`                                                             | `'loading-success-button'`   | `data-cy` value for testing.                         |
-| `startIcon` | `React.ReactNode`                                                    | `<SaveIcon />`               | Icon shown before the label.                         |
+| `startIcon` | `ReactNode`                                                    | `<SaveIcon />`               | Icon shown before the label.                         |
 | `sx`        | `SxProps<Theme>`                                                     | —                            | MUI `sx` prop for styling.                           |
 | `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`                | MUI button variant.                                  |
 | `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'success'` | MUI button color.                          |

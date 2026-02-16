@@ -52,11 +52,11 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` 
 | Prop        | Type                       | Default                | Description                                          |
 | ----------- | -------------------------- | ---------------------- | ---------------------------------------------------- |
 | `onClick`   | `() => void`               | —                      | **Required.** Called when the button is clicked.     |
-| `children`  | `React.ReactNode`          | —                      | Button content. If omitted, `name` is used.          |
+| `children`  | `ReactNode`          | —                      | Button content. If omitted, `name` is used.          |
 | `name`      | `string`                   | —                      | Button label (used when `children` is not provided). |
 | `className` | `string`                   | —                      | CSS class name.                                      |
 | `sx`        | `SxProps<Theme>`          | —                      | MUI `sx` prop for styling.                           |
 | `type`      | `'button' \| 'submit' \| 'reset'` | `'button'`      | Native button type.                                  |
-| `startIcon` | `React.ReactNode`          | —                      | Icon shown before the label.                         |
+| `startIcon` | `ReactNode`          | —                      | Icon shown before the label.                         |
 | `dataCy`    | `string`                   | `'excel-button'`       | `data-cy` value for testing.                         |
 | `ariaLabel` | `string`                   | `name` or `'Export to Excel'` | Accessible label for the button.              |

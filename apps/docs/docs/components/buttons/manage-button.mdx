@@ -66,12 +66,12 @@ The button uses `aria-label` from the `ariaLabel` prop, or from `children` when 
 | Prop        | Type                                                                 | Default            | Description                                          |
 | ----------- | -------------------------------------------------------------------- | ------------------ | ---------------------------------------------------- |
 | `onClick`   | `() => void`                                                         | —                  | **Required.** Called when the button is clicked.     |
-| `children`  | `React.ReactNode`                                                    | `'Manage'`         | Button content.                                      |
+| `children`  | `ReactNode`                                                    | `'Manage'`         | Button content.                                      |
 | `size`      | `'small' \| 'medium' \| 'large'`                                     | `'large'`          | MUI button size.                                     |
 | `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`      | MUI button variant.                                  |
 | `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'` | MUI button color.                          |
 | `className` | `string`                                                             | —                  | CSS class name.                                      |
 | `name`      | `string`                                                             | —                  | Native `name` attribute.                              |
 | `dataCy`    | `string`                                                             | `'manage-button'`  | `data-cy` value for testing.                         |
-| `startIcon` | `React.ReactNode`                                                    | `<SettingsIcon />` | Icon shown before the label.                         |
+| `startIcon` | `ReactNode`                                                    | `<SettingsIcon />` | Icon shown before the label.                         |
 | `ariaLabel` | `string`                                                             | `children` or `'Manage'` | Accessible label for the button.              |

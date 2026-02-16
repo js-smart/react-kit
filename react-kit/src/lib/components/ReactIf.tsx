@@ -1,21 +1,21 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 type ReactIfProps = {
-  /**
-   * The condition that determines whether children should be rendered
-   */
-  condition: boolean | null | undefined;
+	/**
+	 * The condition that determines whether children should be rendered
+	 */
+	condition: boolean | null | undefined;
 
-  /**
-   * Content to render when condition is true.
-   * Can be either a ReactNode or a function returning a ReactNode
-   */
-  children: ReactNode | (() => ReactNode);
+	/**
+	 * Content to render when condition is true.
+	 * Can be either a ReactNode or a function returning a ReactNode
+	 */
+	children: ReactNode | (() => ReactNode);
 
-  /**
-   * Optional content to render when condition is false
-   */
-  else?: ReactNode | (() => ReactNode);
+	/**
+	 * Optional content to render when condition is false
+	 */
+	else?: ReactNode | (() => ReactNode);
 };
 
 /**
@@ -36,18 +36,18 @@ type ReactIfProps = {
  * @author Pavan Kumar Jadda
  * @since 0.1.0
  */
-export function ReactIf(props: ReactIfProps): React.ReactNode {
-  const { condition, children, else: elseContent } = props;
+export function ReactIf(props: ReactIfProps): ReactNode {
+	const { condition, children, else: elseContent } = props;
 
-  // Check if condition is true
-  if (condition) {
-    return typeof children === "function" ? children() : children;
-  }
+	// Check if the condition is true
+	if (condition) {
+		return typeof children === 'function' ? children() : children;
+	}
 
-  // Render else content or null
-  if (elseContent) {
-    return typeof elseContent === "function" ? elseContent() : elseContent;
-  } else {
-    return null;
-  }
+	// Render else content or null
+	if (elseContent) {
+		return typeof elseContent === 'function' ? elseContent() : elseContent;
+	} else {
+		return null;
+	}
 }

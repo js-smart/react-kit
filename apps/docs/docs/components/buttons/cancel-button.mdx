@@ -75,7 +75,7 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` 
 | Prop        | Type                                                                 | Default           | Description                                                                 |
 | ----------- | -------------------------------------------------------------------- | ----------------- | --------------------------------------------------------------------------- |
 | `onClick`   | `() => void`                                                         | —                 | **Required.** Called when the button is clicked.                            |
-| `children`  | `React.ReactNode`                                                    | —                 | Button content. If omitted, `name` is used.                                |
+| `children`  | `ReactNode`                                                    | —                 | Button content. If omitted, `name` is used.                                |
 | `name`      | `string`                                                             | —                 | Button label (used when `children` is not provided).                       |
 | `className` | `string`                                                             | —                 | CSS class name.                                                             |
 | `dataCy`    | `string`                                                             | `'cancel-button'` | `data-cy` value for testing (e.g. Cypress).                                 |
@@ -83,5 +83,5 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` 
 | `type`      | `'button' \| 'submit' \| 'reset'`                                    | `'button'`        | Native button type.                                                         |
 | `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`     | MUI button variant.                                                         |
 | `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'secondary'`     | MUI button color.                                                           |
-| `startIcon` | `React.ReactNode`                                                    | `<UndoIcon />`    | Icon shown before the label.                                                |
+| `startIcon` | `ReactNode`                                                    | `<UndoIcon />`    | Icon shown before the label.                                                |
 | `ariaLabel` | `string`                                                             | `name` or `'Cancel'` | Accessible label for the button.                                          |
