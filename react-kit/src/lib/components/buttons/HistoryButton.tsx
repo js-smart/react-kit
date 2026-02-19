@@ -1,6 +1,6 @@
 import HistoryIcon from '@mui/icons-material/History';
 import { Button, SxProps, Theme } from '@mui/material';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 /**
  * Reusable History Button component properties
@@ -9,14 +9,14 @@ import React from 'react';
  * @since 1.2.15
  */
 interface HistoryButtonProps {
-	children?: React.ReactNode;
+	children?: ReactNode;
 	className?: string;
 	name?: string;
 	dataCy?: string;
 	sx?: SxProps<Theme>;
 	type?: 'button' | 'submit' | 'reset';
 	onClick: () => void;
-	startIcon?: React.ReactNode;
+	startIcon?: ReactNode;
 	variant?: 'text' | 'outlined' | 'contained';
 	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 	ariaLabel?: string;
@@ -28,7 +28,7 @@ interface HistoryButtonProps {
  * @author Pavan Kumar Jadda
  * @since 1.2.15
  */
-export function HistoryButton(props: HistoryButtonProps): React.JSX.Element {
+export function HistoryButton(props: HistoryButtonProps): ReactNode {
 	return (
 		<Button
 			name={props.name}
