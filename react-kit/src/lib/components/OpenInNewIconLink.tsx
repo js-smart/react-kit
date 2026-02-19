@@ -1,13 +1,13 @@
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Icon, Link as MuiLink } from '@mui/material';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 
 interface Props {
 	href: string;
 	linkText: string;
 	target: string;
-	children?: React.ReactNode;
+	children?: ReactNode;
 	ariaLabel?: string;
 }
 
