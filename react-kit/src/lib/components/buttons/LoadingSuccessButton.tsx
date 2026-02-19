@@ -1,6 +1,6 @@
 import SaveIcon from '@mui/icons-material/Save';
 import { Button, SxProps, Theme } from '@mui/material';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 const style = {
 	backgroundColor: '$primary-color',
@@ -15,12 +15,12 @@ const style = {
  * @since 0.3.3
  */
 interface Props {
-	children?: React.ReactNode;
+	children?: ReactNode;
 	type?: 'button' | 'submit' | 'reset';
 	name?: string;
 	loading: boolean;
 	dataCy?: string;
-	startIcon?: React.ReactNode;
+	startIcon?: ReactNode;
 	sx?: SxProps<Theme>;
 	onClick?: () => void;
 	variant?: 'text' | 'outlined' | 'contained';

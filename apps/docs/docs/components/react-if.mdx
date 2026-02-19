@@ -1,0 +1,61 @@
+---
+title: React If
+sidebar_position: 6
+---
+
+# React If
+
+**React If** is a conditional rendering wrapper that shows `children` when `condition` is true and optionally shows `else` content when it is false. Similar to `*ngIf` in Angular, it keeps your JSX declarative without repeated ternary or `&&` expressions.
+
+Use it when you want to switch between two branches (main and fallback) or render nothing when the condition is false. Both `children` and `else` can be a React node or a function that returns one (for lazy evaluation).
+
+## Import
+
+```tsx
+import { ReactIf } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+<ReactIf condition={isVisible}>
+  <div>Visible content</div>
+</ReactIf>
+```
+
+## With else
+
+```tsx
+<ReactIf
+  condition={isLoggedIn}
+  else={<div>Please log in</div>}
+>
+  <Dashboard />
+</ReactIf>
+```
+
+## With function children (lazy)
+
+You can pass a function so the content is only evaluated when the condition is true:
+
+```tsx
+<ReactIf condition={isExpanded}>
+  {() => <HeavyComponent />}
+</ReactIf>
+```
+
+## Accessibility
+
+There are no specific accessibility props. Ensure the content you render (including `else`) is accessible.
+
+## Peer dependencies
+
+`ReactIf` has no peer dependencies beyond React.
+
+## Props
+
+| Prop        | Type                                      | Default | Description                                                                 |
+| ----------- | ----------------------------------------- | ------- | --------------------------------------------------------------------------- |
+| `condition` | `boolean \| null \| undefined`              | —       | **Required.** When true, `children` is rendered; when false, `else` or null. |
+| `children`  | `ReactNode \| (() => ReactNode)`           | —       | **Required.** Content to render when `condition` is true.                   |
+| `else`      | `ReactNode \| (() => ReactNode)`          | —       | Optional. Content to render when `condition` is false.                      |

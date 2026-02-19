@@ -1,0 +1,46 @@
+---
+title: Boolean Utils
+sidebar_position: 2
+---
+
+# Boolean Utils
+
+**Boolean Utils** provides helpers for parsing boolean values from strings or other types. Use it when you receive values from forms, query params, or APIs as strings (e.g. `"true"`, `"false"`) and need a consistent boolean.
+
+## Import
+
+```tsx
+import { parseBoolean } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+parseBoolean('true');   // true
+parseBoolean('false');  // false
+parseBoolean('TRUE');   // true (case-insensitive)
+parseBoolean(true);     // true
+parseBoolean(false);   // false
+parseBoolean(null);     // false
+parseBoolean(undefined); // false
+parseBoolean('');       // false (any non-"true" string is false)
+```
+
+## With query params or form data
+
+```tsx
+const isActive = parseBoolean(searchParams.get('active'));
+const rememberMe = parseBoolean(formData.get('rememberMe'));
+```
+
+## API Reference
+
+### parseBoolean
+
+Parses a value to a boolean. Returns `true` only when the value is the boolean `true` or the string `"true"` (case-insensitive). Returns `false` for `undefined`, `null`, empty string, `false`, or any other string.
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| `value` | `boolean \| string \| null \| undefined` | Value to parse. |
+
+**Returns:** `boolean`

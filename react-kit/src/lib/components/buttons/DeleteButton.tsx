@@ -1,6 +1,6 @@
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Button } from '@mui/material';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 interface DeleteButtonProps {
 	loading: boolean;
@@ -12,7 +12,7 @@ interface DeleteButtonProps {
 	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 	name?: string;
 	dataCy?: string;
-	startIcon?: React.ReactNode;
+	startIcon?: ReactNode;
 	onClick: () => void;
 	ariaLabel?: string;
 }

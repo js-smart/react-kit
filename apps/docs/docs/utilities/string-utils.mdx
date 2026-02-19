@@ -1,0 +1,50 @@
+---
+title: String Utils
+sidebar_position: 7
+---
+
+# String Utils
+
+**String Utils** provides helpers for common string checks. Use it when you need to treat `null`, `undefined`, or blank strings as empty (e.g. for validation or conditional rendering).
+
+## Import
+
+```tsx
+import { isBlankOrEmpty } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+```tsx
+isBlankOrEmpty('');        // true
+isBlankOrEmpty('   ');    // true (trimmed)
+isBlankOrEmpty(null);     // true
+isBlankOrEmpty(undefined); // true
+isBlankOrEmpty('hello');  // false
+```
+
+## With form validation
+
+```tsx
+if (isBlankOrEmpty(name)) {
+  setError('Name is required');
+}
+```
+
+## With optional display
+
+```tsx
+{!isBlankOrEmpty(description) && <p>{description}</p>}
+```
+
+## API Reference
+
+### isBlankOrEmpty
+
+Returns `true` if the value is `null`, `undefined`, or a string that is empty or only whitespace after trim. Returns `false` for any other value (including non-string types).
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| `value` | `any` | Value to check. |
+
+**Returns:** `boolean`
