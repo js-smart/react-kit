@@ -20,6 +20,7 @@
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.4",
     "@mui/x-data-grid": "^8.27.0",
+    "@tanstack/react-router": "^1.161.1",
     "date-fns": "^4.1.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
