@@ -1,8 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
+import { ToastContainer } from "@react-kit/*";
 
 export default function App() {
   return (
     <>
+      <ToastContainer />
       <div className="sidenav">
         <ul>
           <Link to="/">Home</Link> <br />
