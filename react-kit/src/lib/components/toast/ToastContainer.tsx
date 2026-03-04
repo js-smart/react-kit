@@ -24,7 +24,7 @@ export const ToastContainer = () => {
 			open={state.open}
 			autoHideDuration={state.autoHideDuration}
 			onClose={handleClose}
-			anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
+			anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
 			<Alert severity={state.type} variant="filled" onClose={handleClose}>
 				{state.message}
 			</Alert>

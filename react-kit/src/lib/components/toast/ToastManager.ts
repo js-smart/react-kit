@@ -1,14 +1,22 @@
 // ToastManager.ts
+import { SnackbarOrigin } from '@mui/material';
 type ToastType = 'success' | 'info' | 'warning' | 'error';
 
 interface ToastState {
 	message: string;
 	open: boolean;
 	autoHideDuration: number;
+	anchorOrigin: SnackbarOrigin;
 	type: ToastType;
 }
 
-let state: ToastState = { message: '', open: false, autoHideDuration: 3000, type: 'info' };
+let state: ToastState = {
+	message: '',
+	open: false,
+	autoHideDuration: 3000,
+	anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
+	type: 'info',
+};
 const listeners = new Set<() => void>();
 
 /**
@@ -28,7 +36,7 @@ export const toastStore = {
 	},
 	// The "magic" function you call everywhere
 	show(message: string, type: ToastType = 'info', autoHideDuration = 3000) {
-		state = { message, type, open: true, autoHideDuration };
+		state = { message, type, open: true, autoHideDuration, anchorOrigin: { vertical: 'bottom', horizontal: 'center' } };
 		listeners.forEach((callback) => callback());
 	},
 	close() {
