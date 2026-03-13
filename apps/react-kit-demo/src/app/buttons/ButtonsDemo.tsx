@@ -10,10 +10,8 @@ import {
 	ManageButton,
 	SuccessButton,
 } from '@react-kit/react-kit';
-import { useNavigate } from 'react-router-dom';
 
 export default function ButtonsDemo() {
-	const navigate = useNavigate();
 	return (
 		<div style={{ marginInline: '1rem', textAlign: 'center' }}>
 			<h2>Buttons Demo</h2>
@@ -42,7 +40,7 @@ export default function ButtonsDemo() {
 			</div>
 			<div>
 				Go back Button:
-				<GoBackButton navigate={navigate}></GoBackButton>
+				<GoBackButton></GoBackButton>
 				<br />
 			</div>
 			<div>

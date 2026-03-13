@@ -45,12 +45,12 @@ export default defineConfig({
 			external: [
 				'react',
 				'react-dom',
+				'@tanstack/react-router',
 				'@mui/material',
 				'@emotion/react',
 				'@emotion/styled',
 				'@mui/icons-material',
 				'date-fns',
-				'react-router-dom',
 				'react/jsx-runtime',
 			],
 		},

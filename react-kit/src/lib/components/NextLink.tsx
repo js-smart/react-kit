@@ -1,6 +1,6 @@
 import { Link as MuiLink } from '@mui/material';
-import React, { ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
+import { ReactNode } from 'react';
 
 interface Props {
 	href: string;

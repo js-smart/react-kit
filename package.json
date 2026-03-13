@@ -23,8 +23,7 @@
     "@tanstack/react-router": "^1.161.1",
     "date-fns": "^4.1.0",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-router-dom": "^7.13.0"
+    "react-dom": "^19.2.4"
   },
   "pnpm": {
     "overrides": {
@@ -91,7 +90,7 @@
     "date-fns": "^4.1.0",
     "react": "^18.3.1 || ^19.0.0",
     "react-dom": "^18.3.1 || ^19.0.0",
-    "react-router-dom": "^7.5.3"
+    "@tanstack/react-router": "^1.161.1"
   },
   "release": {
     "branches": [
