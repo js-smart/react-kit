@@ -1,5 +1,5 @@
-import { FetchError, FetchResponse, RequestConfig } from "./FetchClientTypes";
-import { createFormattedError } from "./FetchInterceptor";
+import { FetchError, FetchResponse, RequestConfig } from './FetchClientTypes';
+import { createFormattedError, getDefaultErrorMessage, parseResponseData } from './FetchClientUtils';
 
 /**
  * Build URL with query parameters
@@ -28,23 +28,6 @@ const buildURL = (
 };
 
 /**
- * Parse response data based on content type
- * @param response Fetch response
- * @returns Parsed data
- */
-const parseResponseData = async (response: Response): Promise<unknown> => {
-  const contentType = response.headers.get("content-type");
-
-  if (contentType?.includes("application/json")) {
-    return await response.json();
-  } else if (contentType?.includes("text/")) {
-    return await response.text();
-  } else {
-    return await response.blob();
-  }
-};
-
-/**
  * Reusable fetch client class
  *
  * @author Pavan Kumar Jadda
@@ -52,22 +35,30 @@ const parseResponseData = async (response: Response): Promise<unknown> => {
  */
 class FetchInstance {
   private readonly baseURL: string;
-  private requestInterceptors: Array<
+  private nextInterceptorId = 0;
+  private requestInterceptors = new Map<
+    number,
     (config: RequestConfig) => RequestConfig | Promise<RequestConfig>
-  > = [];
-  private responseInterceptors: Array<
-    (response: FetchResponse<unknown>) => FetchResponse<unknown> | Promise<FetchResponse<unknown>>
-  > = [];
-  private errorInterceptors: Array<
-    (error: FetchError) => FetchError | Promise<FetchError> | void | Promise<void>
-  > = [];
+  >();
+  private responseInterceptors = new Map<
+    number,
+    {
+      success?: (response: FetchResponse<unknown>) => FetchResponse<unknown> | Promise<FetchResponse<unknown>>;
+      error?: (error: FetchError) => FetchError | Promise<FetchError> | void | Promise<void>;
+    }
+  >();
   /**
    * Add request interceptor
    */
   interceptors = {
     request: {
       use: (interceptor: (config: RequestConfig) => RequestConfig | Promise<RequestConfig>) => {
-        this.requestInterceptors.push(interceptor);
+        const id = this.nextInterceptorId++;
+        this.requestInterceptors.set(id, interceptor);
+        return id;
+      },
+      eject: (id: number) => {
+        this.requestInterceptors.delete(id);
       },
     },
     response: {
@@ -79,12 +70,15 @@ class FetchInstance {
           error: FetchError,
         ) => FetchError | Promise<FetchError> | void | Promise<void>,
       ) => {
-        if (successInterceptor) {
-          this.responseInterceptors.push(successInterceptor);
-        }
-        if (errorInterceptor) {
-          this.errorInterceptors.push(errorInterceptor);
-        }
+        const id = this.nextInterceptorId++;
+        this.responseInterceptors.set(id, {
+          success: successInterceptor,
+          error: errorInterceptor,
+        });
+        return id;
+      },
+      eject: (id: number) => {
+        this.responseInterceptors.delete(id);
       },
     },
   };
@@ -111,7 +105,7 @@ class FetchInstance {
     data?: unknown,
     config?: Omit<RequestConfig, "method" | "url" | "body">,
   ): Promise<FetchResponse<T>> {
-    const body = data ? JSON.stringify(data) : undefined;
+    const body = data === undefined ? undefined : JSON.stringify(data);
     return this.executeRequest({ ...config, method: "POST", url, body });
   }
 
@@ -123,7 +117,7 @@ class FetchInstance {
     data?: unknown,
     config?: Omit<RequestConfig, "method" | "url" | "body">,
   ): Promise<FetchResponse<T>> {
-    const body = data ? JSON.stringify(data) : undefined;
+    const body = data === undefined ? undefined : JSON.stringify(data);
     return this.executeRequest({ ...config, method: "PUT", url, body });
   }
 
@@ -145,7 +139,7 @@ class FetchInstance {
     data?: unknown,
     config?: Omit<RequestConfig, "method" | "url" | "body">,
   ): Promise<FetchResponse<T>> {
-    const body = data ? JSON.stringify(data) : undefined;
+    const body = data === undefined ? undefined : JSON.stringify(data);
     return this.executeRequest<T>({ ...config, method: "PATCH", url, body });
   }
 
@@ -162,48 +156,94 @@ class FetchInstance {
   private async executeRequest<T>(config: RequestConfig): Promise<FetchResponse<T>> {
     // Apply request interceptors
     let processedConfig = config;
-    for (const interceptor of this.requestInterceptors) {
+    for (const interceptor of this.requestInterceptors.values()) {
       processedConfig = await interceptor(processedConfig);
     }
 
-    const { url, params, ...fetchConfig } = processedConfig;
-    const fullURL = buildURL(this.baseURL, url || "", params);
+    const { url, params, baseURL, ...fetchConfig } = processedConfig;
+    const fullURL = buildURL(baseURL ?? this.baseURL, url || "", params);
+
+    let response: Response;
 
     try {
-      const response = await fetch(fullURL, fetchConfig);
-      const data = await parseResponseData(response);
+      response = await fetch(fullURL, fetchConfig);
+    } catch (error) {
+      throw await this.applyErrorInterceptors(
+        createFormattedError(
+          error as Error,
+          0,
+          'Network error. Please check your connection and try again.',
+        ),
+      );
+    }
 
-      const fetchResponse: FetchResponse<T> = {
-        data: data as T,
-        status: response.status,
-        statusText: response.statusText,
-        headers: response.headers,
-        config: processedConfig,
-      };
+    if (!response.ok) {
+      throw await this.applyErrorInterceptors(
+        createFormattedError(
+          new Error(response.statusText || getDefaultErrorMessage(response.status)),
+          response.status,
+          response.statusText || getDefaultErrorMessage(response.status),
+          response,
+        ),
+      );
+    }
 
-      // Apply response interceptors
-      let processedResponse = fetchResponse;
-      for (const interceptor of this.responseInterceptors) {
-        processedResponse = (await interceptor(processedResponse)) as FetchResponse<T>;
+    const data = await parseResponseData(response);
+
+    const fetchResponse: FetchResponse<T> = {
+      data: data as T,
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+      config: processedConfig,
+    };
+
+    // Apply response interceptors
+    let processedResponse = fetchResponse;
+    for (const interceptor of this.responseInterceptors.values()) {
+      if (!interceptor.success) {
+        continue;
       }
 
-      return processedResponse;
-    } catch (error) {
-      // Apply error interceptors
-      let processedError = createFormattedError(
-        error as Error,
-        0,
-        "Network error. Please check your connection and try again.",
-      );
-      for (const interceptor of this.errorInterceptors) {
-        const result = await interceptor(processedError);
+      processedResponse = (await interceptor.success(processedResponse)) as FetchResponse<T>;
+    }
+
+    return processedResponse;
+  }
+
+  private async applyErrorInterceptors(error: FetchError): Promise<FetchError> {
+    let processedError = error;
+
+    for (const interceptor of this.responseInterceptors.values()) {
+      if (!interceptor.error) {
+        continue;
+      }
+
+      try {
+        const result = await interceptor.error(processedError);
         if (result !== undefined) {
           processedError = result;
         }
-      }
+      } catch (interceptorError) {
+        if (interceptorError instanceof Error && 'statusCode' in interceptorError) {
+          processedError = interceptorError as FetchError;
+          continue;
+        }
 
-      throw processedError;
+        const normalizedError =
+          interceptorError instanceof Error ? interceptorError : new Error('Unexpected interceptor failure.');
+
+        processedError = createFormattedError(
+          normalizedError,
+          processedError.statusCode,
+          normalizedError.message || processedError.message,
+          processedError.response,
+          processedError.request,
+        );
+      }
     }
+
+    return processedError;
   }
 }
 
@@ -220,7 +260,15 @@ export const FetchClient = Object.assign(
     const response = await fetchInstance.request<T>({ ...config, method: "GET", url });
     return response.data;
   },
-  fetchInstance,
+  {
+    get: fetchInstance.get.bind(fetchInstance),
+    post: fetchInstance.post.bind(fetchInstance),
+    put: fetchInstance.put.bind(fetchInstance),
+    delete: fetchInstance.delete.bind(fetchInstance),
+    patch: fetchInstance.patch.bind(fetchInstance),
+    request: fetchInstance.request.bind(fetchInstance),
+    interceptors: fetchInstance.interceptors,
+  },
 );
 
 // Export the client instance for direct use
