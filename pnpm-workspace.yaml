@@ -1,0 +1,7 @@
+allowBuilds:
+  '@axa-fr/oidc-client': true
+  '@axa-fr/react-oidc': true
+  '@parcel/watcher': true
+  '@swc/core': true
+  esbuild: true
+  nx: true
