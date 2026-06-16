@@ -1,29 +1,30 @@
 {
-	"name": "@js-smart/react-kit",
-	"version": "5.22.1",
-	"private": false,
-	"license": "MIT",
-	"type": "module",
-	"scripts": {
-		"nx": "nx",
-		"start": "nx serve react-kit-demo",
-		"build": "nx build react-kit",
-		"build:demo": "nx build react-kit-demo",
-		"test": "nx test react-kit ",
-		"update": "nx migrate latest"
-	},
-	"dependencies": {
-		"@axa-fr/react-oidc": "^7.26.3",
-		"@emotion/react": "11.14.0",
-		"@emotion/styled": "11.14.1",
-		"@js-temporal/polyfill": "^0.5.1",
-		"@mui/icons-material": "^7.3.7",
-		"@mui/material": "^7.3.4",
-		"@mui/x-data-grid": "^8.27.0",
-		"@tanstack/react-router": "^1.161.1",
-		"date-fns": "^4.1.0",
-		"react": "^19.2.4",
-		"react-dom": "^19.2.4"
+  "name": "@js-smart/react-kit",
+  "version": "5.23.0",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "nx": "nx",
+    "start": "nx serve react-kit-demo",
+    "build": "nx build react-kit",
+    "build:demo": "nx build react-kit-demo",
+    "test": "nx test react-kit ",
+    "update": "nx migrate latest"
+  },
+  "dependencies": {
+    "@axa-fr/react-oidc": "^7.26.3",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@js-temporal/polyfill": "^0.5.1",
+    "@mui/icons-material": "^7.3.7",
+    "@mui/material": "^7.3.4",
+    "@mui/x-data-grid": "^8.27.0",
+    "@tanstack/react-router": "^1.161.1",
+    "date-fns": "^4.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
 	},
 	"devDependencies": {
 		"@babel/core": "^7.28.0",
