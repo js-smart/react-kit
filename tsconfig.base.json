@@ -13,9 +13,8 @@
 		"lib": ["ES2024", "dom"],
 		"skipLibCheck": true,
 		"skipDefaultLibCheck": true,
-		"baseUrl": ".",
 		"paths": {
-			"@react-kit/*": ["react-kit/src/index.ts"]
+			"@react-kit/*": ["./react-kit/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
