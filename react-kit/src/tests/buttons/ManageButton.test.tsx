@@ -15,7 +15,8 @@ describe("ManageButton", () => {
     render(<ManageButton onClick={mockOnClick} />);
     const button = screen.getByRole("button", { name: "Manage" });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-containedPrimary");
+    expect(button).toHaveClass("MuiButton-contained");
+    expect(button).toHaveClass("MuiButton-colorPrimary");
     expect(button).toHaveClass("MuiButton-sizeLarge");
   });
 
@@ -41,7 +42,8 @@ describe("ManageButton", () => {
     );
     const button = screen.getByRole("button", { name: "Custom Manage" });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-outlinedSecondary");
+    expect(button).toHaveClass("MuiButton-outlined");
+    expect(button).toHaveClass("MuiButton-colorSecondary");
     expect(button).toHaveClass("MuiButton-sizeSmall");
     expect(button).toHaveAttribute("name", "custom-name");
     expect(button).toHaveAttribute("data-cy", "custom-data-cy");

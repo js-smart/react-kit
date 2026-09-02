@@ -1,0 +1,9 @@
+{
+	"extends": ["../../.oxlintrc.json"],
+	"plugins": ["react", "jsx-a11y"],
+	"rules": {
+		"react/set-state-in-effect": "off",
+		"jsx-a11y/no-autofocus": "off",
+		"jsx-a11y/prefer-tag-over-role": "off"
+	}
+}

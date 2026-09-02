@@ -10,7 +10,6 @@ export default function AllBooks() {
 	const [loading, setLoading] = useState<boolean>(true);
 
 	useEffect(() => {
-		setLoading(true);
 		BookService.getAllBooks()
 			.then((response) => {
 				setData(response);
@@ -60,9 +59,7 @@ const columns: GridColDef[] = [
 		field: 'id',
 		headerName: 'ID',
 		flex: 1,
-		renderCell: (params: GridCellParams) => (
-			<Link to={`/book/${params.row['id']}`}>{params.row['id']}</Link>
-		),
+		renderCell: (params: GridCellParams) => <Link to={`/book/${params.row['id']}`}>{params.row['id']}</Link>,
 	},
 	{ field: 'title', headerName: 'Title', flex: 2.5 },
 	{ field: 'isbn', headerName: 'ISBN', flex: 2.5 },

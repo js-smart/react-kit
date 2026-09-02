@@ -50,7 +50,6 @@ export default defineConfig({
 				'@emotion/react',
 				'@emotion/styled',
 				'@mui/icons-material',
-				'date-fns',
 				'react/jsx-runtime',
 			],
 		},

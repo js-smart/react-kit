@@ -15,7 +15,8 @@ describe("SuccessButton", () => {
     render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
     const button = screen.getByRole("button", { name: "Save" });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-containedSuccess");
+    expect(button).toHaveClass("MuiButton-contained");
+    expect(button).toHaveClass("MuiButton-colorSuccess");
   });
 
   it("calls onClick when clicked", () => {
@@ -39,7 +40,8 @@ describe("SuccessButton", () => {
     );
     const button = screen.getByRole("button", { name: "custom-name" });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-outlinedSecondary");
+    expect(button).toHaveClass("MuiButton-outlined");
+    expect(button).toHaveClass("MuiButton-colorSecondary");
     expect(button).toHaveAttribute("name", "custom-name");
     expect(button).toHaveAttribute("data-cy", "custom-data-cy");
     expect(screen.getByTestId("custom-icon")).toBeInTheDocument();

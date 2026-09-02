@@ -13,9 +13,9 @@
 			"default",
 			"!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
 			"!{projectRoot}/tsconfig.spec.json",
-			"!{projectRoot}/.eslintrc.json",
-			"!{projectRoot}/eslint.config.js",
-			"!{projectRoot}/eslint.config.mjs"
+			"!{projectRoot}/.oxlintrc.json",
+			"!{projectRoot}/oxlint.config.js",
+			"!{projectRoot}/oxlint.config.mts"
 		],
 		"sharedGlobals": []
 	},
@@ -30,9 +30,9 @@
 			}
 		},
 		{
-			"plugin": "nx-oxlint",
+			"plugin": "@nx/oxlint",
 			"options": {
-				"lintTargetName": "lint"
+				"targetName": "lint"
 			}
 		},
 		{
@@ -47,7 +47,7 @@
 			"application": {
 				"babel": true,
 				"style": "scss",
-				"linter": "eslint",
+				"linter": "oxlint",
 				"bundler": "vite"
 			},
 			"component": {
@@ -55,7 +55,7 @@
 			},
 			"library": {
 				"style": "scss",
-				"linter": "eslint",
+				"linter": "oxlint",
 				"unitTestRunner": "vitest"
 			}
 		}
