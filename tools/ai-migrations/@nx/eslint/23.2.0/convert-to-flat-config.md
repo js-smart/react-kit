@@ -94,13 +94,13 @@ If the workspace already uses `eslint.config.*` at the root and in every project
 ```js
 // BEFORE (.eslintrc.js)
 module.exports = {
-  extends: ['../../.eslintrc.json'],
-  overrides: [
-    {
-      files: ['*.ts'],
-      rules: { '@typescript-eslint/no-explicit-any': 'error' },
-    },
-  ],
+	extends: ['../../.eslintrc.json'],
+	overrides: [
+		{
+			files: ['*.ts'],
+			rules: { '@typescript-eslint/no-explicit-any': 'error' },
+		},
+	],
 };
 ```
 
@@ -109,11 +109,11 @@ module.exports = {
 import baseConfig from '../../eslint.config.mjs';
 
 export default [
-  ...baseConfig,
-  {
-    files: ['**/*.ts'],
-    rules: { '@typescript-eslint/no-explicit-any': 'error' },
-  },
+	...baseConfig,
+	{
+		files: ['**/*.ts'],
+		rules: { '@typescript-eslint/no-explicit-any': 'error' },
+	},
 ];
 ```
 
@@ -143,8 +143,8 @@ import { dirname } from 'path';
 import { FlatCompat } from '@eslint/eslintrc';
 
 const compat = new FlatCompat({
-  baseDirectory: dirname(fileURLToPath(import.meta.url)),
-  recommendedConfig: js.configs.recommended,
+	baseDirectory: dirname(fileURLToPath(import.meta.url)),
+	recommendedConfig: js.configs.recommended,
 });
 
 export default [...compat.extends('plugin:@typescript-eslint/recommended')];
@@ -188,14 +188,14 @@ The set of rules the user explicitly configured before the migration is in `<adv
 ```js
 // Disable a rule that a changed preset default newly enabled (eslint.config.mjs).
 export default [
-  ...baseConfig,
-  {
-    files: ['**/*.ts'],
-    rules: {
-      // Newly enabled by the ESLint v9 recommended set; was not enforced before the upgrade.
-      'no-unused-expressions': 'off',
-    },
-  },
+	...baseConfig,
+	{
+		files: ['**/*.ts'],
+		rules: {
+			// Newly enabled by the ESLint v9 recommended set; was not enforced before the upgrade.
+			'no-unused-expressions': 'off',
+		},
+	},
 ];
 ```
 
