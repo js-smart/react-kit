@@ -1,5 +1,5 @@
 import EditIcon from '@mui/icons-material/Edit';
-import { IconButton, Tooltip } from '@mui/material';
+import { IconButton, SxProps, Theme, Tooltip } from '@mui/material';
 import React from 'react';
 
 interface EditIconButtonProps {
@@ -7,13 +7,14 @@ interface EditIconButtonProps {
 	onClick: React.Dispatch<React.SetStateAction<boolean>>;
 	color?: 'inherit' | 'default' | 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
 	ariaLabel?: string;
+	sx?: SxProps<Theme>;
 }
 
 export function EditIconButton(props: Readonly<EditIconButtonProps>) {
 	return (
 		<Tooltip title={props.tooltipTitle}>
 			<IconButton
-				sx={{ padding: '0.25rem' }}
+				sx={{ padding: '0.25rem', ...props.sx }}
 				color={props.color ?? 'primary'}
 				onClick={() => props.onClick(true)}
 				aria-label={props.ariaLabel ?? props.tooltipTitle}>
