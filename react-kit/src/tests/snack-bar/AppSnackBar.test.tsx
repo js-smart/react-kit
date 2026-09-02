@@ -25,7 +25,8 @@ describe("AppSnackBar", () => {
     const alert = screen.getByRole("alert");
     expect(alert).toBeInTheDocument();
     expect(alert).toHaveTextContent("Success!");
-    expect(alert).toHaveClass("MuiAlert-filledSuccess");
+    expect(alert).toHaveClass("MuiAlert-filled");
+    expect(alert).toHaveClass("MuiAlert-colorSuccess");
   });
 
   it("renders error alert when progressState is error", () => {
@@ -33,7 +34,8 @@ describe("AppSnackBar", () => {
     const alert = screen.getByRole("alert");
     expect(alert).toBeInTheDocument();
     expect(alert).toHaveTextContent("Error!");
-    expect(alert).toHaveClass("MuiAlert-filledError");
+    expect(alert).toHaveClass("MuiAlert-filled");
+    expect(alert).toHaveClass("MuiAlert-colorError");
   });
   /*
     it('closes the snackbar when the close button is clicked', () => {

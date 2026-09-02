@@ -50,7 +50,9 @@ export const QuerySnackBar = (props: QuerySnackBarProps) => {
 			<Snackbar
 				anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
 				open={open && props.isError}
-				TransitionComponent={Slide}
+				slots={{
+					transition: Slide,
+				}}
 				autoHideDuration={props.autoHideDuration ?? 3000}
 				onClose={() => setOpen(false)}>
 				<Alert variant="filled" sx={{ width: '100%' }} severity="error" action={action}>

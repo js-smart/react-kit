@@ -14,7 +14,8 @@ describe('HistoryButton', () => {
 		render(<HistoryButton onClick={mockOnClick} name={'History'} />);
 		const button = screen.getByRole('button', { name: 'History' });
 		expect(button).toBeInTheDocument();
-		expect(button).toHaveClass('MuiButton-containedPrimary');
+		expect(button).toHaveClass('MuiButton-contained');
+		expect(button).toHaveClass('MuiButton-colorPrimary');
 	});
 
 	it('calls onClick when clicked', () => {
@@ -37,7 +38,8 @@ describe('HistoryButton', () => {
 		);
 		const button = screen.getByRole('button', { name: 'custom-name' });
 		expect(button).toBeInTheDocument();
-		expect(button).toHaveClass('MuiButton-outlinedSecondary');
+		expect(button).toHaveClass('MuiButton-outlined');
+		expect(button).toHaveClass('MuiButton-colorSecondary');
 		expect(button).toHaveAttribute('name', 'custom-name');
 		expect(button).toHaveAttribute('data-cy', 'custom-data-cy');
 		expect(screen.getByTestId('custom-icon')).toBeInTheDocument();
