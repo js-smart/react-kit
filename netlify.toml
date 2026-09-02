@@ -1,0 +1,12 @@
+# Deploy the Docusaurus documentation site (not react-kit-demo).
+# https://js-react-kit.netlify.app/
+
+[build]
+command = "pnpm build:docs"
+publish = "apps/docs/build"
+
+[build.environment]
+NODE_VERSION = "22"
+
+# If the site previously deployed react-kit-demo (SPA), remove any
+# "/* /index.html 200" redirect from the Netlify UI — it breaks static doc routes.

@@ -1,0 +1,67 @@
+---
+title: Router Link
+sidebar_position: 3
+---
+
+# Router Link
+
+**Router Link** is a TanStack Router-aware link component built with MUI's [Link](https://mui.com/material-ui/react-link/). It is created via `createLink` and renders client-side navigation without a full page reload, with MUI hover underline styling and the `next-btn-link` class.
+
+Use `RouterLink` when you want a typed, router-bound link inside a TanStack Router app. For a simpler link with an `href` prop, see [NextLink](/docs/components/next-link).
+
+## Import
+
+```tsx
+import { RouterLink } from '@js-smart/react-kit';
+```
+
+## Basic usage
+
+Mount your app with TanStack Router, then use `RouterLink` with the `to` prop:
+
+```tsx
+<RouterLink to="/dashboard">Dashboard</RouterLink>
+```
+
+## With MUI Link props
+
+`RouterLink` accepts standard MUI `Link` props such as `color`, `variant`, and `underline`:
+
+```tsx
+<RouterLink to="/settings" color="primary" underline="always">
+  Settings
+</RouterLink>
+```
+
+## With route params
+
+Pass TanStack Router link options such as `params` and `search` alongside MUI props:
+
+```tsx
+<RouterLink to="/books/$bookId" params={{ bookId: '42' }}>
+  View book
+</RouterLink>
+```
+
+## Accessibility
+
+Set `aria-label` when the visible link text is not descriptive enough for screen readers.
+
+## Peer dependencies
+
+`RouterLink` requires `@tanstack/react-router` and a registered router instance in your app tree. It also uses `@mui/material`. See [Installation](/docs/getting-started/installation).
+
+## Props
+
+`RouterLink` combines TanStack Router [Link](https://tanstack.com/router/latest/docs/framework/react/api/router/linkComponent) props with MUI [Link](https://mui.com/material-ui/api/link/) props.
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `to` | `string` | — | **Required.** Target route path. |
+| `params` | `object` | — | Route params for dynamic segments. |
+| `search` | `object` | — | URL search/query params. |
+| `children` | `ReactNode` | — | Link content. |
+| `className` | `string` | — | CSS class. The `next-btn-link` class is applied by default. |
+| `underline` | `'none' \| 'hover' \| 'always'` | `'hover'` | MUI underline behavior. |
+| `color` | MUI Link color | — | MUI link color. |
+| `aria-label` | `string` | — | Accessible label for the link. |

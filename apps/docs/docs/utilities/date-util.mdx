@@ -5,7 +5,7 @@ sidebar_position: 4
 
 # Date Util
 
-**Date Util** provides date formatting and parsing using the [Temporal API](https://tc39.es/proposal-temporal/) (via `@js-temporal/polyfill`). It uses the system locale and time zone from **AppConstants** (e.g. `SystemConfig.SYSTEM_LOCALE`, `TEMPORAL_DATE_FORMAT`) to format dates for display or to convert between ISO strings and `Date` objects.
+**Date Util** provides date formatting and parsing using the [Temporal API](https://tc39.es/proposal-temporal/) internally (`@js-temporal/polyfill` is bundled with React Kit). Formatting defaults come from **AppConstants** (`SystemConfig.SYSTEM_LOCALE`, `TEMPORAL_DATE_FORMAT`, and related values).
 
 Use it when you need consistent app-wide date display (e.g. `MM/dd/yyyy`) or when converting form/API dates to or from ISO (YYYY-MM-DD).
 
@@ -54,10 +54,6 @@ formatUnixTimeToOldDate(1707350400000); // Date from Unix timestamp
 isAfter(new Date('2026-02-09'), new Date('2026-02-08')); // true
 isAfter(undefined, new Date());                          // false
 ```
-
-## Peer dependencies
-
-Date Util uses **@js-temporal/polyfill** and the library's **AppConstants** (e.g. `SystemConfig.SYSTEM_LOCALE`, `TEMPORAL_DATE_FORMAT`, `TEMPORAL_DATE_TIME_FORMAT`). Ensure your project has `@js-temporal/polyfill` installed if you use date utilities (see [Installation](/docs/getting-started/installation)).
 
 ## API Reference
 

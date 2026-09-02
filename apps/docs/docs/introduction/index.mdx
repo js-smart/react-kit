@@ -4,7 +4,22 @@ sidebar_position: 1
 
 # Introduction
 
-**React Kit** ([@js-smart/react-kit](https://www.npmjs.com/package/@js-smart/react-kit)) is a comprehensive collection of reusable React components and utilities built with MUI (Material UI) and React Router.
+:::tip What you'll learn
+
+- How to install and use **@js-smart/react-kit** in a React + MUI project
+- Where to find component, utility, and constants documentation
+
+:::
+
+:::info Prerequisites
+
+- A React project (Vite, Next.js, or similar)
+- **React 18.3+** or **19.x**
+- Familiarity with [MUI](https://mui.com/) components
+
+:::
+
+**React Kit** ([@js-smart/react-kit](https://www.npmjs.com/package/@js-smart/react-kit)) is a comprehensive collection of reusable React components and utilities built with MUI (Material UI) and TanStack Router.
 
 The library provides UI components (buttons, dialogs, snack bars, links, progress, tables, etc.) and utility functions for dates, strings, HTTP clients, state management, and other common tasks. Use React Kit to build React applications with a flexible, type-safe, and well-documented set of building blocks.
 
@@ -12,12 +27,7 @@ The library provides UI components (buttons, dialogs, snack bars, links, progres
 
 - **React** (18.3+ or 19.x)
 - **MUI** (Material UI) for components and theming
-- **React Router** for navigation
-
-## What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 22.0 or above (LTS recommended).
-- A React project (e.g. Vite, Next.js, or Create React App). React Kit supports **React 18.3+** or later.
+- **TanStack Router** for navigation link components
 
 To install the library, see [Installation](/docs/getting-started/installation).
 
@@ -41,11 +51,13 @@ To install the library, see [Installation](/docs/getting-started/installation).
 | [CenteredCircularProgress](/docs/components/centered-circular-progress) | Centered loading spinner                |
 | [ConfirmationDialog](/docs/components/confirmation-dialog)              | Confirm/cancel dialog                   |
 | [DismissibleAlert](/docs/components/alert)                              | Dismissible alert message               |
-| [NextLink](/docs/components/next-link)                                  | Link using React Router                 |
+| [NextLink](/docs/components/next-link)                                  | Link with `href` prop using TanStack Router |
+| [RouterLink](/docs/components/router-link)                              | Typed TanStack Router link component      |
 | [OpenInNewIconLink](/docs/components/open-in-new-icon-link)             | Link that opens in a new tab            |
 | [ReactIf](/docs/components/react-if)                                    | Conditional rendering wrapper           |
 | [AppSnackBar](/docs/components/app-snack-bar)                           | Application snack bar notifications     |
 | [QuerySnackBar](/docs/components/query-snack-bar)                       | Query-based snack bar notifications     |
+| [Toast](/docs/components/toast)                                         | Global toast notifications              |
 | [TablePaginationActions](/docs/components/table-pagination-actions)     | Table pagination controls               |
 | [TabPanel](/docs/components/tab-panel)                                  | Accessible tab panel (with `a11yProps`) |
 
@@ -63,11 +75,10 @@ To install the library, see [Installation](/docs/getting-started/installation).
 
 ### Types and constants
 
-| Name                                                  | Description                           |
-| ----------------------------------------------------- | ------------------------------------- |
+| Name | Description |
+| ---- | ----------- |
 | [ProgressState](/docs/utilities/progress-state-utils) | Type for loading/success/error states |
-| AppConstants                                          | Shared application constants          |
-| HttpConstants                                         | HTTP-related constants                |
+| [App Constants](/docs/constants/app-constants) | System config, locale, and date format defaults |
 
 ## Next steps
 

@@ -47,5 +47,8 @@ jobs:
       - name: Build project
         run: pnpm build
 
+      - name: Build docs site
+        run: pnpm build:docs
+
       - name: Run tests
         run: pnpm test

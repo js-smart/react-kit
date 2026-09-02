@@ -1,11 +1,53 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+	padding: 2rem 0 4rem;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featuresGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.25rem;
+}
+
+.featureCard {
+	padding: 1.5rem;
+	border-radius: 0.75rem;
+	border: 1px solid var(--ifm-color-emphasis-300);
+	background: var(--ifm-background-surface-color);
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.featureCard:hover {
+	transform: translateY(-3px);
+	border-color: var(--rk-cyan, #61dafb);
+	box-shadow:
+		0 6px 18px rgba(31, 79, 163, 0.15),
+		0 2px 8px rgba(97, 218, 251, 0.12);
+}
+
+.featureIcon {
+	font-size: 1.75rem;
+	margin-bottom: 0.5rem;
+	line-height: 1;
+}
+
+.featureTitle {
+	font-size: 1.05rem;
+	font-weight: 600;
+	margin-bottom: 0.4rem;
+}
+
+.featureDescription {
+	margin: 0;
+	font-size: 0.92rem;
+	color: var(--ifm-font-color-secondary);
+	line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+	.features {
+		padding: 1.5rem 0 3rem;
+	}
 }

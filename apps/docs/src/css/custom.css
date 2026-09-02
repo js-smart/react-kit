@@ -1,30 +1,210 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * React Kit documentation theme — palette from the shield logo
+ * (royal blue, navy, React cyan #61DAFB, charcoal, silver accents).
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+	--rk-bg: #0b0f17;
+	--rk-navy-deep: #0a1628;
+	--rk-navy: #132a52;
+	--rk-royal: #1f4fa3;
+	--rk-royal-light: #2f67d3;
+	--rk-cyan: #61dafb;
+	--rk-cyan-dark: #2bb8e8;
+	--rk-silver: #d7dee8;
+
+	--rk-brand: var(--rk-royal);
+	--rk-brand-mid: var(--rk-royal-light);
+	--rk-brand-light: var(--rk-cyan);
+	--rk-gradient: linear-gradient(135deg, var(--rk-royal) 0%, var(--rk-royal-light) 55%, var(--rk-cyan) 100%);
+	--rk-gradient-horizontal: linear-gradient(90deg, var(--rk-royal) 0%, var(--rk-cyan) 100%);
+
+	--ifm-color-primary: #1f4fa3;
+	--ifm-color-primary-dark: #1a4389;
+	--ifm-color-primary-darker: #153770;
+	--ifm-color-primary-darkest: #0f2344;
+	--ifm-color-primary-light: #2f67d3;
+	--ifm-color-primary-lighter: #4a7fe0;
+	--ifm-color-primary-lightest: #61dafb;
+	--ifm-code-font-size: 95%;
+	--docusaurus-highlighted-code-line-bg: rgba(31, 79, 163, 0.12);
+	--ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--ifm-heading-font-weight: 600;
+	--ifm-navbar-height: 3.75rem;
+
+	/* RTK-style admonition palette — info uses logo cyan */
+	--rk-admonition-tip-bg: #f1fdf9;
+	--rk-admonition-tip-border: #00bf88;
+	--rk-admonition-tip-heading: #007a55;
+
+	--rk-admonition-info-bg: #eef9fd;
+	--rk-admonition-info-border: #61dafb;
+	--rk-admonition-info-heading: #0e6b8a;
+
+	--rk-admonition-caution-bg: #fffbf5;
+	--rk-admonition-caution-border: #f0ad4e;
+	--rk-admonition-caution-heading: #8a6100;
+
+	--rk-admonition-danger-bg: #fff2f2;
+	--rk-admonition-danger-border: #d9534f;
+	--rk-admonition-danger-heading: #a94442;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+	--ifm-background-color: var(--rk-bg);
+	--ifm-background-surface-color: #121826;
+	--ifm-navbar-background-color: var(--rk-navy-deep);
+	--ifm-footer-background-color: var(--rk-navy-deep);
+
+	--ifm-color-primary: #61dafb;
+	--ifm-color-primary-dark: #2bb8e8;
+	--ifm-color-primary-darker: #1f4fa3;
+	--ifm-color-primary-darkest: #153770;
+	--ifm-color-primary-light: #7ee4fc;
+	--ifm-color-primary-lighter: #9ae8fc;
+	--ifm-color-primary-lightest: #b6f0fd;
+	--docusaurus-highlighted-code-line-bg: rgba(97, 218, 251, 0.12);
+
+	--rk-admonition-tip-bg: rgba(0, 191, 136, 0.12);
+	--rk-admonition-tip-border: #00bf88;
+	--rk-admonition-tip-heading: #5dffc8;
+
+	--rk-admonition-info-bg: rgba(97, 218, 251, 0.1);
+	--rk-admonition-info-border: #61dafb;
+	--rk-admonition-info-heading: #61dafb;
+
+	--rk-admonition-caution-bg: rgba(240, 173, 78, 0.12);
+	--rk-admonition-caution-border: #f0ad4e;
+	--rk-admonition-caution-heading: #ffd080;
+
+	--rk-admonition-danger-bg: rgba(217, 83, 79, 0.12);
+	--rk-admonition-danger-border: #d9534f;
+	--rk-admonition-danger-heading: #ff8a87;
+}
+
+.navbar {
+	border-top: 3px solid transparent;
+	border-image: var(--rk-gradient-horizontal) 1;
+}
+
+.footer--dark {
+	background: linear-gradient(180deg, var(--rk-navy) 0%, var(--rk-bg) 100%);
+}
+
+/* RTK-style admonitions — tip (green) & info (cyan) callouts */
+.alert {
+	border-radius: var(--ifm-global-radius);
+	border-left-width: 6px;
+	border-left-style: solid;
+	color: var(--ifm-font-color-base);
+	box-shadow: none;
+}
+
+.alert__heading {
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.alert--tip,
+.alert--success {
+	--ifm-alert-background-color: var(--rk-admonition-tip-bg);
+	border-left-color: var(--rk-admonition-tip-border);
+}
+
+.alert--tip .alert__heading,
+.alert--success .alert__heading {
+	color: var(--rk-admonition-tip-heading);
+}
+
+.alert--info,
+.alert--secondary,
+.alert--important {
+	--ifm-alert-background-color: var(--rk-admonition-info-bg);
+	border-left-color: var(--rk-admonition-info-border);
+}
+
+.alert--info .alert__heading,
+.alert--secondary .alert__heading,
+.alert--important .alert__heading {
+	color: var(--rk-admonition-info-heading);
+}
+
+.alert--caution {
+	--ifm-alert-background-color: var(--rk-admonition-caution-bg);
+	border-left-color: var(--rk-admonition-caution-border);
+}
+
+.alert--caution .alert__heading {
+	color: var(--rk-admonition-caution-heading);
+}
+
+.alert--warning,
+.alert--danger {
+	--ifm-alert-background-color: var(--rk-admonition-danger-bg);
+	border-left-color: var(--rk-admonition-danger-border);
+}
+
+.alert--warning .alert__heading,
+.alert--danger .alert__heading {
+	color: var(--rk-admonition-danger-heading);
+}
+
+.alert a {
+	font-weight: 500;
+	text-decoration: underline;
+}
+
+.alert svg {
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+.alert--tip svg,
+.alert--success svg {
+	color: var(--rk-admonition-tip-heading);
+}
+
+.alert--info svg,
+.alert--secondary svg,
+.alert--important svg {
+	color: var(--rk-admonition-info-heading);
+}
+
+.theme-doc-markdown {
+	max-width: 900px;
+}
+
+.theme-doc-markdown h1:first-child {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.theme-doc-markdown table {
+	display: table;
+	width: 100%;
+}
+
+.theme-doc-markdown table th,
+.theme-doc-markdown table td {
+	padding: 0.6rem 1rem;
+}
+
+.menu__link {
+	font-size: 0.925rem;
+}
+
+.menu__list-item-collapsible .menu__link {
+	font-weight: 600;
+	text-transform: none;
+	letter-spacing: normal;
+}
+
+.menu__link--active {
+	color: var(--ifm-color-primary);
+}
+
+pre {
+	border-radius: 8px;
 }

@@ -7,8 +7,10 @@
 	"scripts": {
 		"nx": "nx",
 		"start": "nx serve react-kit-demo",
+		"start:docs": "nx start docs",
 		"build": "nx build react-kit",
 		"build:demo": "nx build react-kit-demo",
+		"build:docs": "nx build docs",
 		"test": "nx test react-kit ",
 		"update": "nx migrate latest",
 		"lint": "nx run-many -t lint",

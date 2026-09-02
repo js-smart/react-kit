@@ -5,30 +5,26 @@ sidebar_position: 6
 
 # Go Back Button
 
-**Go Back Button** is a compact navigation control that goes back one step in the browser history. It is built on MUI's [IconButton](https://mui.com/material-ui/api/icon-button/) and [Tooltip](https://mui.com/material-ui/react-tooltip/) and uses React Router's `navigate(-1)`.
+**Go Back Button** is a compact navigation control that goes back one step in the browser history. It is built on MUI's [IconButton](https://mui.com/material-ui/api/icon-button/) and [Tooltip](https://mui.com/material-ui/react-tooltip/) and uses TanStack Router's `useRouter().history.back()`.
 
 Use it in app bars, detail pages, or forms to let users return to the previous screen. The button shows an arrow-back icon and a "Go Back to Previous Page" tooltip by default.
 
 ## Import
 
 ```tsx
-import { useNavigate } from 'react-router-dom';
 import { GoBackButton } from '@js-smart/react-kit';
 ```
 
 ## Basic usage
 
 ```tsx
-function MyPage() {
-  const navigate = useNavigate();
-  return <GoBackButton navigate={navigate} />;
-}
+<GoBackButton />
 ```
 
 ## With custom color
 
 ```tsx
-<GoBackButton navigate={navigate} color="primary" />
+<GoBackButton color="primary" />
 ```
 
 ## Accessibility
@@ -37,14 +33,13 @@ The icon button uses `aria-label` from the `ariaLabel` prop, or falls back to `"
 
 ## Peer dependencies
 
-`GoBackButton` uses MUI's `IconButton`, `Tooltip`, React Router's `NavigateFunction`, and `ArrowBackIos` icon. Ensure your project has `@mui/material`, `@mui/icons-material`, and `react-router-dom` installed (see [Installation](/docs/getting-started/installation)).
+`GoBackButton` uses MUI's `IconButton`, `Tooltip`, TanStack Router's `useRouter`, and the `ArrowBackIos` icon. Ensure your project has `@mui/material`, `@mui/icons-material`, and `@tanstack/react-router` installed (see [Installation](/docs/getting-started/installation)).
 
 ## Props
 
-| Prop        | Type                                      | Default                       | Description                                          |
-| ----------- | ----------------------------------------- | ----------------------------- | ---------------------------------------------------- |
-| `navigate`  | `NavigateFunction`                        | —                             | **Required.** React Router's `navigate` function (e.g. from `useNavigate()`). |
-| `name`      | `string`                                  | —                             | Native `name` attribute.                              |
-| `children`  | `ReactNode`                         | —                             | Optional content rendered after the icon.            |
-| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'` | MUI IconButton color. |
-| `ariaLabel` | `string`                                  | `'Go back to previous page'`   | Accessible label for the icon button.                |
+| Prop        | Type                                                                 | Default                      | Description                               |
+| ----------- | -------------------------------------------------------------------- | ---------------------------- | ----------------------------------------- |
+| `name`      | `string`                                                             | —                            | Native `name` attribute.                  |
+| `children`  | `ReactNode`                                                          | —                            | Optional content rendered after the icon. |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'` | MUI IconButton color.          |
+| `ariaLabel` | `string`                                                             | `'Go back to previous page'` | Accessible label for the icon button.     |

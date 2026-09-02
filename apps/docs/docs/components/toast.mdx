@@ -1,0 +1,84 @@
+---
+title: Toast
+sidebar_position: 9
+---
+
+# Toast
+
+React Kit provides a lightweight toast notification system with two exports:
+
+- **`ToastContainer`** — mount once in your app layout to render the snackbar UI
+- **`toast`** — call from anywhere to show a message
+
+Toasts appear at the bottom center of the screen, auto-hide after a few seconds, and support `success`, `info`, `warning`, and `error` severities via MUI [Alert](https://mui.com/material-ui/react-alert/).
+
+## Import
+
+```tsx
+import { ToastContainer, toast } from '@js-smart/react-kit';
+```
+
+## Setup
+
+Add `ToastContainer` once near the root of your app (alongside your router or layout):
+
+```tsx
+function App() {
+  return (
+    <>
+      <Routes />
+      <ToastContainer />
+    </>
+  );
+}
+```
+
+## Show a toast
+
+Call `toast` from event handlers, async callbacks, or services:
+
+```tsx
+toast('Saved successfully.', 'success');
+toast('Something went wrong.', 'error');
+toast('Please review your input.', 'warning');
+toast('Sync in progress.', 'info');
+toast('Default info toast.'); // type defaults to 'info'
+```
+
+## Example with async action
+
+```tsx
+async function handleSave() {
+  try {
+    await saveRecord();
+    toast('Record saved.', 'success');
+  } catch {
+    toast('Failed to save record.', 'error');
+  }
+}
+```
+
+## Accessibility
+
+The toast uses MUI `Alert` with the selected severity. The close button dismisses the notification and ignores `clickaway` closes.
+
+## Peer dependencies
+
+`ToastContainer` uses MUI `Snackbar` and `Alert`. Ensure `@mui/material` is installed (see [Installation](/docs/getting-started/installation)).
+
+## API Reference
+
+### ToastContainer
+
+Renders the active toast from the internal store. Mount once; no props required.
+
+### toast
+
+Shows a toast notification.
+
+| Parameter | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| `message` | `string` | — | **Required.** Message to display. |
+| `type` | `'success' \| 'info' \| 'warning' \| 'error'` | `'info'` | Alert severity. |
+
+**Returns:** `void`

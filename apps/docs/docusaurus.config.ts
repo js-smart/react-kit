@@ -2,38 +2,58 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const config: Config = {
 	title: 'React Kit',
-	tagline: 'Reusable react components and utilities',
-	favicon: 'img/favicon.ico',
+	tagline: 'Reusable React components and utilities for MUI-based applications',
+	favicon: 'img/favicon-32x32.png',
 
-	// Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-	future: {
-		v4: true, // Improve compatibility with the upcoming Docusaurus v4
-	},
-
-	// Set the production url of your site here
-	url: 'https://react-kit.netlify.app/',
-	// Set the /<baseUrl>/ pathname under which your site is served
-	// For GitHub pages deployment, it is often '/<projectName>/'
+	url: 'https://js-react-kit.netlify.app/',
 	baseUrl: '/',
 
-	// GitHub pages deployment config.
-	// If you aren't using GitHub pages, you don't need these.
-	organizationName: 'js-smart', // Usually your GitHub org/user name.
-	projectName: 'react-kit', // Usually your repo name.
+	organizationName: 'js-smart',
+	projectName: 'react-kit',
 
 	onBrokenLinks: 'throw',
 
-	// Even if you don't use internationalization, you can use this field to set
-	// useful metadata like html lang. For example, if your site is Chinese, you
-	// may want to replace "en" with "zh-Hans".
+	markdown: {
+		hooks: {
+			onBrokenMarkdownLinks: 'warn',
+		},
+	},
+
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en'],
 	},
+
+	headTags: [
+		{
+			tagName: 'link',
+			attributes: {
+				rel: 'apple-touch-icon',
+				sizes: '180x180',
+				href: '/img/apple-touch-icon.png',
+			},
+		},
+		{
+			tagName: 'link',
+			attributes: {
+				rel: 'icon',
+				type: 'image/png',
+				sizes: '32x32',
+				href: '/img/favicon-32x32.png',
+			},
+		},
+		{
+			tagName: 'link',
+			attributes: {
+				rel: 'icon',
+				type: 'image/png',
+				sizes: '16x16',
+				href: '/img/favicon-16x16.png',
+			},
+		},
+	],
 
 	presets: [
 		[
@@ -41,9 +61,9 @@ const config: Config = {
 			{
 				docs: {
 					sidebarPath: './sidebars.ts',
-					// Please change this to your repo.
-					// Remove this to remove the "edit this page" links.
-					editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+					editUrl: 'https://github.com/js-smart/react-kit/tree/main/apps/docs/',
+					showLastUpdateAuthor: false,
+					showLastUpdateTime: false,
 				},
 				blog: false,
 				theme: {
@@ -54,26 +74,44 @@ const config: Config = {
 	],
 
 	themeConfig: {
-		// Replace with your project's social card
-		image: 'img/docusaurus-social-card.jpg',
-		colorMode: {
-			respectPrefersColorScheme: true,
+		image: 'img/react-kit-logo.png',
+		docs: {
+			sidebar: {
+				hideable: true,
+				autoCollapseCategories: false,
+			},
 		},
 		navbar: {
 			title: 'React Kit',
 			logo: {
-				alt: 'React Kit Logo',
-				src: 'img/logo.svg',
+				alt: 'React Kit',
+				src: 'img/logo-192.png',
 			},
 			items: [
 				{
-					type: 'docSidebar',
-					sidebarId: 'tutorialSidebar',
+					to: '/',
+					label: 'Home',
 					position: 'left',
-					label: 'Docs',
 				},
 				{
-					href: 'https://github.com/facebook/docusaurus',
+					type: 'docSidebar',
+					sidebarId: 'docsSidebar',
+					position: 'left',
+					label: 'Documentation',
+				},
+				{
+					type: 'doc',
+					docId: 'getting-started/installation',
+					position: 'left',
+					label: 'Getting Started',
+				},
+				{
+					href: 'https://www.npmjs.com/package/@js-smart/react-kit',
+					label: 'npm',
+					position: 'right',
+				},
+				{
+					href: 'https://github.com/js-smart/react-kit',
 					label: 'GitHub',
 					position: 'right',
 				},
@@ -83,11 +121,27 @@ const config: Config = {
 			style: 'dark',
 			links: [
 				{
-					title: 'Docs',
+					title: 'Documentation',
 					items: [
 						{
-							label: 'Documentation',
+							label: 'Home',
+							to: '/',
+						},
+						{
+							label: 'Introduction',
 							to: '/docs/introduction',
+						},
+						{
+							label: 'Installation',
+							to: '/docs/getting-started/installation',
+						},
+						{
+							label: 'Components',
+							to: '/docs/components/buttons',
+						},
+						{
+							label: 'Utilities',
+							to: '/docs/utilities',
 						},
 					],
 				},
@@ -95,34 +149,22 @@ const config: Config = {
 					title: 'Community',
 					items: [
 						{
-							label: 'Stack Overflow',
-							href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+							label: 'GitHub Issues',
+							href: 'https://github.com/js-smart/react-kit/issues',
 						},
 						{
-							label: 'Discord',
-							href: 'https://discordapp.com/invite/docusaurus',
-						},
-						{
-							label: 'X',
-							href: 'https://x.com/docusaurus',
-						},
-					],
-				},
-				{
-					title: 'More',
-					items: [
-						{
-							label: 'GitHub',
-							href: 'https://github.com/js-smart/react-kit',
+							label: 'npm',
+							href: 'https://www.npmjs.com/package/@js-smart/react-kit',
 						},
 					],
 				},
 			],
-			copyright: `Copyright © ${new Date().getFullYear()} React Kit, Inc. Built with Docusaurus.`,
+			copyright: `Copyright © ${new Date().getFullYear()} js-smart. Built with Docusaurus.`,
 		},
 		prism: {
 			theme: prismThemes.github,
 			darkTheme: prismThemes.dracula,
+			additionalLanguages: ['bash', 'tsx'],
 		},
 	} satisfies Preset.ThemeConfig,
 };

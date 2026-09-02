@@ -7,6 +7,20 @@ import Tabs from '@theme/Tabs';
 
 # Installation
 
+:::tip What you'll learn
+
+- How to install **@js-smart/react-kit** and its peer dependencies
+- How to verify your setup and resolve common install issues
+
+:::
+
+:::info Prerequisites
+
+- [Node.js](https://nodejs.org/) 20+ (22 LTS recommended)
+- A React project with **MUI 9** and **TanStack Router** (or install them below)
+
+:::
+
 Install the library and its peer dependencies in your React project:
 
 <Tabs groupId="package-manager">
@@ -44,36 +58,38 @@ React Kit has peer dependencies that your project should satisfy (they are often
 
 - `react` and `react-dom` (^18.3.1 or ^19.0.0)
 - `@mui/material` (^9.1.0)
-- Optional: `react-router-dom`, `@mui/x-data-grid`, `date-fns` for specific components
+- `@emotion/react` (^11.14.0) and `@emotion/styled` (^11.14.0) — required by MUI
+- `@mui/icons-material` (^9.1.0) — used by several components
+- `@tanstack/react-router` (^1.161.1) — for link and navigation components (`RouterLink`, `NextLink`, `GoBackButton`, `OpenInNewIconLink`)
 
-If you start from a minimal React app, install MUI and React Router as well:
+If you start from a minimal React app, install MUI, Emotion, icons, and TanStack Router:
 
 <Tabs groupId="package-manager">
   <TabItem value="npm" label="npm" default>
 
 ```bash
-npm install @mui/material @emotion/react @emotion/styled react-router-dom
+npm install @mui/material @mui/icons-material @emotion/react @emotion/styled @tanstack/react-router
 ```
 
   </TabItem>
   <TabItem value="pnpm" label="pnpm">
 
 ```bash
-pnpm add @mui/material @emotion/react @emotion/styled react-router-dom
+pnpm add @mui/material @mui/icons-material @emotion/react @emotion/styled @tanstack/react-router
 ```
 
   </TabItem>
   <TabItem value="yarn" label="yarn">
 
 ```bash
-yarn add @mui/material @emotion/react @emotion/styled react-router-dom
+yarn add @mui/material @mui/icons-material @emotion/react @emotion/styled @tanstack/react-router
 ```
 
   </TabItem>
   <TabItem value="bun" label="bun">
 
 ```bash
-bun add @mui/material @emotion/react @emotion/styled react-router-dom
+bun add @mui/material @mui/icons-material @emotion/react @emotion/styled @tanstack/react-router
 ```
 
   </TabItem>
@@ -107,10 +123,10 @@ For more examples, see the [Introduction](/docs/introduction) page or the [react
 
 **Peer dependency warnings**
 
-If you see peer dependency warnings for `@mui/material`, `react`, or `react-dom`, install the versions React Kit expects (see the list above). For example:
+If you see peer dependency warnings for `@mui/material`, `@mui/icons-material`, `react`, or `react-dom`, install the versions React Kit expects (see the list above). For example:
 
 ```bash
-pnpm add react@^19 react-dom@^19 @mui/material@^9 @emotion/react @emotion/styled
+pnpm add react@^19 react-dom@^19 @mui/material@^9 @mui/icons-material@^9 @emotion/react @emotion/styled
 ```
 
 **"Module not found" or import errors**
