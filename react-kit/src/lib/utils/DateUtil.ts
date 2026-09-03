@@ -1,10 +1,13 @@
-import { Temporal } from '@js-temporal/polyfill';
-import { SystemConfig, TEMPORAL_DATE_FORMAT, TEMPORAL_DATE_TIME_FORMAT } from '../constants/AppConstants';
+import { format, isAfter as dateFnsIsAfter, parse, parseISO, toDate } from 'date-fns';
+import { SystemConfig } from '../constants/AppConstants';
+
+const APP_DATE_FORMAT = SystemConfig.SYSTEM_DATE_FORMAT;
+const APP_DATE_TIME_FORMAT = SystemConfig.SYSTEM_DATE_TIME_FORMAT;
 
 // --- Format to App display (date/time strings for UI) ---
 
 /**
- * Format date using Temporal API to App Date Time Format
+ * Format date to App Date Time Format
  *
  * @author Pavan Kumar Jadda
  * @since 1.10.2
@@ -13,14 +16,12 @@ export const formatToAppDateTime = (date: Date | string | undefined): string => 
 	if (!date) {
 		return '';
 	}
-
-	const instant = typeof date === 'string' ? Temporal.Instant.from(date) : Temporal.Instant.fromEpochMilliseconds(date.getTime());
-	const zonedDateTime = instant.toZonedDateTimeISO(Temporal.Now.timeZoneId());
-	return zonedDateTime.toLocaleString(SystemConfig.SYSTEM_LOCALE, TEMPORAL_DATE_TIME_FORMAT);
+	const d = typeof date === 'string' ? parseISO(date) : date;
+	return format(d, APP_DATE_TIME_FORMAT);
 };
 
 /**
- * Format date using Temporal API to App Date Format
+ * Format date to App Date Format
  *
  * @author Pavan Kumar Jadda
  * @since 1.10.2
@@ -29,10 +30,8 @@ export const formatToAppDate = (date: Date | string | undefined): string => {
 	if (!date) {
 		return '';
 	}
-
-	const instant = typeof date === 'string' ? Temporal.Instant.from(date) : Temporal.Instant.fromEpochMilliseconds(date.getTime());
-	const zonedDateTime = instant.toZonedDateTimeISO(Temporal.Now.timeZoneId());
-	return zonedDateTime.toLocaleString(SystemConfig.SYSTEM_LOCALE, TEMPORAL_DATE_FORMAT);
+	const d = typeof date === 'string' ? parseISO(date) : date;
+	return format(d, APP_DATE_FORMAT);
 };
 
 /**
@@ -48,8 +47,7 @@ export const formatIsoToAppDate = (date: string | undefined): string => {
 	if (!date) {
 		return '';
 	}
-
-	return Temporal.PlainDate.from(date).toLocaleString(SystemConfig.SYSTEM_LOCALE, TEMPORAL_DATE_FORMAT);
+	return format(parseISO(date), APP_DATE_FORMAT);
 };
 
 // --- Format to ISO (YYYY-MM-DD) ---
@@ -67,9 +65,8 @@ export const formatOldDateToIsoString = (date: Date | string | undefined | null)
 	if (!date) {
 		return '';
 	}
-
-	const instant = typeof date === 'string' ? Temporal.Instant.from(date) : Temporal.Instant.fromEpochMilliseconds(date.getTime());
-	return instant.toZonedDateTimeISO(Temporal.Now.timeZoneId()).toPlainDate().toString();
+	const d = typeof date === 'string' ? parseISO(date) : date;
+	return format(d, SystemConfig.ISO_DATE_FORMAT);
 };
 
 /**
@@ -103,10 +100,8 @@ export const parseIsoDate = (date: string | undefined | null): Date | null => {
 	if (!date) {
 		return null;
 	}
-	const plainDate = Temporal.PlainDate.from(date);
-
-	// Use local midnight to avoid UTC date shift.
-	return new Date(plainDate.year, plainDate.month - 1, plainDate.day);
+	// Parse as local date (YYYY-MM-DD) to avoid UTC date shift
+	return parse(date, 'yyyy-MM-dd', new Date(0));
 };
 
 /**
@@ -122,8 +117,7 @@ export const formatUnixTimeToOldDate = (date: number | string | undefined): Date
 	if (!date) {
 		return undefined;
 	}
-	const instant = Temporal.Instant.fromEpochMilliseconds(Number(date));
-	return new Date(instant.toZonedDateTimeISO(Temporal.Now.timeZoneId()).toPlainDate().toString());
+	return toDate(Number(date));
 };
 
 // --- Comparison ---
@@ -142,9 +136,7 @@ export const isAfter = (date1: Date | string | undefined, date2: Date | string |
 	if (!date1 || !date2) {
 		return false;
 	}
-	const instantA = typeof date1 === 'string' ? Temporal.Instant.from(date1) : Temporal.Instant.fromEpochMilliseconds(date1.getTime());
-	const instantB = typeof date2 === 'string' ? Temporal.Instant.from(date2) : Temporal.Instant.fromEpochMilliseconds(date2.getTime());
-
-	// The most readable way:
-	return Temporal.Instant.compare(instantA, instantB) > 0;
+	const d1 = typeof date1 === 'string' ? parseISO(date1) : date1;
+	const d2 = typeof date2 === 'string' ? parseISO(date2) : date2;
+	return dateFnsIsAfter(d1, d2);
 };
