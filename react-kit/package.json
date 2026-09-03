@@ -1,7 +1,7 @@
 {
 	"name": "@js-smart/react-kit",
 	"private": false,
-	"version": "5.27.0",
+	"version": "6.0.0",
 	"type": "module",
 	"main": "./index.js",
 	"types": "./index.d.ts",
