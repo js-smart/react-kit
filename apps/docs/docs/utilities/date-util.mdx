@@ -5,7 +5,7 @@ sidebar_position: 4
 
 # Date Util
 
-**Date Util** provides date formatting and parsing using the [Temporal API](https://tc39.es/proposal-temporal/) internally (`@js-temporal/polyfill` is bundled with React Kit). Formatting defaults come from **AppConstants** (`SystemConfig.SYSTEM_LOCALE`, `TEMPORAL_DATE_FORMAT`, and related values).
+**Date Util** provides date formatting and parsing using [date-fns](https://date-fns.org/) internally. Formatting defaults come from **AppConstants** (`SystemConfig.SYSTEM_DATE_FORMAT`, `SystemConfig.SYSTEM_DATE_TIME_FORMAT`, and related values).
 
 Use it when you need consistent app-wide date display (e.g. `MM/dd/yyyy`) or when converting form/API dates to or from ISO (YYYY-MM-DD).
 
@@ -13,38 +13,38 @@ Use it when you need consistent app-wide date display (e.g. `MM/dd/yyyy`) or whe
 
 ```tsx
 import {
-  formatToAppDateTime,
-  formatToAppDate,
-  formatIsoToAppDate,
-  formatOldDateToIsoString,
-  formatOldDateToIsoDate,
-  parseIsoDate,
-  formatUnixTimeToOldDate,
-  isAfter,
+	formatToAppDateTime,
+	formatToAppDate,
+	formatIsoToAppDate,
+	formatOldDateToIsoString,
+	formatOldDateToIsoDate,
+	parseIsoDate,
+	formatUnixTimeToOldDate,
+	isAfter,
 } from '@js-smart/react-kit';
 ```
 
 ## Format to app display
 
 ```tsx
-formatToAppDate(new Date());           // e.g. "02/08/2026"
-formatToAppDateTime(new Date());       // e.g. "02/08/2026, 10:30:00 AM"
-formatToAppDate('2026-02-08');        // same, from ISO string
-formatIsoToAppDate('2026-02-08');     // app date format from ISO date string
+formatToAppDate(new Date()); // e.g. "02/08/2026"
+formatToAppDateTime(new Date()); // e.g. "02/08/2026, 10:30:00 AM"
+formatToAppDate('2026-02-08'); // same, from ISO string
+formatIsoToAppDate('2026-02-08'); // app date format from ISO date string
 ```
 
 ## Format to ISO (YYYY-MM-DD)
 
 ```tsx
 formatOldDateToIsoString(new Date()); // e.g. "2026-02-08"
-formatOldDateToIsoDate(new Date());   // same (alias)
+formatOldDateToIsoDate(new Date()); // same (alias)
 ```
 
 ## Parse to Date
 
 ```tsx
-parseIsoDate('2026-02-08');           // Date at local midnight
-parseIsoDate(null);                   // null
+parseIsoDate('2026-02-08'); // Date at local midnight
+parseIsoDate(null); // null
 formatUnixTimeToOldDate(1707350400000); // Date from Unix timestamp
 ```
 
@@ -52,20 +52,20 @@ formatUnixTimeToOldDate(1707350400000); // Date from Unix timestamp
 
 ```tsx
 isAfter(new Date('2026-02-09'), new Date('2026-02-08')); // true
-isAfter(undefined, new Date());                          // false
+isAfter(undefined, new Date()); // false
 ```
 
 ## API Reference
 
-| Function | Description |
-| -------- | ----------- |
-| `formatToAppDateTime(date)` | Format `Date` or ISO string to app date-time string (locale + time zone). |
-| `formatToAppDate(date)` | Format `Date` or ISO string to app date string. |
-| `formatIsoToAppDate(date)` | Format ISO date string to app date string. |
-| `formatOldDateToIsoString(date)` | Format `Date` or string to ISO date string (YYYY-MM-DD). Accepts `null`. |
-| `formatOldDateToIsoDate(date)` | Same as `formatOldDateToIsoString`. |
-| `parseIsoDate(date)` | Parse ISO date string to `Date` at local midnight. Returns `null` for null/undefined/empty. |
-| `formatUnixTimeToOldDate(date)` | Convert Unix timestamp (number or string) to `Date`. Returns `undefined` for invalid input. |
-| `isAfter(date1, date2)` | Returns `true` if `date1` is after `date2`; otherwise `false`. Handles `Date` or ISO strings. |
+| Function                         | Description                                                                                   |
+| -------------------------------- | --------------------------------------------------------------------------------------------- |
+| `formatToAppDateTime(date)`      | Format `Date` or ISO string to app date-time string (locale + time zone).                     |
+| `formatToAppDate(date)`          | Format `Date` or ISO string to app date string.                                               |
+| `formatIsoToAppDate(date)`       | Format ISO date string to app date string.                                                    |
+| `formatOldDateToIsoString(date)` | Format `Date` or string to ISO date string (YYYY-MM-DD). Accepts `null`.                      |
+| `formatOldDateToIsoDate(date)`   | Same as `formatOldDateToIsoString`.                                                           |
+| `parseIsoDate(date)`             | Parse ISO date string to `Date` at local midnight. Returns `null` for null/undefined/empty.   |
+| `formatUnixTimeToOldDate(date)`  | Convert Unix timestamp (number or string) to `Date`. Returns `undefined` for invalid input.   |
+| `isAfter(date1, date2)`          | Returns `true` if `date1` is after `date2`; otherwise `false`. Handles `Date` or ISO strings. |
 
 All formatting functions return an empty string for null/undefined/empty input unless noted.

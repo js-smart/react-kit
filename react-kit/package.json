@@ -2,8 +2,10 @@
 	"name": "@js-smart/react-kit",
 	"private": false,
 	"version": "5.26.0",
-	"main": "./index.js",
+	"type": "module",
+	"module": "./index.js",
 	"types": "./index.d.ts",
+	"sideEffects": false,
 	"publishConfig": {
 		"access": "public"
 	},
@@ -12,15 +14,15 @@
 		"@emotion/styled": "^11.14.1",
 		"@mui/icons-material": "^9.1.0",
 		"@mui/material": "^9.1.0",
-		"react": "^18.3.1 || ^19.0.0",
-		"react-dom": "^18.3.1 || ^19.0.0",
-		"@tanstack/react-router": "^1.161.1"
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"@tanstack/react-router": "^1.161.1",
+		"date-fns": "^4.0.0"
 	},
 	"exports": {
 		".": {
 			"types": "./index.d.ts",
-			"import": "./index.mjs",
-			"require": "./index.js"
+			"import": "./index.js"
 		}
 	},
 	"repository": {

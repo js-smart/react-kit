@@ -10,50 +10,27 @@ React Kit exports shared application constants for timezone, locale, date format
 ## Import
 
 ```tsx
-import {
-  SystemConfig,
-  TEMPORAL_DATE_FORMAT,
-  TEMPORAL_DATE_TIME_FORMAT,
-} from '@js-smart/react-kit';
+import { SystemConfig } from '@js-smart/react-kit';
 ```
 
 ## SystemConfig
 
 Enum of global system settings:
 
-| Name | Value | Description |
-| ---- | ----- | ----------- |
-| `SYSTEM_TIME_ZONE` | `'America/New_York'` | Default IANA time zone. |
-| `SYSTEM_LOCALE` | `'en-US'` | Default locale. |
-| `SYSTEM_DATE_FORMAT` | `'MM/dd/yyyy'` | Default date format string. |
-| `SYSTEM_DATE_TIME_FORMAT` | `'MM/dd/yyyy hh:mm:ss a'` | Default date-time format string. |
-| `ISO_DATE_FORMAT` | `'yyyy-MM-dd'` | ISO-style date format string. |
-| `SYSTEM_COOKIE_TIMEOUT_MILLI_SECONDS` | `3600000` | Cookie/session timeout in milliseconds (1 hour). |
+| Name                                  | Value                     | Description                                      |
+| ------------------------------------- | ------------------------- | ------------------------------------------------ |
+| `SYSTEM_TIME_ZONE`                    | `'America/New_York'`      | Default IANA time zone.                          |
+| `SYSTEM_LOCALE`                       | `'en-US'`                 | Default locale.                                  |
+| `SYSTEM_DATE_FORMAT`                  | `'MM/dd/yyyy'`            | Default date format string.                      |
+| `SYSTEM_DATE_TIME_FORMAT`             | `'MM/dd/yyyy hh:mm:ss a'` | Default date-time format string.                 |
+| `ISO_DATE_FORMAT`                     | `'yyyy-MM-dd'`            | ISO-style date format string.                    |
+| `SYSTEM_COOKIE_TIMEOUT_MILLI_SECONDS` | `3600000`                 | Cookie/session timeout in milliseconds (1 hour). |
 
 ### Usage
 
 ```tsx
 const timeZone = SystemConfig.SYSTEM_TIME_ZONE;
 const dateFormat = SystemConfig.SYSTEM_DATE_FORMAT;
-```
-
-## Temporal format options
-
-Preconfigured `Intl.DateTimeFormatOptions` for Temporal or `Intl` APIs:
-
-### TEMPORAL_DATE_FORMAT
-
-```tsx
-// { month: '2-digit', day: '2-digit', year: 'numeric' }
-new Intl.DateTimeFormat('en-US', TEMPORAL_DATE_FORMAT).format(new Date());
-```
-
-### TEMPORAL_DATE_TIME_FORMAT
-
-Extends `TEMPORAL_DATE_FORMAT` with hour, minute, second, and 12-hour clock:
-
-```tsx
-new Intl.DateTimeFormat('en-US', TEMPORAL_DATE_TIME_FORMAT).format(new Date());
 ```
 
 ## Related

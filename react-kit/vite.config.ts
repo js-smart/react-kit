@@ -1,70 +1,50 @@
-/// <reference types='vitest' />
-import { defineConfig } from 'vitest/config';
+/// <reference types="vitest/config" />
+import { copyFileSync } from 'node:fs';
+import * as path from 'node:path';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
-import * as path from 'path';
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+
+const outDir = path.join(__dirname, '../dist/react-kit');
 
 export default defineConfig({
 	root: __dirname,
 	cacheDir: '../node_modules/.vite/react-kit',
 
+	resolve: {
+		tsconfigPaths: true,
+	},
+
 	plugins: [
 		react(),
-		nxViteTsPaths(),
 		dts({
 			entryRoot: 'src',
 			tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
 		}),
+		{
+			name: 'copy-package-json',
+			closeBundle() {
+				copyFileSync(path.join(__dirname, 'package.json'), path.join(outDir, 'package.json'));
+			},
+		},
 	],
 
-	// Uncomment this if you are using workers.
-	// worker: {
-	//  plugins: [ nxViteTsPaths() ],
-	// },
-
-	// Configuration for building your library.
-	// See: https://vitejs.dev/guide/build.html#library-mode
 	build: {
-		outDir: '../dist/react-kit',
+		outDir,
+		emptyOutDir: true,
 		reportCompressedSize: true,
 		commonjsOptions: {
 			transformMixedEsModules: true,
 		},
 		lib: {
-			// Could also be a dictionary or array of multiple entry points.
 			entry: 'src/index.ts',
 			name: 'react-kit',
 			fileName: 'index',
-			// Change this to the formats you want to support.
-			// Don't forget to update your package.json as well.
-			formats: ['es', 'cjs'],
+			formats: ['es'],
 		},
 		rolldownOptions: {
-			// External packages that should not be bundled into your library.
-			external: [
-				'react',
-				'react-dom',
-				'@tanstack/react-router',
-				'@mui/material',
-				'@emotion/react',
-				'@emotion/styled',
-				'@mui/icons-material',
-				'react/jsx-runtime',
-			],
-		},
-	},
-	test: {
-		globals: true,
-		cache: {
-			dir: '../node_modules/.vitest/react-kit',
-		},
-		environment: 'jsdom',
-		include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-		reporters: ['default'],
-		coverage: {
-			reportsDirectory: '../coverage/react-kit',
-			provider: 'v8',
+			external: (id: string) =>
+				/^(react|react-dom|react\/|@tanstack\/react-router|@mui\/|@emotion\/|@mui\/icons-material|date-fns)/.test(id),
 		},
 	},
 });
