@@ -1,17 +1,12 @@
-import { getCssVariable } from "../../lib/utils/CssUtils";
+import { expect, test } from 'vitest';
+import { getCssVariable } from '../../lib/utils/CssUtils';
 
-describe("getCssVariable", () => {
-  beforeAll(() => {
-    document.documentElement.style.setProperty("--test-variable", "test-value");
-  });
+test('returns the value of a CSS variable', () => {
+	document.documentElement.style.setProperty('--test-variable', 'test-value');
 
-  it("should return the value of the CSS variable", () => {
-    const value = getCssVariable("--test-variable");
-    expect(value).toBe("test-value");
-  });
+	expect(getCssVariable('--test-variable')).toBe('test-value');
+});
 
-  it("should return an empty string for a non-existent variable", () => {
-    const value = getCssVariable("--non-existent-variable");
-    expect(value).toBe("");
-  });
+test('returns an empty string for a non-existent variable', () => {
+	expect(getCssVariable('--non-existent-variable')).toBe('');
 });

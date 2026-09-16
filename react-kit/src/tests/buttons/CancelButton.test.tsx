@@ -1,76 +1,40 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { CancelButton } from "../../lib/components/buttons/CancelButton";
-import "@testing-library/jest-dom";
-import jest from "jest-mock";
+import { expect, test, vi } from 'vitest';
+import { page } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+import { CancelButton } from '../../lib/components/buttons/CancelButton';
 
-test("renders CancelButton component", () => {
-  render(
-    <CancelButton
-      name={"Cancel"}
-      onClick={() => {
-        console.log("Clicked Cancel Button");
-      }}
-    />,
-  );
+test('renders Cancel button and calls onClick', async () => {
+	const onClick = vi.fn();
+	await render(<CancelButton name="Cancel" onClick={onClick} />);
 
-  const cancelButton = screen.getByRole("button", { name: "Cancel" });
-  expect(cancelButton).toBeInTheDocument();
+	const button = page.getByRole('button', { name: 'Cancel' });
+	await expect.element(button).toBeVisible();
+	await button.click();
+	expect(onClick).toHaveBeenCalledOnce();
 });
 
-test("renders CancelButton with children", () => {
-  render(
-    <CancelButton
-      onClick={() => {
-        console.log("Clicked Cancel Button");
-      }}
-    >
-      Cancel
-    </CancelButton>,
-  );
+test('renders children as button content', async () => {
+	await render(<CancelButton onClick={vi.fn()}>Go Back</CancelButton>);
 
-  const cancelButton = screen.getByRole("button", { name: "Cancel" });
-  expect(cancelButton).toBeInTheDocument();
+	await expect.element(page.getByRole('button', { name: 'Cancel' })).toBeVisible();
+	await expect.element(page.getByText('Go Back')).toBeVisible();
 });
 
-test("renders with custom className", () => {
-  render(<CancelButton name="Cancel" className="custom-class" onClick={() => {}} />);
+test('forwards button props', async () => {
+	await render(
+		<CancelButton
+			name="Cancel"
+			className="custom-class"
+			dataCy="custom-cancel-button"
+			type="submit"
+			startIcon={<span data-testid="custom-icon" />}
+			onClick={vi.fn()}
+		/>
+	);
 
-  const cancelButton = screen.getByRole("button", { name: "Cancel" });
-  expect(cancelButton).toHaveClass("custom-class");
-});
-
-test("renders with custom data-cy attribute", () => {
-  render(<CancelButton name="Cancel" dataCy="custom-cancel-button" onClick={() => {}} />);
-
-  const cancelButton = screen.getByRole("button", { name: "Cancel" });
-  expect(cancelButton).toHaveAttribute("data-cy", "custom-cancel-button");
-});
-
-test("renders with custom startIcon", () => {
-  render(
-    <CancelButton
-      name="Cancel"
-      startIcon={<span data-testid="custom-icon" />}
-      onClick={() => {}}
-    />,
-  );
-
-  const customIcon = screen.getByTestId("custom-icon");
-  expect(customIcon).toBeInTheDocument();
-});
-
-test("renders with custom type", () => {
-  render(<CancelButton name="Cancel" type="submit" onClick={() => {}} />);
-
-  const cancelButton = screen.getByRole("button", { name: "Cancel" });
-  expect(cancelButton).toHaveAttribute("type", "submit");
-});
-
-test("calls onClick when clicked", () => {
-  const handleClick = jest.fn();
-  render(<CancelButton name="Cancel" onClick={handleClick} />);
-
-  const cancelButton = screen.getByRole("button", { name: "Cancel" });
-  fireEvent.click(cancelButton);
-  expect(handleClick).toHaveBeenCalledTimes(1);
+	const button = page.getByRole('button', { name: 'Cancel' });
+	await expect.element(button).toHaveClass('custom-class');
+	await expect.element(button).toHaveAttribute('data-cy', 'custom-cancel-button');
+	await expect.element(button).toHaveAttribute('type', 'submit');
+	await expect.element(page.getByTestId('custom-icon')).toBeInTheDocument();
 });

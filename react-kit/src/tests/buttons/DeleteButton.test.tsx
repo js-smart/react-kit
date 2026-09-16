@@ -1,72 +1,46 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { DeleteButton } from "../../lib/components/buttons/DeleteButton";
-import "@testing-library/jest-dom";
-import jest from "jest-mock";
+import { expect, test, vi } from 'vitest';
+import { page } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+import { DeleteButton } from '../../lib/components/buttons/DeleteButton';
 
-test("renders DeleteButton component", () => {
-  render(
-    <DeleteButton
-      loading={false}
-      onClick={() => {
-        console.log("Clicked Delete Button");
-      }}
-    />,
-  );
+test('renders Delete button and calls onClick', async () => {
+	const onClick = vi.fn();
+	await render(<DeleteButton loading={false} onClick={onClick} />);
 
-  const deleteButton = screen.getByRole("button", { name: "Delete" });
-  expect(deleteButton).toBeInTheDocument();
+	const button = page.getByRole('button', { name: 'Delete' });
+	await expect.element(button).toBeVisible();
+	await button.click();
+	expect(onClick).toHaveBeenCalledOnce();
 });
 
-test("renders DeleteButton with custom label", () => {
-  render(
-    <DeleteButton
-      loading={false}
-      label="Remove"
-      onClick={() => {
-        console.log("Clicked Delete Button");
-      }}
-    />,
-  );
+test('renders custom label', async () => {
+	await render(<DeleteButton loading={false} label="Remove" onClick={vi.fn()} />);
 
-  const deleteButton = screen.getByRole("button", { name: "Remove" });
-  expect(deleteButton).toBeInTheDocument();
+	await expect.element(page.getByRole('button', { name: 'Remove' })).toBeVisible();
 });
 
-test("renders with custom data-cy attribute", () => {
-  render(
-    <DeleteButton loading={false} name="Delete" dataCy="custom-delete-button" onClick={() => {}} />,
-  );
+test('forwards button props', async () => {
+	await render(
+		<DeleteButton
+			loading={false}
+			name="Delete"
+			dataCy="custom-delete-button"
+			type="submit"
+			startIcon={<span data-testid="custom-icon" />}
+			onClick={vi.fn()}
+		/>
+	);
 
-  const deleteButton = screen.getByRole("button", { name: "Delete" });
-  expect(deleteButton).toHaveAttribute("data-cy", "custom-delete-button");
+	const button = page.getByRole('button', { name: 'Delete' });
+	await expect.element(button).toHaveAttribute('data-cy', 'custom-delete-button');
+	await expect.element(button).toHaveAttribute('type', 'submit');
+	await expect.element(page.getByTestId('custom-icon')).toBeInTheDocument();
 });
 
-test("renders with custom startIcon", () => {
-  render(
-    <DeleteButton
-      loading={false}
-      name="Delete"
-      startIcon={<span data-testid="custom-icon" />}
-      onClick={() => {}}
-    />,
-  );
+test('disables interaction while loading', async () => {
+	const onClick = vi.fn();
+	await render(<DeleteButton loading={true} onClick={onClick} />);
 
-  const customIcon = screen.getByTestId("custom-icon");
-  expect(customIcon).toBeInTheDocument();
-});
-
-test("renders with custom type", () => {
-  render(<DeleteButton loading={false} name="Delete" type="submit" onClick={() => {}} />);
-
-  const deleteButton = screen.getByRole("button", { name: "Delete" });
-  expect(deleteButton).toHaveAttribute("type", "submit");
-});
-
-test("calls onClick when clicked", () => {
-  const handleClick = jest.fn();
-  render(<DeleteButton loading={false} name="Delete" onClick={handleClick} />);
-
-  const deleteButton = screen.getByRole("button", { name: "Delete" });
-  fireEvent.click(deleteButton);
-  expect(handleClick).toHaveBeenCalledTimes(1);
+	const button = page.getByRole('button', { name: 'Delete' });
+	await expect.element(button).toBeDisabled();
 });

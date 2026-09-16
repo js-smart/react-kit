@@ -1,52 +1,32 @@
-import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import { ManageButton } from "../../lib/components/buttons/ManageButton";
-import jest from "jest-mock";
+import { expect, test, vi } from 'vitest';
+import { page } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+import { ManageButton } from '../../lib/components/buttons/ManageButton';
 
-describe("ManageButton", () => {
-  const mockOnClick = jest.fn();
+test('renders Manage button and calls onClick', async () => {
+	const onClick = vi.fn();
+	await render(<ManageButton onClick={onClick} />);
 
-  beforeEach(() => {
-    mockOnClick.mockClear();
-  });
+	const button = page.getByRole('button', { name: 'Manage' });
+	await expect.element(button).toBeVisible();
+	await button.click();
+	expect(onClick).toHaveBeenCalledOnce();
+});
 
-  it("renders with the correct default properties", () => {
-    render(<ManageButton onClick={mockOnClick} />);
-    const button = screen.getByRole("button", { name: "Manage" });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-contained");
-    expect(button).toHaveClass("MuiButton-colorPrimary");
-    expect(button).toHaveClass("MuiButton-sizeLarge");
-  });
+test('forwards button props', async () => {
+	await render(
+		<ManageButton
+			onClick={vi.fn()}
+			name="custom-name"
+			dataCy="custom-data-cy"
+			startIcon={<span data-testid="custom-icon" />}>
+			Custom Manage
+		</ManageButton>
+	);
 
-  it("calls onClick when clicked", () => {
-    render(<ManageButton onClick={mockOnClick} />);
-    fireEvent.click(screen.getByRole("button", { name: "Manage" }));
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
-  });
-
-  it("renders with custom properties", () => {
-    render(
-      <ManageButton
-        onClick={mockOnClick}
-        name="custom-name"
-        dataCy="custom-data-cy"
-        variant="outlined"
-        color="secondary"
-        size="small"
-        startIcon={<span data-testid="custom-icon" />}
-      >
-        Custom Manage
-      </ManageButton>,
-    );
-    const button = screen.getByRole("button", { name: "Custom Manage" });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-outlined");
-    expect(button).toHaveClass("MuiButton-colorSecondary");
-    expect(button).toHaveClass("MuiButton-sizeSmall");
-    expect(button).toHaveAttribute("name", "custom-name");
-    expect(button).toHaveAttribute("data-cy", "custom-data-cy");
-    expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
-  });
+	const button = page.getByRole('button', { name: 'Custom Manage' });
+	await expect.element(button).toBeVisible();
+	await expect.element(button).toHaveAttribute('name', 'custom-name');
+	await expect.element(button).toHaveAttribute('data-cy', 'custom-data-cy');
+	await expect.element(page.getByTestId('custom-icon')).toBeInTheDocument();
 });

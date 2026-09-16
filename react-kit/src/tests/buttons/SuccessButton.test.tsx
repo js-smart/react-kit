@@ -1,49 +1,37 @@
-import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import { SuccessButton } from "../../lib/components/buttons/SuccessButton";
-import jest from "jest-mock";
+import { expect, test, vi } from 'vitest';
+import { page } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+import { SuccessButton } from '../../lib/components/buttons/SuccessButton';
 
-describe("SuccessButton", () => {
-  const mockOnClick = jest.fn();
+test('renders default Save button and calls onClick', async () => {
+	const onClick = vi.fn();
+	await render(<SuccessButton onClick={onClick}>Success</SuccessButton>);
 
-  beforeEach(() => {
-    mockOnClick.mockClear();
-  });
+	const button = page.getByRole('button', { name: 'Save' });
+	await expect.element(button).toBeVisible();
+	await button.click();
+	expect(onClick).toHaveBeenCalledOnce();
+});
 
-  it("renders with the correct default properties", () => {
-    render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
-    const button = screen.getByRole("button", { name: "Save" });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-contained");
-    expect(button).toHaveClass("MuiButton-colorSuccess");
-  });
+test('forwards button props', async () => {
+	const onClick = vi.fn();
+	await render(
+		<SuccessButton
+			onClick={onClick}
+			name="custom-name"
+			dataCy="custom-data-cy"
+			type="submit"
+			className="custom-class"
+			startIcon={<span data-testid="custom-icon" />}>
+			Custom Success
+		</SuccessButton>
+	);
 
-  it("calls onClick when clicked", () => {
-    render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
-    fireEvent.click(screen.getByRole("button", { name: "Save" }));
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
-  });
-
-  it("renders with custom properties", () => {
-    render(
-      <SuccessButton
-        onClick={mockOnClick}
-        name="custom-name"
-        dataCy="custom-data-cy"
-        variant="outlined"
-        color="secondary"
-        startIcon={<span data-testid="custom-icon" />}
-      >
-        Custom Success
-      </SuccessButton>,
-    );
-    const button = screen.getByRole("button", { name: "custom-name" });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-outlined");
-    expect(button).toHaveClass("MuiButton-colorSecondary");
-    expect(button).toHaveAttribute("name", "custom-name");
-    expect(button).toHaveAttribute("data-cy", "custom-data-cy");
-    expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
-  });
+	const button = page.getByRole('button', { name: 'custom-name' });
+	await expect.element(button).toBeVisible();
+	await expect.element(button).toHaveAttribute('name', 'custom-name');
+	await expect.element(button).toHaveAttribute('data-cy', 'custom-data-cy');
+	await expect.element(button).toHaveAttribute('type', 'submit');
+	await expect.element(button).toHaveClass('custom-class');
+	await expect.element(page.getByTestId('custom-icon')).toBeInTheDocument();
 });

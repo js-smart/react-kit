@@ -29,7 +29,7 @@ You are deeply familiar with:
 - **TanStack React Router** (peer dependency — used by link components and the demo app)
 - **Vite** library mode with `vite-plugin-dts` for type declarations
 - **Nx 23** monorepo task orchestration
-- **Vitest** + **Testing Library** for unit tests
+- **Vitest Browser Mode** (Playwright Chromium) for component tests; Node Vitest for pure utilities
 - **Oxlint** + **Oxfmt** for lint and format
 - **semantic-release** for npm publishing
 
@@ -213,7 +213,7 @@ The demo app exists to exercise library components in isolation.
 ## Testing Expectations
 
 - **SHOULD** add or update unit tests in `react-kit/src/tests/` when changing library behavior.
-- Tests use **Vitest** + **@testing-library/react** + **jest-dom** matchers.
+- Component/UI tests use **Vitest Browser Mode** + **vitest-browser-react** + Playwright Chromium; pure utility tests use standard Vitest (Node).
 - Test files mirror the library structure (e.g. `tests/buttons/SuccessButton.test.tsx`).
 - **SHOULD** test public behavior (rendering, click handlers, prop defaults) — not implementation details.
 - **SHOULD** run `pnpm test`, `pnpm lint`, and `pnpm build` before concluding substantial library changes.
