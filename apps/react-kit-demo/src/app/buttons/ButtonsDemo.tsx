@@ -9,7 +9,7 @@ import {
 	LoadingSuccessButton,
 	ManageButton,
 	SuccessButton,
-} from '@react-kit/react-kit';
+} from '@js-smart/react-kit';
 
 export default function ButtonsDemo() {
 	return (

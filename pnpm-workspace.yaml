@@ -1,4 +1,6 @@
 packages:
+  - 'react-kit'
+  - 'apps/react-kit-demo'
   - 'apps/docs'
 
 allowBuilds:
@@ -7,4 +9,3 @@ allowBuilds:
   core-js: true
   core-js-pure: true
   esbuild: true
-  nx: true

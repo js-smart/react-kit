@@ -8,26 +8,5 @@
 	"env": {
 		"builtin": true
 	},
-	"jsPlugins": ["@nx/oxlint/boundaries-plugin"],
-	"ignorePatterns": ["**/dist"],
-	"overrides": [
-		{
-			"files": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
-			"rules": {
-				"@nx/enforce-module-boundaries": [
-					"error",
-					{
-						"enforceBuildableLibDependency": true,
-						"allow": [],
-						"depConstraints": [
-							{
-								"sourceTag": "*",
-								"onlyDependOnLibsWithTags": ["*"]
-							}
-						]
-					}
-				]
-			}
-		}
-	]
+	"ignorePatterns": ["**/dist"]
 }

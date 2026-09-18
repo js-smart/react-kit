@@ -8,7 +8,7 @@ describe('ReactIf', () => {
 		render(
 			<ReactIf condition={true}>
 				<span>Visible</span>
-			</ReactIf>,
+			</ReactIf>
 		);
 		expect(screen.getByText('Visible')).toBeInTheDocument();
 	});
@@ -17,7 +17,7 @@ describe('ReactIf', () => {
 		render(
 			<ReactIf condition={false}>
 				<span>Hidden</span>
-			</ReactIf>,
+			</ReactIf>
 		);
 		expect(screen.queryByText('Hidden')).not.toBeInTheDocument();
 	});
@@ -26,7 +26,7 @@ describe('ReactIf', () => {
 		render(
 			<ReactIf condition={null}>
 				<span>Hidden</span>
-			</ReactIf>,
+			</ReactIf>
 		);
 		expect(screen.queryByText('Hidden')).not.toBeInTheDocument();
 	});
@@ -35,7 +35,7 @@ describe('ReactIf', () => {
 		render(
 			<ReactIf condition={undefined}>
 				<span>Hidden</span>
-			</ReactIf>,
+			</ReactIf>
 		);
 		expect(screen.queryByText('Hidden')).not.toBeInTheDocument();
 	});
@@ -44,7 +44,7 @@ describe('ReactIf', () => {
 		render(
 			<ReactIf condition={false} else={<span>Fallback</span>}>
 				<span>Main</span>
-			</ReactIf>,
+			</ReactIf>
 		);
 		expect(screen.queryByText('Main')).not.toBeInTheDocument();
 		expect(screen.getByText('Fallback')).toBeInTheDocument();
@@ -59,7 +59,7 @@ describe('ReactIf', () => {
 		render(
 			<ReactIf condition={false} else={() => <span>Else fn</span>}>
 				<span>Main</span>
-			</ReactIf>,
+			</ReactIf>
 		);
 		expect(screen.getByText('Else fn')).toBeInTheDocument();
 	});

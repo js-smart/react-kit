@@ -32,22 +32,13 @@ import { HistoryButton } from '@js-smart/react-kit';
 Override the default `contained` variant and `primary` color:
 
 ```tsx
-<HistoryButton
-  name="History"
-  variant="outlined"
-  color="secondary"
-  onClick={() => navigate('/history')}
-/>
+<HistoryButton name="History" variant="outlined" color="secondary" onClick={() => navigate('/history')} />
 ```
 
 ## Custom start icon
 
 ```tsx
-<HistoryButton
-  name="Activity"
-  startIcon={<TimelineIcon />}
-  onClick={() => openActivity()}
-/>
+<HistoryButton name="Activity" startIcon={<TimelineIcon />} onClick={() => openActivity()} />
 ```
 
 ## Accessibility
@@ -60,16 +51,16 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` 
 
 ## Props
 
-| Prop        | Type                                                                 | Default            | Description                                          |
-| ----------- | -------------------------------------------------------------------- | ------------------ | ---------------------------------------------------- |
-| `onClick`   | `() => void`                                                         | —                  | **Required.** Called when the button is clicked.     |
-| `children`  | `ReactNode`                                                    | —                  | Button content. If omitted, `name` is used.          |
-| `name`      | `string`                                                             | —                  | Button label (used when `children` is not provided). |
-| `className` | `string`                                                             | —                  | CSS class name.                                      |
-| `dataCy`    | `string`                                                             | `'history-button'`| `data-cy` value for testing.                         |
-| `sx`        | `SxProps<Theme>`                                                     | `{ p: 1, m: 1 }`   | MUI `sx` prop for styling.                           |
-| `type`      | `'button' \| 'submit' \| 'reset'`                                    | `'button'`         | Native button type.                                  |
-| `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`      | MUI button variant.                                  |
-| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'` | MUI button color.                          |
-| `startIcon` | `ReactNode`                                                    | `<HistoryIcon />`  | Icon shown before the label.                        |
-| `ariaLabel` | `string`                                                             | `name` or `'History'` | Accessible label for the button.                  |
+| Prop        | Type                                                                                   | Default               | Description                                          |
+| ----------- | -------------------------------------------------------------------------------------- | --------------------- | ---------------------------------------------------- |
+| `onClick`   | `() => void`                                                                           | —                     | **Required.** Called when the button is clicked.     |
+| `children`  | `ReactNode`                                                                            | —                     | Button content. If omitted, `name` is used.          |
+| `name`      | `string`                                                                               | —                     | Button label (used when `children` is not provided). |
+| `className` | `string`                                                                               | —                     | CSS class name.                                      |
+| `dataCy`    | `string`                                                                               | `'history-button'`    | `data-cy` value for testing.                         |
+| `sx`        | `SxProps<Theme>`                                                                       | `{ p: 1, m: 1 }`      | MUI `sx` prop for styling.                           |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                                      | `'button'`            | Native button type.                                  |
+| `variant`   | `'text' \| 'outlined' \| 'contained'`                                                  | `'contained'`         | MUI button variant.                                  |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'`           | MUI button color.                                    |
+| `startIcon` | `ReactNode`                                                                            | `<HistoryIcon />`     | Icon shown before the label.                         |
+| `ariaLabel` | `string`                                                                               | `name` or `'History'` | Accessible label for the button.                     |

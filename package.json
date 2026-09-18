@@ -1,24 +1,22 @@
 {
-	"name": "@js-smart/react-kit",
+	"name": "react-kit-monorepo",
 	"version": "6.0.0",
-	"private": false,
+	"private": true,
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"nx": "nx",
-		"start": "nx serve react-kit-demo",
-		"start:docs": "nx start docs",
-		"build": "nx build react-kit",
-		"build:demo": "nx build react-kit-demo",
-		"build:docs": "nx build docs",
-		"test": "nx test react-kit ",
-		"update": "nx migrate latest",
-		"lint": "nx run-many -t lint",
-		"format": "nx format:write",
+		"start": "pnpm --filter react-kit-demo start",
+		"start:docs": "pnpm --filter docs start",
+		"build": "pnpm --filter @js-smart/react-kit build",
+		"build:demo": "pnpm --filter react-kit-demo build",
+		"build:docs": "pnpm --filter docs build",
+		"test": "pnpm --filter @js-smart/react-kit test",
+		"lint": "oxlint .",
+		"format": "oxfmt .",
 		"prepare": "husky"
 	},
 	"lint-staged": {
-		"*": "nx format:write --files"
+		"*": "oxfmt --no-error-on-unmatched-pattern"
 	},
 	"dependencies": {
 		"@emotion/react": "11.14.0",
@@ -32,21 +30,8 @@
 		"react-dom": "^19.2.8"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.29.7",
-		"@babel/preset-react": "^7.29.7",
-		"@nx/devkit": "23.2.0",
-		"@nx/js": "23.2.0",
-		"@nx/oxlint": "23.2.0",
-		"@nx/react": "23.2.0",
-		"@nx/vite": "23.2.0",
-		"@nx/vitest": "23.2.0",
-		"@nx/workspace": "23.2.0",
 		"@semantic-release/git": "^10.0.1",
 		"@semantic-release/npm": "^13.1.5",
-		"@swc-node/register": "1.11.1",
-		"@swc/cli": "0.8.1",
-		"@swc/core": "1.15.8",
-		"@swc/helpers": "0.5.19",
 		"@testing-library/jest-dom": "^6.5.0",
 		"@testing-library/react": "16.3.0",
 		"@types/node": "22.15.14",
@@ -57,10 +42,8 @@
 		"@vitest/ui": "4.0.9",
 		"husky": "^9.1.7",
 		"jest-mock": "^29.7.0",
-		"jiti": "2.4.2",
 		"jsdom": "~26.1.0",
 		"lint-staged": "^17.4.1",
-		"nx": "23.2.0",
 		"oxfmt": "^0.66.0",
 		"oxlint": "^1.81.0",
 		"sass": "^1.103.1",
@@ -70,16 +53,6 @@
 		"vite-plugin-dts": "^4.5.4",
 		"vite-plugin-mkcert": "^1.17.12",
 		"vitest": "4.0.9"
-	},
-	"peerDependencies": {
-		"@emotion/react": "^11.14.0",
-		"@emotion/styled": "^11.14.0",
-		"@mui/icons-material": "^9.1.0",
-		"@mui/material": "^9.1.0",
-		"@mui/x-data-grid": "^8.2.0",
-		"@tanstack/react-router": "^1.161.1",
-		"react": "^18.3.1 || ^19.0.0",
-		"react-dom": "^18.3.1 || ^19.0.0"
 	},
 	"release": {
 		"branches": [

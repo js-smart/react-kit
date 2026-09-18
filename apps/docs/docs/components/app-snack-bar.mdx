@@ -21,28 +21,24 @@ import { ProgressState } from '@js-smart/react-kit';
 ```tsx
 const [open, setOpen] = useState(false);
 const [progressState, setProgressState] = useState<ProgressState>({
-  isLoading: false,
-  isSuccess: false,
-  isError: false,
-  isComplete: false,
-  message: '',
+	isLoading: false,
+	isSuccess: false,
+	isError: false,
+	isComplete: false,
+	message: '',
 });
 
 // After an operation:
 setProgressState(markSuccess(progressState, 'Saved successfully.'));
 setOpen(true);
 
-<AppSnackBar open={open} progressState={progressState} />
+<AppSnackBar open={open} progressState={progressState} />;
 ```
 
 ## Custom auto-hide duration
 
 ```tsx
-<AppSnackBar
-  open={open}
-  progressState={progressState}
-  autoHideDuration={5000}
-/>
+<AppSnackBar open={open} progressState={progressState} autoHideDuration={5000} />
 ```
 
 ## Accessibility
@@ -55,8 +51,8 @@ The close button has `aria-label="close"`. Alerts use MUI's severity and variant
 
 ## Props
 
-| Prop             | Type           | Default | Description                                                                 |
-| ---------------- | -------------- | ------- | --------------------------------------------------------------------------- |
-| `open`           | `boolean`      | —       | **Required.** Controls whether the snackbar is shown.                        |
-| `progressState`  | `ProgressState`| —       | **Required.** Object with `isSuccess`, `isError`, and `message`. Success/error alerts show based on these. |
-| `autoHideDuration` | `number`     | `3000`  | Time in ms before the snackbar auto-hides.                                 |
+| Prop               | Type            | Default | Description                                                                                                |
+| ------------------ | --------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `open`             | `boolean`       | —       | **Required.** Controls whether the snackbar is shown.                                                      |
+| `progressState`    | `ProgressState` | —       | **Required.** Object with `isSuccess`, `isError`, and `message`. Success/error alerts show based on these. |
+| `autoHideDuration` | `number`        | `3000`  | Time in ms before the snackbar auto-hides.                                                                 |

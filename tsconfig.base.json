@@ -14,7 +14,7 @@
 		"skipLibCheck": true,
 		"skipDefaultLibCheck": true,
 		"paths": {
-			"@react-kit/*": ["./react-kit/src/index.ts"]
+			"@js-smart/react-kit": ["./react-kit/src/index.ts"]
 		},
 		"strict": false,
 		"noUncheckedSideEffectImports": false,

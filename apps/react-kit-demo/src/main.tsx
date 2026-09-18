@@ -13,5 +13,5 @@ root.render(
 			<CssBaseline />
 			<RouterProvider router={router} />
 		</ThemeProvider>
-	</StrictMode>,
+	</StrictMode>
 );

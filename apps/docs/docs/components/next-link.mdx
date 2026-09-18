@@ -30,12 +30,7 @@ import { NextLink } from '@js-smart/react-kit';
 ## With target and aria-label
 
 ```tsx
-<NextLink
-  href="/help"
-  linkText="Help"
-  target="_self"
-  ariaLabel="Open help page"
-/>
+<NextLink href="/help" linkText="Help" target="_self" ariaLabel="Open help page" />
 ```
 
 ## Accessibility
@@ -48,10 +43,10 @@ Set `ariaLabel` when the visible text is not descriptive enough for screen reade
 
 ## Props
 
-| Prop        | Type             | Default | Description                                          |
-| ----------- | ---------------- | ------- | ---------------------------------------------------- |
-| `href`      | `string`         | —       | **Required.** Target path (passed to TanStack Router as `to`). |
-| `linkText`  | `string`         | —       | Link label. If omitted, `children` is used.         |
-| `target`    | `string`         | —       | Optional target (e.g. `_blank`).                     |
-| `children`  | `ReactNode`| —       | Link content when `linkText` is not set.            |
-| `ariaLabel` | `string`         | —       | Accessible label for the link.                      |
+| Prop        | Type        | Default | Description                                                    |
+| ----------- | ----------- | ------- | -------------------------------------------------------------- |
+| `href`      | `string`    | —       | **Required.** Target path (passed to TanStack Router as `to`). |
+| `linkText`  | `string`    | —       | Link label. If omitted, `children` is used.                    |
+| `target`    | `string`    | —       | Optional target (e.g. `_blank`).                               |
+| `children`  | `ReactNode` | —       | Link content when `linkText` is not set.                       |
+| `ariaLabel` | `string`    | —       | Accessible label for the link.                                 |

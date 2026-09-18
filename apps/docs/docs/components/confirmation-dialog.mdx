@@ -21,30 +21,30 @@ import { ConfirmDialog } from '@js-smart/react-kit';
 const [open, setOpen] = useState(false);
 
 <ConfirmDialog
-  id="confirm-delete"
-  keepMounted={false}
-  title="Delete item?"
-  message="This action cannot be undone."
-  value=""
-  open={open}
-  onClose={(value) => {
-    setOpen(false);
-    if (value === 'Yes') handleDelete();
-  }}
-/>
+	id="confirm-delete"
+	keepMounted={false}
+	title="Delete item?"
+	message="This action cannot be undone."
+	value=""
+	open={open}
+	onClose={(value) => {
+		setOpen(false);
+		if (value === 'Yes') handleDelete();
+	}}
+/>;
 ```
 
 ## Custom title and message
 
 ```tsx
 <ConfirmDialog
-  id="confirm-leave"
-  keepMounted={false}
-  title="Discard changes?"
-  message="You have unsaved changes. Are you sure you want to leave?"
-  value=""
-  open={open}
-  onClose={handleClose}
+	id="confirm-leave"
+	keepMounted={false}
+	title="Discard changes?"
+	message="You have unsaved changes. Are you sure you want to leave?"
+	value=""
+	open={open}
+	onClose={handleClose}
 />
 ```
 
@@ -58,12 +58,12 @@ The dialog uses MUI's Dialog with standard focus and ARIA behavior. Buttons incl
 
 ## Props
 
-| Prop          | Type                    | Default   | Description                                                                 |
-| ------------- | ----------------------- | --------- | --------------------------------------------------------------------------- |
-| `id`          | `string`                | —         | **Required.** Unique id for the dialog (e.g. for accessibility).            |
-| `keepMounted` | `boolean`               | —         | **Required.** Whether to keep the dialog in the DOM when closed (MUI prop). |
-| `open`        | `boolean`                | —         | **Required.** Whether the dialog is visible.                               |
-| `onClose`     | `(value: string) => void` | —         | **Required.** Called with `"Yes"` or `"No"` when the user chooses.           |
-| `message`     | `string`                | —         | **Required.** Body text shown in the dialog.                                |
-| `value`       | `string`                | —         | **Required.** Value passed to the dialog (e.g. for MUI).                    |
-| `title`       | `string`                | `'Confirm'` | Dialog title.                                                             |
+| Prop          | Type                      | Default     | Description                                                                 |
+| ------------- | ------------------------- | ----------- | --------------------------------------------------------------------------- |
+| `id`          | `string`                  | —           | **Required.** Unique id for the dialog (e.g. for accessibility).            |
+| `keepMounted` | `boolean`                 | —           | **Required.** Whether to keep the dialog in the DOM when closed (MUI prop). |
+| `open`        | `boolean`                 | —           | **Required.** Whether the dialog is visible.                                |
+| `onClose`     | `(value: string) => void` | —           | **Required.** Called with `"Yes"` or `"No"` when the user chooses.          |
+| `message`     | `string`                  | —           | **Required.** Body text shown in the dialog.                                |
+| `value`       | `string`                  | —           | **Required.** Value passed to the dialog (e.g. for MUI).                    |
+| `title`       | `string`                  | `'Confirm'` | Dialog title.                                                               |

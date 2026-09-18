@@ -24,12 +24,12 @@ Add `ToastContainer` once near the root of your app (alongside your router or la
 
 ```tsx
 function App() {
-  return (
-    <>
-      <Routes />
-      <ToastContainer />
-    </>
-  );
+	return (
+		<>
+			<Routes />
+			<ToastContainer />
+		</>
+	);
 }
 ```
 
@@ -49,12 +49,12 @@ toast('Default info toast.'); // type defaults to 'info'
 
 ```tsx
 async function handleSave() {
-  try {
-    await saveRecord();
-    toast('Record saved.', 'success');
-  } catch {
-    toast('Failed to save record.', 'error');
-  }
+	try {
+		await saveRecord();
+		toast('Record saved.', 'success');
+	} catch {
+		toast('Failed to save record.', 'error');
+	}
 }
 ```
 
@@ -76,9 +76,9 @@ Renders the active toast from the internal store. Mount once; no props required.
 
 Shows a toast notification.
 
-| Parameter | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| `message` | `string` | — | **Required.** Message to display. |
-| `type` | `'success' \| 'info' \| 'warning' \| 'error'` | `'info'` | Alert severity. |
+| Parameter | Type                                          | Default  | Description                       |
+| --------- | --------------------------------------------- | -------- | --------------------------------- |
+| `message` | `string`                                      | —        | **Required.** Message to display. |
+| `type`    | `'success' \| 'info' \| 'warning' \| 'error'` | `'info'` | Alert severity.                   |
 
 **Returns:** `void`

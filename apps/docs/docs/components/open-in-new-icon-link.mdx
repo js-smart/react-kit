@@ -25,7 +25,7 @@ import { OpenInNewIconLink } from '@js-smart/react-kit';
 
 ```tsx
 <OpenInNewIconLink href="https://example.com" linkText="Example" target="_blank">
-  Visit Example
+	Visit Example
 </OpenInNewIconLink>
 ```
 
@@ -39,10 +39,10 @@ The link uses `aria-label` from the `ariaLabel` prop, or falls back to `linkText
 
 ## Props
 
-| Prop        | Type              | Default   | Description                                                       |
-| ----------- | ------------------ | --------- | ----------------------------------------------------------------- |
-| `href`      | `string`           | —         | **Required.** Target URL or path.                                 |
-| `linkText`  | `string`           | —         | **Required.** Link label (or use `children`).                     |
-| `target`    | `string`           | `'_blank'`| Target for the link (e.g. `_blank` for new tab).                  |
-| `children`  | `ReactNode`  | —         | Optional content; used when provided instead of `linkText`.      |
-| `ariaLabel` | `string`           | —         | Accessible label (falls back to `linkText` or string `children`). |
+| Prop        | Type        | Default    | Description                                                       |
+| ----------- | ----------- | ---------- | ----------------------------------------------------------------- |
+| `href`      | `string`    | —          | **Required.** Target URL or path.                                 |
+| `linkText`  | `string`    | —          | **Required.** Link label (or use `children`).                     |
+| `target`    | `string`    | `'_blank'` | Target for the link (e.g. `_blank` for new tab).                  |
+| `children`  | `ReactNode` | —          | Optional content; used when provided instead of `linkText`.       |
+| `ariaLabel` | `string`    | —          | Accessible label (falls back to `linkText` or string `children`). |

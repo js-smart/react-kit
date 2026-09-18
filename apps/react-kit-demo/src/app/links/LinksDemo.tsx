@@ -1,5 +1,5 @@
 import { Divider } from '@mui/material';
-import { GoBackButton, NextLink, OpenInNewIconLink } from '@react-kit/*';
+import { GoBackButton, NextLink, OpenInNewIconLink } from '@js-smart/react-kit';
 
 export default function LinksDemo() {
 	return (

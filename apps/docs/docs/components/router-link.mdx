@@ -29,7 +29,7 @@ Mount your app with TanStack Router, then use `RouterLink` with the `to` prop:
 
 ```tsx
 <RouterLink to="/settings" color="primary" underline="always">
-  Settings
+	Settings
 </RouterLink>
 ```
 
@@ -39,7 +39,7 @@ Pass TanStack Router link options such as `params` and `search` alongside MUI pr
 
 ```tsx
 <RouterLink to="/books/$bookId" params={{ bookId: '42' }}>
-  View book
+	View book
 </RouterLink>
 ```
 
@@ -55,13 +55,13 @@ Set `aria-label` when the visible link text is not descriptive enough for screen
 
 `RouterLink` combines TanStack Router [Link](https://tanstack.com/router/latest/docs/framework/react/api/router/linkComponent) props with MUI [Link](https://mui.com/material-ui/api/link/) props.
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `to` | `string` | — | **Required.** Target route path. |
-| `params` | `object` | — | Route params for dynamic segments. |
-| `search` | `object` | — | URL search/query params. |
-| `children` | `ReactNode` | — | Link content. |
-| `className` | `string` | — | CSS class. The `next-btn-link` class is applied by default. |
-| `underline` | `'none' \| 'hover' \| 'always'` | `'hover'` | MUI underline behavior. |
-| `color` | MUI Link color | — | MUI link color. |
-| `aria-label` | `string` | — | Accessible label for the link. |
+| Prop         | Type                            | Default   | Description                                                 |
+| ------------ | ------------------------------- | --------- | ----------------------------------------------------------- |
+| `to`         | `string`                        | —         | **Required.** Target route path.                            |
+| `params`     | `object`                        | —         | Route params for dynamic segments.                          |
+| `search`     | `object`                        | —         | URL search/query params.                                    |
+| `children`   | `ReactNode`                     | —         | Link content.                                               |
+| `className`  | `string`                        | —         | CSS class. The `next-btn-link` class is applied by default. |
+| `underline`  | `'none' \| 'hover' \| 'always'` | `'hover'` | MUI underline behavior.                                     |
+| `color`      | MUI Link color                  | —         | MUI link color.                                             |
+| `aria-label` | `string`                        | —         | Accessible label for the link.                              |

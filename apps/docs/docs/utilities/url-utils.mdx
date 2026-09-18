@@ -16,9 +16,9 @@ import { isEncoded } from '@js-smart/react-kit';
 ## Basic usage
 
 ```tsx
-isEncoded('hello');           // false
-isEncoded('hello%20world');   // true
-isEncoded('a%2Bb');           // true
+isEncoded('hello'); // false
+isEncoded('hello%20world'); // true
+isEncoded('a%2Bb'); // true
 ```
 
 ## With query or path building
@@ -26,8 +26,8 @@ isEncoded('a%2Bb');           // true
 ```tsx
 const raw = searchParams.get('q');
 if (raw && !isEncoded(raw)) {
-  // safe to encode for use in another URL
-  const encoded = encodeURIComponent(raw);
+	// safe to encode for use in another URL
+	const encoded = encodeURIComponent(raw);
 }
 ```
 
@@ -42,8 +42,8 @@ if (raw && !isEncoded(raw)) {
 
 Returns whether the given URL string appears to be percent-encoded. Returns `false` if the URL is not encoded or if decoding fails.
 
-| Parameter | Type | Description |
-| --------- | ---- | ----------- |
-| `url` | `string` | The URL string to check. |
+| Parameter | Type     | Description              |
+| --------- | -------- | ------------------------ |
+| `url`     | `string` | The URL string to check. |
 
 **Returns:** `boolean`

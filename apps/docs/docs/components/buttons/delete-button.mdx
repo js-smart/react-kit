@@ -24,11 +24,7 @@ import { DeleteButton } from '@js-smart/react-kit';
 ## With custom label
 
 ```tsx
-<DeleteButton
-  label="Remove"
-  loading={isDeleting}
-  onClick={() => handleRemove()}
-/>
+<DeleteButton label="Remove" loading={isDeleting} onClick={() => handleRemove()} />
 ```
 
 ## Loading state
@@ -36,12 +32,7 @@ import { DeleteButton } from '@js-smart/react-kit';
 Show a loading indicator while the delete request is in progress:
 
 ```tsx
-<DeleteButton
-  label="Delete"
-  loading={isDeleting}
-  loadingLabel="Deleting..."
-  onClick={() => handleDelete()}
-/>
+<DeleteButton label="Delete" loading={isDeleting} loadingLabel="Deleting..." onClick={() => handleDelete()} />
 ```
 
 ## Variant and color
@@ -49,12 +40,7 @@ Show a loading indicator while the delete request is in progress:
 Override the default `contained` variant and `error` color:
 
 ```tsx
-<DeleteButton
-  loading={false}
-  variant="outlined"
-  color="error"
-  onClick={() => handleDelete()}
-/>
+<DeleteButton loading={false} variant="outlined" color="error" onClick={() => handleDelete()} />
 ```
 
 ## Accessibility
@@ -67,17 +53,17 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `label`
 
 ## Props
 
-| Prop               | Type                                      | Default           | Description                                                |
-| ------------------ | ----------------------------------------- | ----------------- | ---------------------------------------------------------- |
-| `onClick`          | `() => void`                              | —                 | **Required.** Called when the button is clicked.          |
-| `loading`          | `boolean`                                 | —                 | **Required.** Whether the button is in a loading state.   |
-| `label`            | `string`                                  | `'Delete'`        | Button label.                                              |
-| `loadingLabel`     | `string`                                  | —                 | Label shown during loading.                               |
-| `loadingPosition`  | `'start' \| 'end' \| 'center'`            | `'start'`         | Position of the loading indicator.                         |
-| `type`             | `'button' \| 'submit' \| 'reset'`         | `'button'`        | Native button type.                                        |
-| `variant`          | `'text' \| 'outlined' \| 'contained'`     | `'contained'`     | MUI button variant.                                        |
-| `color`            | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'error'` | MUI button color.                                          |
-| `name`             | `string`                                  | —                 | Native `name` attribute.                                   |
-| `dataCy`           | `string`                                  | `'delete-button'` | `data-cy` value for testing.                               |
-| `startIcon`        | `ReactNode`                         | `<DeleteForeverIcon />` | Icon shown before the label.                    |
-| `ariaLabel`        | `string`                                  | `label` or `'Delete'` | Accessible label for the button.                        |
+| Prop              | Type                                                                                   | Default                 | Description                                             |
+| ----------------- | -------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------- |
+| `onClick`         | `() => void`                                                                           | —                       | **Required.** Called when the button is clicked.        |
+| `loading`         | `boolean`                                                                              | —                       | **Required.** Whether the button is in a loading state. |
+| `label`           | `string`                                                                               | `'Delete'`              | Button label.                                           |
+| `loadingLabel`    | `string`                                                                               | —                       | Label shown during loading.                             |
+| `loadingPosition` | `'start' \| 'end' \| 'center'`                                                         | `'start'`               | Position of the loading indicator.                      |
+| `type`            | `'button' \| 'submit' \| 'reset'`                                                      | `'button'`              | Native button type.                                     |
+| `variant`         | `'text' \| 'outlined' \| 'contained'`                                                  | `'contained'`           | MUI button variant.                                     |
+| `color`           | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'error'`               | MUI button color.                                       |
+| `name`            | `string`                                                                               | —                       | Native `name` attribute.                                |
+| `dataCy`          | `string`                                                                               | `'delete-button'`       | `data-cy` value for testing.                            |
+| `startIcon`       | `ReactNode`                                                                            | `<DeleteForeverIcon />` | Icon shown before the label.                            |
+| `ariaLabel`       | `string`                                                                               | `label` or `'Delete'`   | Accessible label for the button.                        |

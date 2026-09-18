@@ -16,14 +16,14 @@ import { parseBoolean } from '@js-smart/react-kit';
 ## Basic usage
 
 ```tsx
-parseBoolean('true');   // true
-parseBoolean('false');  // false
-parseBoolean('TRUE');   // true (case-insensitive)
-parseBoolean(true);     // true
-parseBoolean(false);   // false
-parseBoolean(null);     // false
+parseBoolean('true'); // true
+parseBoolean('false'); // false
+parseBoolean('TRUE'); // true (case-insensitive)
+parseBoolean(true); // true
+parseBoolean(false); // false
+parseBoolean(null); // false
 parseBoolean(undefined); // false
-parseBoolean('');       // false (any non-"true" string is false)
+parseBoolean(''); // false (any non-"true" string is false)
 ```
 
 ## With query params or form data
@@ -39,8 +39,8 @@ const rememberMe = parseBoolean(formData.get('rememberMe'));
 
 Parses a value to a boolean. Returns `true` only when the value is the boolean `true` or the string `"true"` (case-insensitive). Returns `false` for `undefined`, `null`, empty string, `false`, or any other string.
 
-| Parameter | Type | Description |
-| --------- | ---- | ----------- |
-| `value` | `boolean \| string \| null \| undefined` | Value to parse. |
+| Parameter | Type                                     | Description     |
+| --------- | ---------------------------------------- | --------------- |
+| `value`   | `boolean \| string \| null \| undefined` | Value to parse. |
 
 **Returns:** `boolean`

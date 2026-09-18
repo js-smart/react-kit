@@ -32,24 +32,16 @@ import { ManageButton } from '@js-smart/react-kit';
 Override the default `large` size and `contained` / `primary` style:
 
 ```tsx
-<ManageButton
-  size="medium"
-  variant="outlined"
-  color="primary"
-  onClick={() => openManage()}
->
-  Manage
+<ManageButton size="medium" variant="outlined" color="primary" onClick={() => openManage()}>
+	Manage
 </ManageButton>
 ```
 
 ## Custom start icon
 
 ```tsx
-<ManageButton
-  startIcon={<TuneIcon />}
-  onClick={() => openFilters()}
->
-  Filters
+<ManageButton startIcon={<TuneIcon />} onClick={() => openFilters()}>
+	Filters
 </ManageButton>
 ```
 
@@ -63,15 +55,15 @@ The button uses `aria-label` from the `ariaLabel` prop, or from `children` when 
 
 ## Props
 
-| Prop        | Type                                                                 | Default            | Description                                          |
-| ----------- | -------------------------------------------------------------------- | ------------------ | ---------------------------------------------------- |
-| `onClick`   | `() => void`                                                         | —                  | **Required.** Called when the button is clicked.     |
-| `children`  | `ReactNode`                                                    | `'Manage'`         | Button content.                                      |
-| `size`      | `'small' \| 'medium' \| 'large'`                                     | `'large'`          | MUI button size.                                     |
-| `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`      | MUI button variant.                                  |
-| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'` | MUI button color.                          |
-| `className` | `string`                                                             | —                  | CSS class name.                                      |
-| `name`      | `string`                                                             | —                  | Native `name` attribute.                              |
-| `dataCy`    | `string`                                                             | `'manage-button'`  | `data-cy` value for testing.                         |
-| `startIcon` | `ReactNode`                                                    | `<SettingsIcon />` | Icon shown before the label.                         |
-| `ariaLabel` | `string`                                                             | `children` or `'Manage'` | Accessible label for the button.              |
+| Prop        | Type                                                                                   | Default                  | Description                                      |
+| ----------- | -------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------------ |
+| `onClick`   | `() => void`                                                                           | —                        | **Required.** Called when the button is clicked. |
+| `children`  | `ReactNode`                                                                            | `'Manage'`               | Button content.                                  |
+| `size`      | `'small' \| 'medium' \| 'large'`                                                       | `'large'`                | MUI button size.                                 |
+| `variant`   | `'text' \| 'outlined' \| 'contained'`                                                  | `'contained'`            | MUI button variant.                              |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'primary'`              | MUI button color.                                |
+| `className` | `string`                                                                               | —                        | CSS class name.                                  |
+| `name`      | `string`                                                                               | —                        | Native `name` attribute.                         |
+| `dataCy`    | `string`                                                                               | `'manage-button'`        | `data-cy` value for testing.                     |
+| `startIcon` | `ReactNode`                                                                            | `<SettingsIcon />`       | Icon shown before the label.                     |
+| `ariaLabel` | `string`                                                                               | `children` or `'Manage'` | Accessible label for the button.                 |

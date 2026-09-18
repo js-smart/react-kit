@@ -1,5 +1,5 @@
 import { Button, Card, CardContent, Typography } from '@mui/material';
-import { AppSnackBar, initializeState, markError, markSuccess, toast } from '@react-kit/*';
+import { AppSnackBar, initializeState, markError, markSuccess, toast } from '@js-smart/react-kit';
 import { useState } from 'react';
 
 export default function SnackBarDemo() {

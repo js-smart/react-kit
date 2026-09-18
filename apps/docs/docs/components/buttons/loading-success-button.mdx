@@ -18,35 +18,23 @@ import { LoadingSuccessButton } from '@js-smart/react-kit';
 ## Basic usage
 
 ```tsx
-<LoadingSuccessButton
-  name="Save"
-  loading={isSubmitting}
-  onClick={() => handleSave()}
-/>
+<LoadingSuccessButton name="Save" loading={isSubmitting} onClick={() => handleSave()} />
 ```
 
 ## As form submit
 
 ```tsx
 <form onSubmit={handleSubmit}>
-  {/* ...fields... */}
-  <LoadingSuccessButton
-    name="Save"
-    type="submit"
-    loading={isSubmitting}
-  />
+	{/* ...fields... */}
+	<LoadingSuccessButton name="Save" type="submit" loading={isSubmitting} />
 </form>
 ```
 
 ## With children and custom icon
 
 ```tsx
-<LoadingSuccessButton
-  loading={isSubmitting}
-  startIcon={<CloudUploadIcon />}
-  onClick={() => upload()}
->
-  Upload
+<LoadingSuccessButton loading={isSubmitting} startIcon={<CloudUploadIcon />} onClick={() => upload()}>
+	Upload
 </LoadingSuccessButton>
 ```
 
@@ -55,13 +43,7 @@ import { LoadingSuccessButton } from '@js-smart/react-kit';
 Override the default `contained` variant and `success` color:
 
 ```tsx
-<LoadingSuccessButton
-  name="Submit"
-  loading={isSubmitting}
-  variant="outlined"
-  color="primary"
-  onClick={() => submit()}
-/>
+<LoadingSuccessButton name="Submit" loading={isSubmitting} variant="outlined" color="primary" onClick={() => submit()} />
 ```
 
 ## Accessibility
@@ -74,16 +56,16 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` 
 
 ## Props
 
-| Prop        | Type                                                                 | Default                      | Description                                          |
-| ----------- | -------------------------------------------------------------------- | ---------------------------- | ---------------------------------------------------- |
-| `loading`   | `boolean`                                                            | —                            | **Required.** Whether the button is in a loading state. |
-| `children`  | `ReactNode`                                                    | —                            | Button content. If omitted, `name` is used.          |
-| `name`      | `string`                                                             | —                            | Button label (used when `children` is not provided). |
-| `onClick`   | `() => void`                                                         | —                            | Called when the button is clicked (optional if used as submit). |
-| `type`      | `'button' \| 'submit' \| 'reset'`                                    | `'button'`                   | Native button type.                                  |
-| `dataCy`    | `string`                                                             | `'loading-success-button'`   | `data-cy` value for testing.                         |
-| `startIcon` | `ReactNode`                                                    | `<SaveIcon />`               | Icon shown before the label.                         |
-| `sx`        | `SxProps<Theme>`                                                     | —                            | MUI `sx` prop for styling.                           |
-| `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`                | MUI button variant.                                  |
-| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'success'` | MUI button color.                          |
-| `ariaLabel` | `string`                                                             | `name` or `'Save'`           | Accessible label for the button.                     |
+| Prop        | Type                                                                                   | Default                    | Description                                                     |
+| ----------- | -------------------------------------------------------------------------------------- | -------------------------- | --------------------------------------------------------------- |
+| `loading`   | `boolean`                                                                              | —                          | **Required.** Whether the button is in a loading state.         |
+| `children`  | `ReactNode`                                                                            | —                          | Button content. If omitted, `name` is used.                     |
+| `name`      | `string`                                                                               | —                          | Button label (used when `children` is not provided).            |
+| `onClick`   | `() => void`                                                                           | —                          | Called when the button is clicked (optional if used as submit). |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                                      | `'button'`                 | Native button type.                                             |
+| `dataCy`    | `string`                                                                               | `'loading-success-button'` | `data-cy` value for testing.                                    |
+| `startIcon` | `ReactNode`                                                                            | `<SaveIcon />`             | Icon shown before the label.                                    |
+| `sx`        | `SxProps<Theme>`                                                                       | —                          | MUI `sx` prop for styling.                                      |
+| `variant`   | `'text' \| 'outlined' \| 'contained'`                                                  | `'contained'`              | MUI button variant.                                             |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'success'`                | MUI button color.                                               |
+| `ariaLabel` | `string`                                                                               | `name` or `'Save'`         | Accessible label for the button.                                |

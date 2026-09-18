@@ -32,13 +32,7 @@ const mutation = useMutation({ ... });
 ## Custom auto-hide duration
 
 ```tsx
-<QuerySnackBar
-  open={open}
-  isSuccess={isSuccess}
-  isError={isError}
-  message={message}
-  autoHideDuration={5000}
-/>
+<QuerySnackBar open={open} isSuccess={isSuccess} isError={isError} message={message} autoHideDuration={5000} />
 ```
 
 ## Accessibility
@@ -51,11 +45,11 @@ The close button has `aria-label="close"`. Alerts use MUI's severity for screen 
 
 ## Props
 
-| Prop               | Type     | Default | Description                                                          |
-| ------------------ | -------- | ------- | -------------------------------------------------------------------- |
-| `open`             | `boolean`| —       | **Required.** Controls whether the snackbar is shown.                |
-| `isSuccess`        | `boolean`| —       | **Required.** When true, shows the success alert with `message`.     |
-| `isError`          | `boolean`| —       | **Required.** When true, shows the error alert with `message`.       |
-| `message`          | `string` | —       | **Required.** Text shown in the success or error alert.              |
-| `isPending`        | `boolean`| —       | Optional. Can be used to control `open` (e.g. show while pending).   |
-| `autoHideDuration` | `number` | `3000`  | Time in ms before the snackbar auto-hides.                           |
+| Prop               | Type      | Default | Description                                                        |
+| ------------------ | --------- | ------- | ------------------------------------------------------------------ |
+| `open`             | `boolean` | —       | **Required.** Controls whether the snackbar is shown.              |
+| `isSuccess`        | `boolean` | —       | **Required.** When true, shows the success alert with `message`.   |
+| `isError`          | `boolean` | —       | **Required.** When true, shows the error alert with `message`.     |
+| `message`          | `string`  | —       | **Required.** Text shown in the success or error alert.            |
+| `isPending`        | `boolean` | —       | Optional. Can be used to control `open` (e.g. show while pending). |
+| `autoHideDuration` | `number`  | `3000`  | Time in ms before the snackbar auto-hides.                         |

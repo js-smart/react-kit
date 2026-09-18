@@ -6,6 +6,11 @@
 	"main": "./index.js",
 	"types": "./index.d.ts",
 	"sideEffects": false,
+	"scripts": {
+		"build": "vite build",
+		"test": "vitest run",
+		"test:watch": "vitest"
+	},
 	"publishConfig": {
 		"access": "public"
 	},

@@ -28,7 +28,7 @@ You are deeply familiar with:
 - **MUI 9** (`@mui/material`, `@mui/icons-material`) for UI composition
 - **TanStack React Router** (peer dependency — used by link components and the demo app)
 - **Vite** library mode with `vite-plugin-dts` for type declarations
-- **Nx 23** monorepo task orchestration
+- **pnpm workspaces** for monorepo orchestration
 - **Vitest** + **Testing Library** for unit tests
 - **Oxlint** + **Oxfmt** for lint and format
 - **semantic-release** for npm publishing
@@ -37,15 +37,15 @@ You are deeply familiar with:
 
 ## Project Summary
 
-React Kit is an **Nx monorepo** publishing **`@js-smart/react-kit`**, a reusable React/TypeScript UI library.
+React Kit is a **pnpm monorepo** publishing **`@js-smart/react-kit`**, a reusable React/TypeScript UI library.
 
-- **Monorepo tooling**: Nx 23 (`nx.json`) with `@nx/vite`, `@nx/oxlint`, `@nx/vitest`
+- **Monorepo tooling**: pnpm workspaces (`pnpm-workspace.yaml`) with Vite, Vitest, Oxlint, and Oxfmt
 - **Primary library**: `react-kit/` — components, utilities, types, constants
 - **Demo app**: `apps/react-kit-demo/` — showcases library usage (HTTPS dev server on port 3007)
 - **Docs site**: `apps/docs/` — Docusaurus documentation
 - **Build output**: `dist/react-kit/` — published npm package root
 - **Package manager**: pnpm
-- **Lint/format**: Oxlint (`.oxlintrc.json`) and Oxfmt (`.oxfmtrc.json`) via Nx
+- **Lint/format**: Oxlint (`.oxlintrc.json`) and Oxfmt (`.oxfmtrc.json`)
 - **Release**: semantic-release on push to `main`; version sync via `release.sh`
 
 ---
@@ -93,11 +93,8 @@ pnpm test
 # Lint all projects
 pnpm lint
 
-# Format (Oxfmt via Nx)
+# Format (Oxfmt)
 pnpm format
-
-# Nx migrations
-pnpm update
 ```
 
 ---
@@ -106,8 +103,8 @@ pnpm update
 
 ```
 react-kit/
-├── package.json                 # Workspace root; semantic-release config
-├── nx.json
+├── package.json                 # Workspace root (react-kit-monorepo); semantic-release config
+├── pnpm-workspace.yaml
 ├── tsconfig.base.json
 ├── .oxlintrc.json
 ├── .oxfmtrc.json
@@ -139,15 +136,15 @@ react-kit/
 
 ## Architecture and Locations
 
-| Area | Location |
-|------|----------|
-| Library source | `react-kit/src/lib/` |
-| Public exports | `react-kit/src/index.ts` |
-| Unit tests | `react-kit/src/tests/` |
-| Library Vite config | `react-kit/vite.config.ts` |
-| Demo app | `apps/react-kit-demo/src/` |
-| Demo routes | `apps/react-kit-demo/src/routes/Routes.tsx` |
-| Documentation site | `apps/docs/` |
+| Area                       | Location                                           |
+| -------------------------- | -------------------------------------------------- |
+| Library source             | `react-kit/src/lib/`                               |
+| Public exports             | `react-kit/src/index.ts`                           |
+| Unit tests                 | `react-kit/src/tests/`                             |
+| Library Vite config        | `react-kit/vite.config.ts`                         |
+| Demo app                   | `apps/react-kit-demo/src/`                         |
+| Demo routes                | `apps/react-kit-demo/src/routes/Routes.tsx`        |
+| Documentation site         | `apps/docs/`                                       |
 | Published package metadata | `dist/react-kit/package.json` (generated at build) |
 
 ---
@@ -186,16 +183,16 @@ react-kit/
 
 ### Component groups
 
-| Group | Location | Examples |
-|-------|----------|----------|
-| Buttons | `lib/components/buttons/` | `SuccessButton`, `LoadingSuccessButton`, `DeleteButton`, `ManageButton` |
-| Feedback | `lib/components/snack-bar/`, `toast/` | `AppSnackBar`, `QuerySnackBar`, `toast` |
-| Dialogs/alerts | `lib/components/` | `ConfirmDialog`, `DismissibleAlert` |
-| Links | `lib/components/` | `RouterLink`, `NextLink`, `OpenInNewIconLink` |
-| Helpers | `lib/components/` | `ReactIf`, `CenteredCircularProgress`, `TabPanel` |
-| Table | `lib/components/table/` | `TablePaginationActions` |
-| Utilities | `lib/utils/` | `StringUtils`, `UrlUtils`, `ProgressStateUtils`, `DateUtil` |
-| Types | `lib/types/` | `ProgressState` and related helpers |
+| Group          | Location                              | Examples                                                                |
+| -------------- | ------------------------------------- | ----------------------------------------------------------------------- |
+| Buttons        | `lib/components/buttons/`             | `SuccessButton`, `LoadingSuccessButton`, `DeleteButton`, `ManageButton` |
+| Feedback       | `lib/components/snack-bar/`, `toast/` | `AppSnackBar`, `QuerySnackBar`, `toast`                                 |
+| Dialogs/alerts | `lib/components/`                     | `ConfirmDialog`, `DismissibleAlert`                                     |
+| Links          | `lib/components/`                     | `RouterLink`, `NextLink`, `OpenInNewIconLink`                           |
+| Helpers        | `lib/components/`                     | `ReactIf`, `CenteredCircularProgress`, `TabPanel`                       |
+| Table          | `lib/components/table/`               | `TablePaginationActions`                                                |
+| Utilities      | `lib/utils/`                          | `StringUtils`, `UrlUtils`, `ProgressStateUtils`, `DateUtil`             |
+| Types          | `lib/types/`                          | `ProgressState` and related helpers                                     |
 
 ---
 
@@ -285,10 +282,10 @@ Releases are automated via **semantic-release** on push to `main` (see `.github/
 
 ## Wrapper Files (do not duplicate content)
 
-| Location | Purpose |
-|----------|---------|
-| [`.claude/CLAUDE.md`](./.claude/CLAUDE.md) | Claude Code: pointer to this file + orchestration rules |
-| [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) | Legacy Copilot pointer — prefer this file |
+| Location                                                               | Purpose                                                 |
+| ---------------------------------------------------------------------- | ------------------------------------------------------- |
+| [`.claude/CLAUDE.md`](./.claude/CLAUDE.md)                             | Claude Code: pointer to this file + orchestration rules |
+| [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) | Legacy Copilot pointer — prefer this file               |
 
 ---
 

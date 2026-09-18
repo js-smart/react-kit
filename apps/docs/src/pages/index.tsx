@@ -19,14 +19,7 @@ function HomepageHeader() {
 
 	return (
 		<header className={styles.heroSection}>
-			<img
-				className={styles.heroLogo}
-				src="/img/react-kit-logo.png"
-				alt=""
-				width={112}
-				height={112}
-				loading="eager"
-			/>
+			<img className={styles.heroLogo} src="/img/react-kit-logo.png" alt="" width={112} height={112} loading="eager" />
 			<Heading as="h1" className={styles.heroTitle}>
 				<span className={styles.logoText}>{siteConfig.title}</span>
 			</Heading>

@@ -36,11 +36,7 @@ import { SuccessButton } from '@js-smart/react-kit';
 ## With start icon
 
 ```tsx
-<SuccessButton
-  name="Save"
-  startIcon={<SaveIcon />}
-  onClick={() => handleSave()}
-/>
+<SuccessButton name="Save" startIcon={<SaveIcon />} onClick={() => handleSave()} />
 ```
 
 ## Variant and color
@@ -48,12 +44,7 @@ import { SuccessButton } from '@js-smart/react-kit';
 Override the default `contained` variant and `success` color:
 
 ```tsx
-<SuccessButton
-  name="Confirm"
-  variant="outlined"
-  color="success"
-  onClick={() => handleConfirm()}
-/>
+<SuccessButton name="Confirm" variant="outlined" color="success" onClick={() => handleConfirm()} />
 ```
 
 ## Accessibility
@@ -66,16 +57,16 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` 
 
 ## Props
 
-| Prop        | Type                                                                 | Default            | Description                                          |
-| ----------- | -------------------------------------------------------------------- | ------------------ | ---------------------------------------------------- |
-| `onClick`   | `() => void`                                                         | —                  | **Required.** Called when the button is clicked.     |
-| `children`  | `ReactNode`                                                    | —                  | Button content. If omitted, `name` is used.         |
-| `name`      | `string`                                                             | —                  | Button label (used when `children` is not provided). |
-| `className` | `string`                                                             | —                  | CSS class name.                                      |
-| `dataCy`    | `string`                                                             | `'success-button'` | `data-cy` value for testing.                         |
-| `sx`        | `SxProps<Theme>`                                                     | —                  | MUI `sx` prop for styling.                           |
-| `type`      | `'button' \| 'submit' \| 'reset'`                                    | `'button'`         | Native button type.                                  |
-| `variant`   | `'text' \| 'outlined' \| 'contained'`                                | `'contained'`      | MUI button variant.                                  |
-| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'success'` | MUI button color.                          |
-| `startIcon` | `ReactNode`                                                    | —                  | Icon shown before the label.                         |
-| `ariaLabel` | `string`                                                             | `name` or `'Save'` | Accessible label for the button.                     |
+| Prop        | Type                                                                                   | Default            | Description                                          |
+| ----------- | -------------------------------------------------------------------------------------- | ------------------ | ---------------------------------------------------- |
+| `onClick`   | `() => void`                                                                           | —                  | **Required.** Called when the button is clicked.     |
+| `children`  | `ReactNode`                                                                            | —                  | Button content. If omitted, `name` is used.          |
+| `name`      | `string`                                                                               | —                  | Button label (used when `children` is not provided). |
+| `className` | `string`                                                                               | —                  | CSS class name.                                      |
+| `dataCy`    | `string`                                                                               | `'success-button'` | `data-cy` value for testing.                         |
+| `sx`        | `SxProps<Theme>`                                                                       | —                  | MUI `sx` prop for styling.                           |
+| `type`      | `'button' \| 'submit' \| 'reset'`                                                      | `'button'`         | Native button type.                                  |
+| `variant`   | `'text' \| 'outlined' \| 'contained'`                                                  | `'contained'`      | MUI button variant.                                  |
+| `color`     | `'inherit' \| 'primary' \| 'secondary' \| 'success' \| 'error' \| 'info' \| 'warning'` | `'success'`        | MUI button color.                                    |
+| `startIcon` | `ReactNode`                                                                            | —                  | Icon shown before the label.                         |
+| `ariaLabel` | `string`                                                                               | `name` or `'Save'` | Accessible label for the button.                     |

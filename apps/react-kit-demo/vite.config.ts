@@ -1,5 +1,5 @@
 /// <reference types='vitest' />
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import * as path from 'node:path';
 import react from '@vitejs/plugin-react';
 import mkcert from 'vite-plugin-mkcert';
 import { defineConfig } from 'vitest/config';
@@ -18,12 +18,13 @@ export default defineConfig({
 		host: 'localhost',
 	},
 
-	plugins: [react(), mkcert(), nxViteTsPaths()],
+	resolve: {
+		alias: {
+			'@js-smart/react-kit': path.resolve(__dirname, '../../react-kit/src/index.ts'),
+		},
+	},
 
-	// Uncomment this if you are using workers.
-	// worker: {
-	//  plugins: [ nxViteTsPaths() ],
-	// },
+	plugins: [react(), mkcert()],
 
 	build: {
 		outDir: '../../dist/apps/react-kit-demo',

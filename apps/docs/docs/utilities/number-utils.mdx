@@ -16,10 +16,10 @@ import { parseNumber } from '@js-smart/react-kit';
 ## Basic usage
 
 ```tsx
-parseNumber('42');      // 42
-parseNumber('0');      // 0
-parseNumber('');       // undefined
-parseNumber(null);     // undefined
+parseNumber('42'); // 42
+parseNumber('0'); // 0
+parseNumber(''); // undefined
+parseNumber(null); // undefined
 parseNumber(undefined); // undefined
 ```
 
@@ -29,7 +29,7 @@ parseNumber(undefined); // undefined
 const page = parseNumber(searchParams.get('page')) ?? 1;
 const quantity = parseNumber(formData.get('quantity'));
 if (quantity !== undefined) {
-  // use quantity
+	// use quantity
 }
 ```
 
@@ -44,8 +44,8 @@ if (quantity !== undefined) {
 
 Parses a string to an integer (base 10). Returns `undefined` if the value is not a string.
 
-| Parameter | Type | Description |
-| --------- | ---- | ----------- |
-| `value` | `string \| null \| undefined` | Value to parse. |
+| Parameter | Type                          | Description     |
+| --------- | ----------------------------- | --------------- |
+| `value`   | `string \| null \| undefined` | Value to parse. |
 
 **Returns:** `number | undefined` — Parsed integer, or `undefined` when input is not a string.

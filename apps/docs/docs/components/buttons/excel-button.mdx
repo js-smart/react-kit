@@ -32,11 +32,7 @@ import { ExcelButton } from '@js-smart/react-kit';
 ```tsx
 import TableChartIcon from '@mui/icons-material/TableChart';
 
-<ExcelButton
-  name="Export"
-  startIcon={<TableChartIcon />}
-  onClick={() => exportToExcel()}
-/>
+<ExcelButton name="Export" startIcon={<TableChartIcon />} onClick={() => exportToExcel()} />;
 ```
 
 ## Accessibility
@@ -49,14 +45,14 @@ The button uses `aria-label` from the `ariaLabel` prop, or falls back to `name` 
 
 ## Props
 
-| Prop        | Type                       | Default                | Description                                          |
-| ----------- | -------------------------- | ---------------------- | ---------------------------------------------------- |
-| `onClick`   | `() => void`               | —                      | **Required.** Called when the button is clicked.     |
-| `children`  | `ReactNode`          | —                      | Button content. If omitted, `name` is used.          |
-| `name`      | `string`                   | —                      | Button label (used when `children` is not provided). |
-| `className` | `string`                   | —                      | CSS class name.                                      |
-| `sx`        | `SxProps<Theme>`          | —                      | MUI `sx` prop for styling.                           |
-| `type`      | `'button' \| 'submit' \| 'reset'` | `'button'`      | Native button type.                                  |
-| `startIcon` | `ReactNode`          | —                      | Icon shown before the label.                         |
-| `dataCy`    | `string`                   | `'excel-button'`       | `data-cy` value for testing.                         |
-| `ariaLabel` | `string`                   | `name` or `'Export to Excel'` | Accessible label for the button.              |
+| Prop        | Type                              | Default                       | Description                                          |
+| ----------- | --------------------------------- | ----------------------------- | ---------------------------------------------------- |
+| `onClick`   | `() => void`                      | —                             | **Required.** Called when the button is clicked.     |
+| `children`  | `ReactNode`                       | —                             | Button content. If omitted, `name` is used.          |
+| `name`      | `string`                          | —                             | Button label (used when `children` is not provided). |
+| `className` | `string`                          | —                             | CSS class name.                                      |
+| `sx`        | `SxProps<Theme>`                  | —                             | MUI `sx` prop for styling.                           |
+| `type`      | `'button' \| 'submit' \| 'reset'` | `'button'`                    | Native button type.                                  |
+| `startIcon` | `ReactNode`                       | —                             | Icon shown before the label.                         |
+| `dataCy`    | `string`                          | `'excel-button'`              | `data-cy` value for testing.                         |
+| `ariaLabel` | `string`                          | `name` or `'Export to Excel'` | Accessible label for the button.                     |

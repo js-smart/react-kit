@@ -1,5 +1,5 @@
 import { Link, Outlet } from '@tanstack/react-router';
-import { ToastContainer } from '@react-kit/*';
+import { ToastContainer } from '@js-smart/react-kit';
 
 export default function App() {
 	return (

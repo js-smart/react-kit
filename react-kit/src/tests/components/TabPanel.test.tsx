@@ -8,7 +8,7 @@ describe('TabPanel', () => {
 		render(
 			<TabPanel index={0} value="0">
 				Tab content
-			</TabPanel>,
+			</TabPanel>
 		);
 		expect(screen.getByText('Tab content')).toBeInTheDocument();
 	});
@@ -17,7 +17,7 @@ describe('TabPanel', () => {
 		render(
 			<TabPanel index={2} value="2">
 				Content
-			</TabPanel>,
+			</TabPanel>
 		);
 		const panel = screen.getByRole('tabpanel');
 		expect(panel).toHaveAttribute('id', 'vertical-tabpanel-2');

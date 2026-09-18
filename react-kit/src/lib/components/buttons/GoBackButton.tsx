@@ -11,7 +11,7 @@ interface GoBackButtonProps {
 }
 
 export function GoBackButton(props: GoBackButtonProps) {
-  const router = useRouter();
+	const router = useRouter();
 	return (
 		<Tooltip title="Go Back to Previous Page">
 			<IconButton

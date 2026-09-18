@@ -20,20 +20,13 @@ import { EditIconButton } from '@js-smart/react-kit';
 ```tsx
 const [isEditing, setIsEditing] = useState(false);
 
-<EditIconButton
-  tooltipTitle="Edit"
-  onClick={setIsEditing}
-/>
+<EditIconButton tooltipTitle="Edit" onClick={setIsEditing} />;
 ```
 
 ## With custom tooltip and color
 
 ```tsx
-<EditIconButton
-  tooltipTitle="Edit this item"
-  color="primary"
-  onClick={setIsEditing}
-/>
+<EditIconButton tooltipTitle="Edit this item" color="primary" onClick={setIsEditing} />
 ```
 
 ## Accessibility
@@ -46,9 +39,9 @@ The icon button uses `aria-label` from the `ariaLabel` prop, or falls back to `t
 
 ## Props
 
-| Prop           | Type                                                                 | Default | Description                                                                 |
-| -------------- | -------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------- |
-| `tooltipTitle` | `string`                                                             | —       | **Required.** Tooltip text shown on hover.                                 |
-| `onClick`      | `React.Dispatch<React.SetStateAction<boolean>>`                      | —       | **Required.** Called with `true` when the button is clicked (e.g. set state). |
-| `color`       | `'inherit' \| 'default' \| 'primary' \| 'secondary' \| 'error' \| 'info' \| 'success' \| 'warning'` | `'primary'` | MUI IconButton color. |
-| `ariaLabel`    | `string`                                                             | `tooltipTitle` | Accessible label for the icon button.                                  |
+| Prop           | Type                                                                                                | Default        | Description                                                                   |
+| -------------- | --------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------- |
+| `tooltipTitle` | `string`                                                                                            | —              | **Required.** Tooltip text shown on hover.                                    |
+| `onClick`      | `React.Dispatch<React.SetStateAction<boolean>>`                                                     | —              | **Required.** Called with `true` when the button is clicked (e.g. set state). |
+| `color`        | `'inherit' \| 'default' \| 'primary' \| 'secondary' \| 'error' \| 'info' \| 'success' \| 'warning'` | `'primary'`    | MUI IconButton color.                                                         |
+| `ariaLabel`    | `string`                                                                                            | `tooltipTitle` | Accessible label for the icon button.                                         |

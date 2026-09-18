@@ -16,25 +16,27 @@ import { isBlankOrEmpty } from '@js-smart/react-kit';
 ## Basic usage
 
 ```tsx
-isBlankOrEmpty('');        // true
-isBlankOrEmpty('   ');    // true (trimmed)
-isBlankOrEmpty(null);     // true
+isBlankOrEmpty(''); // true
+isBlankOrEmpty('   '); // true (trimmed)
+isBlankOrEmpty(null); // true
 isBlankOrEmpty(undefined); // true
-isBlankOrEmpty('hello');  // false
+isBlankOrEmpty('hello'); // false
 ```
 
 ## With form validation
 
 ```tsx
 if (isBlankOrEmpty(name)) {
-  setError('Name is required');
+	setError('Name is required');
 }
 ```
 
 ## With optional display
 
 ```tsx
-{!isBlankOrEmpty(description) && <p>{description}</p>}
+{
+	!isBlankOrEmpty(description) && <p>{description}</p>;
+}
 ```
 
 ## API Reference
@@ -43,8 +45,8 @@ if (isBlankOrEmpty(name)) {
 
 Returns `true` if the value is `null`, `undefined`, or a string that is empty or only whitespace after trim. Returns `false` for any other value (including non-string types).
 
-| Parameter | Type | Description |
-| --------- | ---- | ----------- |
-| `value` | `any` | Value to check. |
+| Parameter | Type  | Description     |
+| --------- | ----- | --------------- |
+| `value`   | `any` | Value to check. |
 
 **Returns:** `boolean`
