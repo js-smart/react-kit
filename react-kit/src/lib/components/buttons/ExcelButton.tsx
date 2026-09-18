@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Button, SxProps, Theme } from '@mui/material';
+import { baseButtonSx } from '../../constants/ButtonStyles';
+import { mergeSx } from '../../utils/SxUtils';
 
 /**
  * Reusable Excel Button component properties
@@ -29,10 +31,9 @@ export function ExcelButton(props: SuccessButtonProps): ReactNode {
 	return (
 		<Button
 			data-cy={props.dataCy ?? 'excel-button'}
-			style={{ borderRadius: '20px' }}
 			className={props.className}
 			name={props.name}
-			sx={props.sx}
+			sx={mergeSx(baseButtonSx, props.sx)}
 			startIcon={props.startIcon}
 			variant="contained"
 			color="success"

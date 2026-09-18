@@ -1,49 +1,53 @@
-import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import { SuccessButton } from "../../lib/components/buttons/SuccessButton";
-import jest from "jest-mock";
+import React from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { SuccessButton } from '../../lib/components/buttons/SuccessButton';
+import jest from 'jest-mock';
 
-describe("SuccessButton", () => {
-  const mockOnClick = jest.fn();
+describe('SuccessButton', () => {
+	const mockOnClick = jest.fn();
 
-  beforeEach(() => {
-    mockOnClick.mockClear();
-  });
+	beforeEach(() => {
+		mockOnClick.mockClear();
+	});
 
-  it("renders with the correct default properties", () => {
-    render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
-    const button = screen.getByRole("button", { name: "Save" });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-contained");
-    expect(button).toHaveClass("MuiButton-colorSuccess");
-  });
+	it('renders with the correct default properties', () => {
+		render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
+		const button = screen.getByRole('button', { name: 'Save' });
+		expect(button).toBeInTheDocument();
+		expect(button).toHaveClass('MuiButton-contained');
+		expect(button).toHaveClass('MuiButton-colorSuccess');
+	});
 
-  it("calls onClick when clicked", () => {
-    render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
-    fireEvent.click(screen.getByRole("button", { name: "Save" }));
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
-  });
+	it('uses the shared rounded-md corner radius and lets sx override it', () => {
+		render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
+		expect(screen.getByRole('button')).toHaveStyle({ borderRadius: '0.375rem' });
+	});
 
-  it("renders with custom properties", () => {
-    render(
-      <SuccessButton
-        onClick={mockOnClick}
-        name="custom-name"
-        dataCy="custom-data-cy"
-        variant="outlined"
-        color="secondary"
-        startIcon={<span data-testid="custom-icon" />}
-      >
-        Custom Success
-      </SuccessButton>,
-    );
-    const button = screen.getByRole("button", { name: "custom-name" });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("MuiButton-outlined");
-    expect(button).toHaveClass("MuiButton-colorSecondary");
-    expect(button).toHaveAttribute("name", "custom-name");
-    expect(button).toHaveAttribute("data-cy", "custom-data-cy");
-    expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
-  });
+	it('calls onClick when clicked', () => {
+		render(<SuccessButton onClick={mockOnClick}>Success</SuccessButton>);
+		fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+		expect(mockOnClick).toHaveBeenCalledTimes(1);
+	});
+
+	it('renders with custom properties', () => {
+		render(
+			<SuccessButton
+				onClick={mockOnClick}
+				name="custom-name"
+				dataCy="custom-data-cy"
+				variant="outlined"
+				color="secondary"
+				startIcon={<span data-testid="custom-icon" />}>
+				Custom Success
+			</SuccessButton>
+		);
+		const button = screen.getByRole('button', { name: 'custom-name' });
+		expect(button).toBeInTheDocument();
+		expect(button).toHaveClass('MuiButton-outlined');
+		expect(button).toHaveClass('MuiButton-colorSecondary');
+		expect(button).toHaveAttribute('name', 'custom-name');
+		expect(button).toHaveAttribute('data-cy', 'custom-data-cy');
+		expect(screen.getByTestId('custom-icon')).toBeInTheDocument();
+	});
 });

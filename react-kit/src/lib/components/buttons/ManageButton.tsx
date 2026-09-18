@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Button } from '@mui/material';
+import { baseButtonSx } from '../../constants/ButtonStyles';
 
 interface ManageButtonProps {
 	size?: 'small' | 'medium' | 'large';
@@ -21,6 +22,7 @@ export function ManageButton(props: ManageButtonProps) {
 			name={props.name}
 			data-cy={props.dataCy ?? 'manage-button'}
 			className={props.className}
+			sx={baseButtonSx}
 			onClick={() => props.onClick()}
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'primary'}

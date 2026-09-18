@@ -1,6 +1,8 @@
 import UndoIcon from '@mui/icons-material/Undo';
 import { Button, SxProps, Theme } from '@mui/material';
 import React, { ReactNode } from 'react';
+import { baseButtonSx } from '../../constants/ButtonStyles';
+import { mergeSx } from '../../utils/SxUtils';
 
 /**
  * Reusable Success Button component properties
@@ -34,7 +36,7 @@ export function CancelButton(props: CancelButtonProps): ReactNode {
 			name={props.name}
 			data-cy={props.dataCy ?? 'cancel-button'}
 			className={props.className}
-			sx={props.sx}
+			sx={mergeSx(baseButtonSx, props.sx)}
 			startIcon={props.startIcon ?? <UndoIcon />}
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'secondary'}

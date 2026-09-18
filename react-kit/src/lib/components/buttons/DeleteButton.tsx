@@ -1,6 +1,8 @@
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Button } from '@mui/material';
 import React, { ReactNode } from 'react';
+import { baseButtonSx } from '../../constants/ButtonStyles';
+import { mergeSx } from '../../utils/SxUtils';
 
 interface DeleteButtonProps {
 	loading: boolean;
@@ -27,7 +29,7 @@ export function DeleteButton(props: DeleteButtonProps) {
 			name={props.name}
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'error'}
-			sx={{ m: 1 }}
+			sx={mergeSx(baseButtonSx, { m: 1 })}
 			type={props.type ?? 'button'}
 			onClick={props.onClick}
 			aria-label={props.ariaLabel ?? props.label ?? 'Delete'}>

@@ -30,7 +30,7 @@ describe('ExcelButton', () => {
 		render(
 			<ExcelButton onClick={mockOnClick} dataCy="custom-cy" ariaLabel="Download Excel" name="dl-btn">
 				Download
-			</ExcelButton>,
+			</ExcelButton>
 		);
 		const button = screen.getByRole('button', { name: 'Download Excel' });
 		expect(button).toHaveAttribute('data-cy', 'custom-cy');
@@ -43,6 +43,13 @@ describe('ExcelButton', () => {
 		expect(button).toHaveTextContent('Export XLS');
 	});
 
+	it('uses the shared rounded-md corner radius instead of a pill', () => {
+		render(<ExcelButton onClick={mockOnClick}>Go</ExcelButton>);
+		const button = screen.getByRole('button');
+		expect(button).not.toHaveAttribute('style');
+		expect(button).toHaveStyle({ borderRadius: '0.375rem' });
+	});
+
 	it('defaults type to button', () => {
 		render(<ExcelButton onClick={mockOnClick}>Go</ExcelButton>);
 		expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
@@ -52,7 +59,7 @@ describe('ExcelButton', () => {
 		render(
 			<ExcelButton onClick={mockOnClick} type="submit">
 				Go
-			</ExcelButton>,
+			</ExcelButton>
 		);
 		expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
 	});

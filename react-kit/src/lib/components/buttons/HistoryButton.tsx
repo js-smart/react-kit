@@ -1,6 +1,8 @@
 import HistoryIcon from '@mui/icons-material/History';
 import { Button, SxProps, Theme } from '@mui/material';
 import React, { ReactNode } from 'react';
+import { baseButtonSx } from '../../constants/ButtonStyles';
+import { mergeSx } from '../../utils/SxUtils';
 
 /**
  * Reusable History Button component properties
@@ -34,7 +36,7 @@ export function HistoryButton(props: HistoryButtonProps): ReactNode {
 			name={props.name}
 			data-cy={props.dataCy ?? 'history-button'}
 			className={props.className}
-			sx={props.sx ?? { p: 1, m: 1 }}
+			sx={mergeSx(baseButtonSx, props.sx ?? { p: 1, m: 1 })}
 			startIcon={props.startIcon ?? <HistoryIcon />}
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'primary'}

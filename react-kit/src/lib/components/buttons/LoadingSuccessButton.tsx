@@ -1,6 +1,8 @@
 import SaveIcon from '@mui/icons-material/Save';
 import { Button, SxProps, Theme } from '@mui/material';
 import React, { ReactNode } from 'react';
+import { baseButtonSx } from '../../constants/ButtonStyles';
+import { mergeSx } from '../../utils/SxUtils';
 
 const style = {
 	backgroundColor: '$primary-color',
@@ -46,7 +48,7 @@ export function LoadingSuccessButton(props: Props) {
 			loading={props.loading}
 			type={props.type ?? 'button'}
 			style={style}
-			sx={props.sx}
+			sx={mergeSx(baseButtonSx, props.sx)}
 			onClick={props.onClick}
 			aria-label={props.ariaLabel ?? props.name ?? 'Save'}>
 			{props.children ?? props.name}

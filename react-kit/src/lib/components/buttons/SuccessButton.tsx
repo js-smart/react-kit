@@ -1,4 +1,6 @@
 import React, { ReactNode } from 'react';
+import { baseButtonSx } from '../../constants/ButtonStyles';
+import { mergeSx } from '../../utils/SxUtils';
 import { Button, SxProps, Theme } from '@mui/material';
 
 /**
@@ -33,7 +35,7 @@ export function SuccessButton(props: SuccessButtonProps): ReactNode {
 			name={props.name}
 			data-cy={props.dataCy ?? 'success-button'}
 			className={props.className}
-			sx={props.sx}
+			sx={mergeSx(baseButtonSx, props.sx)}
 			startIcon={props.startIcon}
 			variant={props.variant ?? 'contained'}
 			color={props.color ?? 'success'}
